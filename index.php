@@ -7,7 +7,7 @@ try {
 	// メッセージがなくなるまでループ
 	while ($bot->check_shift_event()) {
 		// 画像url
-		$photo_url = "https://www.pakutaso.com/shared/img/thumb/cat126IMGL6488_TP_V.jpg";
+		$photo_url = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR7qaQn2l1wMGGR2A67kAqXzuFtWtyVcvB_uJTpV66yrcPlRjhA";
 		// 動画url
 		$video_url = "https://hoge/hoge.mp4";
 		// 音声url
