@@ -633,7 +633,7 @@ class LineBotClass extends LINEBot
 	 * 最大画像サイズ：240×240
 	 * 最大ファイルサイズ：1MB
 	 */
-	public function add_vido_builder($original_content_url,$preview_image_url,$actions=array())
+	public function add_video_builder($original_content_url,$preview_image_url,$actions=array())
 	{
 		// ビルダーストックの数が既に５つ以上ならエラー
 		if (count($this->builder_stok) >= 5) {

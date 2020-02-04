@@ -11,12 +11,12 @@ try {
 		// 動画url
 		$video_url = "https://www.youtube.com/watch?v=60ItHLz5WEA";
 		// 音声url
-		$audeo_url = "https://www.youtube.com/watch?v=60ItHLz5WEA";
+		$audio_url = "https://www.youtube.com/watch?v=60ItHLz5WEA";
 
 		// テキストを取得
 		$text = $bot->get_text();
 		// メッセージタイプを取得
-		$messeage_type = $bot->get_message_type();
+		$message_type = $bot->get_message_type();
 		// イベントタイプを取得
 		$event_type = $bot->get_event_type();
 		// $bot->add_text_builder("イベントタイプ:" . $event_type);
@@ -27,12 +27,12 @@ try {
 			$bot->add_text_builder($text);
 		}
 
-		if ($messeage_type !== false) {
-			// $bot->add_text_builder("メッセージタイプ:" . $messeage_type);
+		if ($message_type !== false) {
+			// $bot->add_text_builder("メッセージタイプ:" . $message_type);
 		}
 
 		// 画像取得
-		// if ($messeage_type === "image") {
+		// if ($message_type === "image") {
 		// 	file_put_contents("image/test.jpg", $bot->get_content());
 		// }
 
@@ -48,7 +48,7 @@ try {
 		}
 
 		// スタンプなら
-		if ($messeage_type == "sticker") {
+		if ($message_type == "sticker") {
 			$stame_id = $bot->get_stamp_id();
 			$id_text = "";
 			foreach ($stame_id as $key => $value) {
@@ -58,7 +58,7 @@ try {
 		}
 
 		// 位置情報なら
-		if ($messeage_type == "location") {
+		if ($message_type == "location") {
 			// 位置情報のデータを取得
 			$locaation = $bot->get_location();
 			$locaation_test = "";
@@ -93,12 +93,12 @@ try {
 
 		// 動画メッセージの追加
 		if ($text == "動画") {
-			$bot->add_vido_builder($video_url,$photo_url);
+			$bot->add_video_builder($video_url,$photo_url);
 		}
 
 		// 音声メッセージの追加
 		if ($text == "音声") {
-			$bot->add_audeo_builder($audeo_url,60000);
+			$bot->add_audeo_builder($audio_url,60000);
 		}
 
 		// ボタンテンプレート
@@ -187,7 +187,7 @@ try {
 		}
 
 		if ($text == "flex") {
-			$flex_box_mein = array();
+			$flex_box_main = array();
 			$flex_components = array();
 			$flex_bubble = array();
 
@@ -202,18 +202,18 @@ try {
 
 
 			// ボディメインボックス
-			$flex_box_mein['body'] = $bot->create_box_component("vertical",$flex_components['body'],array("spacing"=>3));
+			$flex_box_main['body'] = $bot->create_box_component("vertical",$flex_components['body'],array("spacing"=>3));
 
 			// フッターのアクションボタン
 			$action = $bot->create_text_action_builder("次のflexSample","flex2");
 			$flex_components['footer'][] = $bot->create_button_component($action,array("style"=>"secondary"));
 			// フッターメインボックス
-			$flex_box_mein['footer'] = $bot->create_box_component("vertical",$flex_components['footer'],array("spacing"=>3));
+			$flex_box_main['footer'] = $bot->create_box_component("vertical",$flex_components['footer'],array("spacing"=>3));
 
 			// ブロック
 			$bubble_blocks = array(
-				 "body" => $flex_box_mein['body']
-				,"footer" => $flex_box_mein['footer']
+				 "body" => $flex_box_main['body']
+				,"footer" => $flex_box_main['footer']
 			);
 
 			// バブルコンテナを作成追加
@@ -225,7 +225,7 @@ try {
 		}
 
 		if ($text == "flex2") {
-			$flex_box_mein = array();
+			$flex_box_main = array();
 			$flex_components = array();
 			$flex_bubble = array();
 
@@ -234,7 +234,7 @@ try {
 			$flex_components['header'][] = $bot->create_text_component("タイトル",array("size"=>7,"wrap"=>true,"weight"=>"bold","color"=>"#e60033"));
 			$flex_components['header'][] = $bot->create_text_component("title",array("size"=>3,"color"=>"#939393"));
 			// ヘッドメインボックス
-			$flex_box_mein['header'] = $bot->create_box_component("vertical",$flex_components['header'],array("spacing"=>4));
+			$flex_box_main['header'] = $bot->create_box_component("vertical",$flex_components['header'],array("spacing"=>4));
 
 			// ボディの情報
 			$flex_components['body'][] = $bot->create_text_component("小項目",array("size"=>5));
@@ -251,20 +251,20 @@ try {
 			$flex_components['body'][] = $bot->create_separator_container();
 
 			// ボディメインボックス
-			$flex_box_mein['body'] = $bot->create_box_component("vertical",$flex_components['body'],array("spacing"=>3));
+			$flex_box_main['body'] = $bot->create_box_component("vertical",$flex_components['body'],array("spacing"=>3));
 
 			// フッターの情報
 			// フッターのアクションボタン
 			$action = $bot->create_text_action_builder("次のflexSample","flex3");
 			$flex_components['footer'][] = $bot->create_button_component($action,array("style"=>"secondary"));
 			// フッターメインボックス
-			$flex_box_mein['footer'] = $bot->create_box_component("vertical",$flex_components['footer'],array("spacing"=>3));
+			$flex_box_main['footer'] = $bot->create_box_component("vertical",$flex_components['footer'],array("spacing"=>3));
 
 			// ブロック
 			$bubble_blocks = array(
-				 "header" => $flex_box_mein['header']
-				,"body" => $flex_box_mein['body']
-				,"footer" => $flex_box_mein['footer']
+				 "header" => $flex_box_main['header']
+				,"body" => $flex_box_main['body']
+				,"footer" => $flex_box_main['footer']
 			);
 
 			// バブルコンテナを作成追加
@@ -275,34 +275,34 @@ try {
 		}
 
 		if ($text == "flex3") {
-			$flex_box_mein = array();
+			$flex_box_main = array();
 			$flex_components = array();
 			$flex_bubble = array();
 
 			// ヘッドの情報
 			$flex_components['header'][] = $bot->create_text_component("猫系プログラマー",array("size"=>7,"weight"=>"bold","color"=>"#e60033"));
 			// ヘッドメインボックス
-			$flex_box_mein['header'] = $bot->create_box_component("vertical",$flex_components['header'],array("spacing"=>4));
+			$flex_box_main['header'] = $bot->create_box_component("vertical",$flex_components['header'],array("spacing"=>4));
 
 			// ボディの情報
 			$flex_components['body'][] = $bot->create_text_component("I am a cat",array("size"=>5));
 			$flex_components['body'][] = $bot->create_text_component("吾輩は猫である、名前はまだない\n人間になりたい、この肉球ではタイピングが大変だ",array("size"=>4,"wrap"=>true));
 
 			// ボディメインボックス
-			$flex_box_mein['body'] = $bot->create_box_component("vertical",$flex_components['body'],array("spacing"=>3));
+			$flex_box_main['body'] = $bot->create_box_component("vertical",$flex_components['body'],array("spacing"=>3));
 
 			// フッターのアクションボタン
 			$action = $bot->create_text_action_builder("次のflexSample","flex4");
 			$flex_components['footer'][] = $bot->create_button_component($action,array("style"=>"secondary"));
 			// フッターメインボックス
-			$flex_box_mein['footer'] = $bot->create_box_component("vertical",$flex_components['footer'],array("spacing"=>3));
+			$flex_box_main['footer'] = $bot->create_box_component("vertical",$flex_components['footer'],array("spacing"=>3));
 
 			// ブロック
 			$bubble_blocks = array(
-				 "header" => $flex_box_mein['header']
+				 "header" => $flex_box_main['header']
 				,"hero" => $bot->create_image_component($photo_url,array("size"=>11,"aspectRatio"=>"4:3"))
-				,"body" => $flex_box_mein['body']
-				,"footer" => $flex_box_mein['footer']
+				,"body" => $flex_box_main['body']
+				,"footer" => $flex_box_main['footer']
 			);
 
 			// バブルコンテナを作成追加
@@ -313,7 +313,7 @@ try {
 		}
 
 		if ($text == "flex4") {
-			$flex_box_mein = array();
+			$flex_box_main = array();
 			$flex_components = array();
 			$flex_bubble = array();
 
@@ -342,11 +342,11 @@ try {
 
 
 			// ボディメインボックス
-			$flex_box_mein['body'] = $bot->create_box_component("vertical",$flex_components['body'],array("spacing"=>3));
+			$flex_box_main['body'] = $bot->create_box_component("vertical",$flex_components['body'],array("spacing"=>3));
 
 			// ブロック
 			$bubble_blocks = array(
-				 "body" => $flex_box_mein['body']
+				 "body" => $flex_box_main['body']
 			);
 
 			// バブルコンテナを作成追加
@@ -390,19 +390,19 @@ function create_item($item_name="",$item_value="",$item_name_options=array(),$it
 {
 	global $bot;
 
-	$flex_koumoku_texts = array();
+	$flex_item_texts = array();
 	if (!empty($item_name)) {
-		$flex_koumoku_texts[] = $bot->create_text_component(strval($item_name),$item_name_options);
+		$flex_item_texts[] = $bot->create_text_component(strval($item_name),$item_name_options);
 	}
 	if (!empty($item_value)) {
-		$flex_koumoku_texts[] = $bot->create_text_component(strval($item_value),$item_value_option);
+		$flex_item_texts[] = $bot->create_text_component(strval($item_value),$item_value_option);
 	}
-	return $bot->create_box_component("horizontal",$flex_koumoku_texts);
+	return $bot->create_box_component("horizontal",$flex_item_texts);
 }
 
 function create_sample_flex(){
 	global $bot;
-	$flex_box_mein = array();
+	$flex_box_main = array();
 	$flex_components = array();
 
 	// flexサンプル
@@ -416,18 +416,18 @@ function create_sample_flex(){
 
 
 	// ボディメインボックス
-	$flex_box_mein['body'] = $bot->create_box_component("vertical",$flex_components['body'],array("spacing"=>3));
+	$flex_box_main['body'] = $bot->create_box_component("vertical",$flex_components['body'],array("spacing"=>3));
 
 	// フッターのアクションボタン
 	$action = $bot->create_text_action_builder("次のflexSample","flex2");
 	$flex_components['footer'][] = $bot->create_button_component($action,array("style"=>"secondary"));
 	// フッターメインボックス
-	$flex_box_mein['footer'] = $bot->create_box_component("vertical",$flex_components['footer'],array("spacing"=>3));
+	$flex_box_main['footer'] = $bot->create_box_component("vertical",$flex_components['footer'],array("spacing"=>3));
 
 	// ブロック
 	$bubble_blocks = array(
-		 "body" => $flex_box_mein['body']
-		,"footer" => $flex_box_mein['footer']
+		 "body" => $flex_box_main['body']
+		,"footer" => $flex_box_main['footer']
 	);
 
 	// バブルコンテナを作成追加
@@ -436,7 +436,7 @@ function create_sample_flex(){
 
 function create_sample_flex2(){
 	global $bot;
-	$flex_box_mein = array();
+	$flex_box_main = array();
 	$flex_components = array();
 
 	// ヘッドの情報
@@ -444,7 +444,7 @@ function create_sample_flex2(){
 	$flex_components['header'][] = $bot->create_text_component("タイトル",array("size"=>7,"wrap"=>true,"weight"=>"bold","color"=>"#e60033"));
 	$flex_components['header'][] = $bot->create_text_component("title",array("size"=>3,"color"=>"#939393"));
 	// ヘッドメインボックス
-	$flex_box_mein['header'] = $bot->create_box_component("vertical",$flex_components['header'],array("spacing"=>4));
+	$flex_box_main['header'] = $bot->create_box_component("vertical",$flex_components['header'],array("spacing"=>4));
 
 	// ボディの情報
 	$flex_components['body'][] = $bot->create_text_component("小項目",array("size"=>5));
@@ -461,20 +461,20 @@ function create_sample_flex2(){
 	$flex_components['body'][] = $bot->create_separator_container();
 
 	// ボディメインボックス
-	$flex_box_mein['body'] = $bot->create_box_component("vertical",$flex_components['body'],array("spacing"=>3));
+	$flex_box_main['body'] = $bot->create_box_component("vertical",$flex_components['body'],array("spacing"=>3));
 
 	// フッターの情報
 	// フッターのアクションボタン
 	$action = $bot->create_text_action_builder("次のflexSample","flex3");
 	$flex_components['footer'][] = $bot->create_button_component($action,array("style"=>"secondary"));
 	// フッターメインボックス
-	$flex_box_mein['footer'] = $bot->create_box_component("vertical",$flex_components['footer'],array("spacing"=>3));
+	$flex_box_main['footer'] = $bot->create_box_component("vertical",$flex_components['footer'],array("spacing"=>3));
 
 	// ブロック
 	$bubble_blocks = array(
-		 "header" => $flex_box_mein['header']
-		,"body" => $flex_box_mein['body']
-		,"footer" => $flex_box_mein['footer']
+		 "header" => $flex_box_main['header']
+		,"body" => $flex_box_main['body']
+		,"footer" => $flex_box_main['footer']
 	);
 
 	// バブルコンテナを作成追加
@@ -484,33 +484,33 @@ function create_sample_flex2(){
 
 function create_sample_flex3($photo_url){
 	global $bot;
-	$flex_box_mein = array();
+	$flex_box_main = array();
 	$flex_components = array();
 
 	// ヘッドの情報
 	$flex_components['header'][] = $bot->create_text_component("猫系プログラマー",array("size"=>7,"weight"=>"bold","color"=>"#e60033"));
 	// ヘッドメインボックス
-	$flex_box_mein['header'] = $bot->create_box_component("vertical",$flex_components['header'],array("spacing"=>4));
+	$flex_box_main['header'] = $bot->create_box_component("vertical",$flex_components['header'],array("spacing"=>4));
 
 	// ボディの情報
 	$flex_components['body'][] = $bot->create_text_component("I am a cat",array("size"=>5));
 	$flex_components['body'][] = $bot->create_text_component("吾輩は猫である、名前はまだない\n人間になりたい、この肉球ではタイピングが大変だ",array("size"=>4,"wrap"=>true));
 
 	// ボディメインボックス
-	$flex_box_mein['body'] = $bot->create_box_component("vertical",$flex_components['body'],array("spacing"=>3));
+	$flex_box_main['body'] = $bot->create_box_component("vertical",$flex_components['body'],array("spacing"=>3));
 
 	// フッターのアクションボタン
 	$action = $bot->create_text_action_builder("次のflexSample","flex4");
 	$flex_components['footer'][] = $bot->create_button_component($action,array("style"=>"secondary"));
 	// フッターメインボックス
-	$flex_box_mein['footer'] = $bot->create_box_component("vertical",$flex_components['footer'],array("spacing"=>3));
+	$flex_box_main['footer'] = $bot->create_box_component("vertical",$flex_components['footer'],array("spacing"=>3));
 
 	// ブロック
 	$bubble_blocks = array(
-		 "header" => $flex_box_mein['header']
+		 "header" => $flex_box_main['header']
 		,"hero" => $bot->create_image_component($photo_url,array("size"=>11,"aspectRatio"=>"4:3"))
-		,"body" => $flex_box_mein['body']
-		,"footer" => $flex_box_mein['footer']
+		,"body" => $flex_box_main['body']
+		,"footer" => $flex_box_main['footer']
 	);
 
 	// バブルコンテナを作成追加
@@ -519,7 +519,7 @@ function create_sample_flex3($photo_url){
 
 function create_sample_flex4(){
 	global $bot;
-	$flex_box_mein = array();
+	$flex_box_main = array();
 	$flex_components = array();
 
 	// flexサンプル
@@ -537,11 +537,11 @@ function create_sample_flex4(){
 
 
 	// ボディメインボックス
-	$flex_box_mein['body'] = $bot->create_box_component("vertical",$flex_components['body'],array("spacing"=>3));
+	$flex_box_main['body'] = $bot->create_box_component("vertical",$flex_components['body'],array("spacing"=>3));
 
 	// ブロック
 	$bubble_blocks = array(
-		 "body" => $flex_box_mein['body']
+		 "body" => $flex_box_main['body']
 	);
 
 	// バブルコンテナを作成追加
