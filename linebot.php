@@ -56,8 +56,8 @@ class LineBotClass extends LINEBot
 	private $reply_token;
 	private $events;
 	private $event;
-	private $builder_stok = array();
-	private $error_stok = array();
+	private $builder_stack = [];
+	private $error_stack = [];
 
 	function __construct($default=true)
 	{
@@ -101,7 +101,7 @@ class LineBotClass extends LINEBot
 			// 返信トークンを更新
 			$this->reply_token = $this->event -> getReplyToken();
 			// ビルダーストックを初期化
-			$this->builder_stok = array();
+			$this->builder_stack = []   ;
 			return true;
 		}else{
 			return false;
@@ -129,7 +129,7 @@ class LineBotClass extends LINEBot
 	 */
 	public function get_post_data()
 	{
-		// イベントがPostbackEventのclassかチェック
+		// イベントがPost_backEventのclassかチェック
 		if ($this->event instanceof PostbackEvent) {
 			return $this->event->getPostbackData();
 		}else{
@@ -144,7 +144,7 @@ class LineBotClass extends LINEBot
 	 */
 	public function get_post_params()
 	{
-		// イベントがPostbackEventのclassかチェック
+		// イベントがPost_backEventのclassかチェック
 		if ($this->event instanceof PostbackEvent) {
 			return $this->event->getPostbackParams();
 		}else{
@@ -173,7 +173,7 @@ class LineBotClass extends LINEBot
 
 	/**
 	 * 位置情報のデータを取得
-	 * @return arrya or false
+	 * @return array || false
 	 */
 	public function get_location()
 	{
@@ -462,16 +462,13 @@ class LineBotClass extends LINEBot
 	public function add_text_builder($text, $actions=array())
 	{
 		// ビルダーストックの数が既に５つ以上ならエラー
-		if (count($this->builder_stok) >= 5) {
-			$this->set_error("一度に送信できるメッセージは5件までです");
-			return false;
-		}
+        $this->checkBuildStack();
 
-		$quick_replys = array();
+		$quick_replies = array();
 		if (!empty($actions)) {
 			foreach ($actions as $key => $value) {
 				if ($this->check_action_class($value["action"])) {
-					$quick_replys[] = $value;
+					$quick_replies[] = $value;
 				}else{
 					$this->set_error("アクションビルダーじゃないものが含まれています");
 					return false;
@@ -481,7 +478,7 @@ class LineBotClass extends LINEBot
 
 		// 空チェック
 		if (isset($text) && $text !== "") {
-			$this->builder_stok[] = new TextMessageBuilder($text,null,$quick_replys);
+			$this->builder_stack[] = new TextMessageBuilder($text,null,$quick_replies);
 			return true;
 		}else{
 			$this->set_error("テキストは必須です");
@@ -510,16 +507,13 @@ class LineBotClass extends LINEBot
 	public function add_image_builder($original_image_url,$preview_image_url,$actions=array())
 	{
 		// ビルダーストックの数が既に５つ以上ならエラー
-		if (count($this->builder_stok) >= 5) {
-			$this->set_error("一度に送信できるメッセージは5件までです");
-			return false;
-		}
+        $this->checkBuildStack();
 
-		$quick_replys = array();
+		$quick_replies = array();
 		if (!empty($actions)) {
 			foreach ($actions as $key => $value) {
 				if ($this->check_action_class($value["action"])) {
-					$quick_replys[] = $value;
+					$quick_replies[] = $value;
 				}else{
 					$this->set_error("アクションビルダーじゃないものが含まれています");
 					return false;
@@ -529,7 +523,7 @@ class LineBotClass extends LINEBot
 
 		// 空チェック
 		if (!empty($original_image_url) && !empty($preview_image_url)) {
-			$this->builder_stok[] = new ImageMessageBuilder($original_image_url, $preview_image_url,$quick_replys);
+			$this->builder_stack[] = new ImageMessageBuilder($original_image_url, $preview_image_url,$quick_replies);
 			return true;
 		}else{
 			$this->set_error("画像urlとサムネイル画像urlは必須です");
@@ -548,17 +542,17 @@ class LineBotClass extends LINEBot
 	public function add_location_builder($title,$address,$lat,$lon,$actions=array())
 	{
 		// ビルダーストックの数が既に５つ以上ならエラー
-		if (count($this->builder_stok) >= 5) {
+		if (count($this->builder_stack) >= 5) {
 			$this->set_error("一度に送信できるメッセージは5件までです");
 			return false;
 		}
 
 		// クイックリプライのアクション
-		$quick_replys = array();
+		$quick_replies = array();
 		if (!empty($actions)) {
 			foreach ($actions as $key => $value) {
 				if ($this->check_action_class($value["action"])) {
-					$quick_replys[] = $value;
+					$quick_replies[] = $value;
 				}else{
 					$this->set_error("アクションビルダーじゃないものが含まれています");
 					return false;
@@ -568,7 +562,7 @@ class LineBotClass extends LINEBot
 
 		// 空チェック
 		if (!empty($title) && !empty($address)) {
-			$this->builder_stok[] = new LocationMessageBuilder($title, $address, $lat, $lon,$quick_replys);
+			$this->builder_stack[] = new LocationMessageBuilder($title, $address, $lat, $lon,$quick_replies);
 			return true;
 		}else{
 			$this->set_error("タイトルと住所は必須です");
@@ -587,17 +581,14 @@ class LineBotClass extends LINEBot
 	public function add_stamp_builder($sticker_id,$package_id,$actions=array())
 	{
 		// ビルダーストックの数が既に５つ以上ならエラー
-		if (count($this->builder_stok) >= 5) {
-			$this->set_error("一度に送信できるメッセージは5件までです");
-			return false;
-		}
+        $this->checkBuildStack();
 
 		// クイックリプライのアクション
-		$quick_replys = array();
+		$quick_replies = array();
 		if (!empty($actions)) {
 			foreach ($actions as $key => $value) {
 				if ($this->check_action_class($value["action"])) {
-					$quick_replys[] = $value;
+					$quick_replies[] = $value;
 				}else{
 					$this->set_error("アクションビルダーじゃないものが含まれています");
 					return false;
@@ -607,7 +598,7 @@ class LineBotClass extends LINEBot
 
 		// 空チェック
 		if (!empty($package_id) && !empty($sticker_id)) {
-			$this->builder_stok[] = new StickerMessageBuilder($package_id, $sticker_id,$quick_replys);
+			$this->builder_stack[] = new StickerMessageBuilder($package_id, $sticker_id,$quick_replies);
 			return true;
 		}else{
 			$this->set_error("ステッカーidとパッケージidは必須です");
@@ -636,17 +627,14 @@ class LineBotClass extends LINEBot
 	public function add_video_builder($original_content_url,$preview_image_url,$actions=array())
 	{
 		// ビルダーストックの数が既に５つ以上ならエラー
-		if (count($this->builder_stok) >= 5) {
-			$this->set_error("一度に送信できるメッセージは5件までです");
-			return false;
-		}
+        $this->checkBuildStack();
 
 		// クイックリプライのアクション
-		$quick_replys = array();
+		$quick_replies = array();
 		if (!empty($actions)) {
 			foreach ($actions as $key => $value) {
 				if ($this->check_action_class($value["action"])) {
-					$quick_replys[] = $value;
+					$quick_replies[] = $value;
 				}else{
 					$this->set_error("アクションビルダーじゃないものが含まれています");
 					return false;
@@ -656,7 +644,7 @@ class LineBotClass extends LINEBot
 
 		// 空チェック
 		if (!empty($original_content_url) && !empty($preview_image_url)) {
-			$this->builder_stok[] = new VideoMessageBuilder($original_content_url, $preview_image_url,$quick_replys);
+			$this->builder_stack[] = new VideoMessageBuilder($original_content_url, $preview_image_url,$quick_replies);
 			return true;
 		}else{
 			$this->set_error("動画urlと画像urlは必須です");
@@ -681,17 +669,14 @@ class LineBotClass extends LINEBot
 	public function add_audeo_builder($original_content_url,$audio_length,$actions=array())
 	{
 		// ビルダーストックの数が既に５つ以上ならエラー
-		if (count($this->builder_stok) >= 5) {
-			$this->set_error("一度に送信できるメッセージは5件までです");
-			return false;
-		}
+        $this->checkBuildStack(); 
 
 		// クイックリプライのアクション
-		$quick_replys = array();
+		$quick_replies = array();
 		if (!empty($actions)) {
 			foreach ($actions as $key => $value) {
 				if ($this->check_action_class($value["action"])) {
-					$quick_replys[] = $value;
+					$quick_replies[] = $value;
 				}else{
 					$this->set_error("アクションビルダーじゃないものが含まれています");
 					return false;
@@ -701,7 +686,7 @@ class LineBotClass extends LINEBot
 
 		// 空チェック
 		if (!empty($original_content_url) && !empty($audio_length)) {
-			$this->builder_stok[] = new AudioMessageBuilder($original_content_url, $audio_length,$quick_replys);
+			$this->builder_stack[] = new AudioMessageBuilder($original_content_url, $audio_length,$quick_replies);
 			return true;
 		}else{
 			$this->set_error("音声ファイルurlと音声ファイルの長さは必須です");
@@ -722,10 +707,7 @@ class LineBotClass extends LINEBot
 	public function add_button_template_builder($alternative_text,$text,$action_buttons,$title="",$image_url="",$default_action_builder="",$quick_reply_actions=array())
 	{
 		// ビルダーストックの数が既に５つ以上ならエラー
-		if (count($this->builder_stok) >= 5) {
-			$this->set_error("一度に送信できるメッセージは5件までです");
-			return false;
-		}
+        $this->checkBuildStack();
 
 		// 代替テキストが空ならエラー
 		if (empty($alternative_text)) {
@@ -769,11 +751,11 @@ class LineBotClass extends LINEBot
 		}
 
 		// クイックリプライのアクション
-		$quick_replys = array();
+		$quick_replies = array();
 		if (!empty($quick_reply_actions)) {
 			foreach ($quick_reply_actions as $key => $value) {
 				if ($this->check_action_class($value["action"])) {
-					$quick_replys[] = $value;
+					$quick_replies[] = $value;
 				}else{
 					$this->set_error("アクションビルダーじゃないものが含まれています");
 					return false;
@@ -782,7 +764,7 @@ class LineBotClass extends LINEBot
 		}
 
 		// ビルダーを追加
-		$this->builder_stok[] = new TemplateMessageBuilder($alternative_text,new ButtonTemplateBuilder($title, $text, $image_url, $action_button_array,$default_action_builder),$quick_replys);
+		$this->builder_stack[] = new TemplateMessageBuilder($alternative_text,new ButtonTemplateBuilder($title, $text, $image_url, $action_button_array,$default_action_builder),$quick_replies);
 		return true;
 	}
 
@@ -796,10 +778,7 @@ class LineBotClass extends LINEBot
 	public function add_confirm_template_builder($alternative_text,$text,$action_buttons,$quick_reply_actions=array())
 	{
 		// ビルダーストックの数が既に５つ以上ならエラー
-		if (count($this->builder_stok) >= 5) {
-			$this->set_error("一度に送信できるメッセージは5件までです");
-			return false;
-		}
+        $this->checkBuildStack();
 
 		// 代替テキストが空ならエラー
 		if (empty($alternative_text)) {
@@ -830,11 +809,11 @@ class LineBotClass extends LINEBot
 		}
 
 		// クイックリプライのアクション
-		$quick_replys = array();
+		$quick_replies = array();
 		if (!empty($quick_reply_actions)) {
 			foreach ($quick_reply_actions as $key => $value) {
 				if ($this->check_action_class($value["action"])) {
-					$quick_replys[] = $value;
+					$quick_replies[] = $value;
 				}else{
 					$this->set_error("アクションビルダーじゃないものが含まれています");
 					return false;
@@ -843,7 +822,7 @@ class LineBotClass extends LINEBot
 		}
 
 		// ビルダーを追加
-		$this->builder_stok[] = new TemplateMessageBuilder($alternative_text,new ConfirmTemplateBuilder($text, $action_button_array),$quick_replys);
+		$this->builder_stack[] = new TemplateMessageBuilder($alternative_text,new ConfirmTemplateBuilder($text, $action_button_array),$quick_replies);
 		return true;
 	}
 
@@ -904,7 +883,7 @@ class LineBotClass extends LINEBot
 	public function add_carousel_template_builder($alternative_text,$column_template_builders,$quick_reply_actions=array())
 	{
 		// ビルダーストックの数が既に５つ以上ならエラー
-		if (count($this->builder_stok) >= 5) {
+		if (count($this->builder_stack) >= 5) {
 			$this->set_error("一度に送信できるメッセージは5件までです");
 			return false;
 		}
@@ -938,11 +917,11 @@ class LineBotClass extends LINEBot
 		}
 
 		// クイックリプライのアクション
-		$quick_replys = array();
+		$quick_replies = array();
 		if (!empty($quick_reply_actions)) {
 			foreach ($quick_reply_actions as $key => $value) {
 				if ($this->check_action_class($value["action"])) {
-					$quick_replys[] = $value;
+					$quick_replies[] = $value;
 				}else{
 					$this->set_error("アクションビルダーじゃないものが含まれています");
 					return false;
@@ -951,7 +930,7 @@ class LineBotClass extends LINEBot
 		}
 
 		// ビルダーを追加
-		$this->builder_stok[] = new TemplateMessageBuilder($alternative_text,new CarouselTemplateBuilder($column_template_builder_array),$quick_replys);
+		$this->builder_stack[] = new TemplateMessageBuilder($alternative_text,new CarouselTemplateBuilder($column_template_builder_array),$quick_replies);
 		return true;
 	}
 
@@ -993,10 +972,7 @@ class LineBotClass extends LINEBot
 	public function add_image_carousel_template_builder($alternative_text,$image_column_builders,$quick_reply_actions=array())
 	{
 		// ビルダーストックの数が既に５つ以上ならエラー
-		if (count($this->builder_stok) >= 5) {
-			$this->set_error("一度に送信できるメッセージは5件までです");
-			return false;
-		}
+        $this->checkBuildStack();
 
 		// 代替テキストが空ならエラー
 		if (empty($alternative_text)) {
@@ -1029,11 +1005,11 @@ class LineBotClass extends LINEBot
 		}
 
 		// クイックリプライのアクション
-		$quick_replys = array();
+		$quick_replies = array();
 		if (!empty($quick_reply_actions)) {
 			foreach ($quick_reply_actions as $key => $value) {
 				if ($this->check_action_class($value["action"])) {
-					$quick_replys[] = $value;
+					$quick_replies[] = $value;
 				}else{
 					$this->set_error("アクションビルダーじゃないものが含まれています");
 					return false;
@@ -1042,7 +1018,7 @@ class LineBotClass extends LINEBot
 		}
 
 		// ビルダーを追加
-		$this->builder_stok[] = new TemplateMessageBuilder($alternative_text,new ImageCarouselTemplateBuilder($image_column_builder_array),$quick_replys);
+		$this->builder_stack[] = new TemplateMessageBuilder($alternative_text,new ImageCarouselTemplateBuilder($image_column_builder_array),$quick_replies);
 		return true;
 	}
 
@@ -1093,10 +1069,7 @@ class LineBotClass extends LINEBot
 	public function add_imagemap_buildr($alternative_text,$image_base_url,int $width,$action_area_builders,$quick_reply_actions=array())
 	{
 		// ビルダーストックの数が既に５つ以上ならエラー
-		if (count($this->builder_stok) >= 5) {
-			$this->set_error("一度に送信できるメッセージは5件までです");
-			return false;
-		}
+        $this->checkBuildStack();
 
 		// 代替テキストが空ならエラー
 		if (empty($alternative_text)) {
@@ -1122,11 +1095,11 @@ class LineBotClass extends LINEBot
 		}
 
 		// クイックリプライのアクション
-		$quick_replys = array();
+		$quick_replies = array();
 		if (!empty($quick_reply_actions)) {
 			foreach ($quick_reply_actions as $key => $value) {
 				if ($this->check_action_class($value["action"])) {
-					$quick_replys[] = $value;
+					$quick_replies[] = $value;
 				}else{
 					$this->set_error("アクションビルダーじゃないものが含まれています");
 					return false;
@@ -1138,7 +1111,7 @@ class LineBotClass extends LINEBot
 		$base_size_builder = new BaseSizeBuilder(1040,$width);
 
 		// ビルダーを追加
-		$this->builder_stok[] = new ImagemapMessageBuilder($image_base_url,$alternative_text,$base_size_builder,$action_area_builder_array,$quick_replys);
+		$this->builder_stack[] = new ImagemapMessageBuilder($image_base_url,$alternative_text,$base_size_builder,$action_area_builder_array,$quick_replies);
 		return true;
 	}
 
@@ -1418,11 +1391,11 @@ class LineBotClass extends LINEBot
 		}
 
 		// クイックリプライのアクション
-		$quick_replys = array();
+		$quick_replies = array();
 		if (!empty($quick_reply_actions)) {
 			foreach ($quick_reply_actions as $key => $value) {
 				if ($this->check_action_class($value["action"])) {
-					$quick_replys[] = $value;
+					$quick_replies[] = $value;
 				}else{
 					$this->set_error("アクションビルダーじゃないものが含まれています");
 					return false;
@@ -1431,7 +1404,7 @@ class LineBotClass extends LINEBot
 		}
 
 		// ビルダーを追加
-		$this->builder_stok[] = new FlexMessageBuilder($altText,new ContentsBuilder($bubbles_array),$quick_replys);
+		$this->builder_stack[] = new FlexMessageBuilder($altText,new ContentsBuilder($bubbles_array),$quick_replies);
 	}
 
 	/**
@@ -1727,9 +1700,9 @@ class LineBotClass extends LINEBot
 	 */
 	public function reply()
 	{
-		if (count($this->builder_stok) > 0) {
+		if (count($this->builder_stack) > 0) {
 			$builder = new MultiMessageBuilder();
-			foreach ($this->builder_stok as $key => $row) {
+			foreach ($this->builder_stack as $key => $row) {
 				$builder -> add($row);
 			}
 			$response = $this -> replyMessage($this->reply_token, $builder);
@@ -1771,9 +1744,9 @@ class LineBotClass extends LINEBot
 			return false;
 		}
 
-		if (count($this->builder_stok) > 0) {
+		if (count($this->builder_stack) > 0) {
 			$builder = new MultiMessageBuilder();
-			foreach ($this->builder_stok as $key => $row) {
+			foreach ($this->builder_stack as $key => $row) {
 				$builder -> add($row);
 			}
 			$response = $this -> multicast($id_array, $builder);
@@ -1803,9 +1776,9 @@ class LineBotClass extends LINEBot
 			return false;
 		}
 
-		if (count($this->builder_stok) > 0) {
+		if (count($this->builder_stack) > 0) {
 			$builder = new MultiMessageBuilder();
-			foreach ($this->builder_stok as $key => $row) {
+			foreach ($this->builder_stack as $key => $row) {
 				$builder -> add($row);
 			}
 			$response = $this -> pushMessage($to_id, $builder);
@@ -1827,14 +1800,14 @@ class LineBotClass extends LINEBot
 	 * @param  string $delete_type 何も指定しなければ全て削除 lastを指定すれば最後の要素を削除
 	 * @return 
 	 */
-	public function delete_builder_stok($delete_type="default")
+	public function delete_builder_stack($delete_type="default")
 	{
 		if ($delete_type === "default") {
-			$this->builder_stok = array();
+			$this->builder_stack = array();
 		}
 
 		if ($delete_type === "last") {
-			array_pop($this->builder_stok);
+			array_pop($this->builder_stack);
 		}
 	}
 
@@ -1845,7 +1818,7 @@ class LineBotClass extends LINEBot
 	public function get_reply_json_data()
 	{
 		$builder = new MultiMessageBuilder();
-		foreach ($this->builder_stok as $key => $row) {
+		foreach ($this->builder_stack as $key => $row) {
 			$builder -> add($row);
 		}
 
@@ -1942,7 +1915,7 @@ class LineBotClass extends LINEBot
 	 */
 	private function set_error($error_message)
 	{
-		$this->error_stok[] = $error_message;
+		$this->error_stack[] = $error_message;
 	}
 
 	/**
@@ -1951,7 +1924,7 @@ class LineBotClass extends LINEBot
 	 */
 	public function get_error()
 	{
-		return $this->error_stok;
+		return $this->error_stack;
 	}
 
 
@@ -1977,5 +1950,18 @@ class LineBotClass extends LINEBot
 	{
 		return $this->joinRichmenu($rich_menu_id,$user_id);
 	}
+
+    /**
+     * builder stackが、5件以上溜まってるとエラーになる
+     *
+     * @return bool
+     */
+	private function checkBuildStack()
+    {
+        if (count($this->builder_stack) >= 5) {
+            $this->set_error("一度に送信できるメッセージは5件までです");
+            return false;
+        }
+    }
 }
 ?>
