@@ -459,7 +459,7 @@ class LineBotClass extends LINEBot
 	 * @param  string $text 送信するテキストメッセージ
 	 * @return bool         成功ならtrue 失敗ならfalse
 	 */
-	public function add_text_builder($text,$actions=array())
+	public function add_text_builder($text, $actions=array())
 	{
 		// ビルダーストックの数が既に５つ以上ならエラー
 		if (count($this->builder_stok) >= 5) {
@@ -1526,9 +1526,9 @@ class LineBotClass extends LINEBot
 			$label = null;
 		}
 		// オプションのチェック
-		$initial   = !empty($options['initial'])   ? $initial : null;
-		$limit_max = !empty($options['limit_max']) ? $limit_max : null;
-		$limit_min = !empty($options['limit_min']) ? $limit_min : null;
+		$initial   = !empty($options['initial'])   ? $options['initial']  : null;
+		$limit_max = !empty($options['limit_max']) ? $options['limit_max'] : null;
+		$limit_min = !empty($options['limit_min']) ? $options['limit_min'] : null;
 
 		return $this->create_action_builder("date",$label,["post"=>$post],"datetime",$initial,$limit_max,$limit_min);
 	}
@@ -1602,9 +1602,9 @@ class LineBotClass extends LINEBot
 			return false;
 		}
 		// オプションのチェック
-		$initial   = !empty($options['initial'])   ? $initial : null;
-		$limit_max = !empty($options['limit_max']) ? $limit_max : null;
-		$limit_min = !empty($options['limit_min']) ? $limit_min : null;
+		$initial   = !empty($options['initial'])   ? $options['initial'] : null;
+		$limit_max = !empty($options['limit_max']) ? $options['limit_max'] : null;
+		$limit_min = !empty($options['limit_min']) ? $options['limit_min'] : null;
 
 		return ["action" => $this->create_action_builder("date",$label,["post"=>$post],"datetime",$initial,$limit_max,$limit_min),"icon" => $icon_url];
 	}

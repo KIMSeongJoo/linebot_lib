@@ -9,9 +9,9 @@ try {
 		// 画像url
 		$photo_url = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR7qaQn2l1wMGGR2A67kAqXzuFtWtyVcvB_uJTpV66yrcPlRjhA";
 		// 動画url
-		$video_url = "https://hoge/hoge.mp4";
+		$video_url = "https://www.youtube.com/watch?v=60ItHLz5WEA";
 		// 音声url
-		$audeo_url = "https://hoge/hoge.m4a";
+		$audeo_url = "https://www.youtube.com/watch?v=60ItHLz5WEA";
 
 		// テキストを取得
 		$text = $bot->get_text();
