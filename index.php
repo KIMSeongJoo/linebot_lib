@@ -9,7 +9,7 @@ try {
 		// 画像url
 		$photo_url = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR7qaQn2l1wMGGR2A67kAqXzuFtWtyVcvB_uJTpV66yrcPlRjhA";
 		// 動画url
-		$video_url = "https://www.youtube.com/watch?v=60ItHLz5WEA";
+		$video_url = "https://example.com/original.mp4";
 		// 音声url
 		$audio_url = "https://www.youtube.com/watch?v=60ItHLz5WEA";
 
@@ -105,11 +105,11 @@ try {
 		if ($text == "ボタン") {
 			// アクションボタンの作成
 			$action_button = array();
-			$action_button[] = $bot->create_text_action_builder("TypeText","text_test");
-			$action_button[] = $bot->create_post_action_builder("TypePost","post_text");
-			$action_button[] = $bot->create_url_action_builder("TypeUrl","https://developers.line.me/ja/reference/messaging-api/");
-			$action_button[] = $bot->create_date_action_builder("TypeDate","date_text","datetime");
-			$default_action = $bot->create_text_action_builder("","デフォルトアクション");
+			$action_button[] = $bot->create_text_action_builder("TEXT_TYPE","text_test");
+			$action_button[] = $bot->create_post_action_builder("POST_TYPE","post_text");
+			$action_button[] = $bot->create_url_action_builder("URL_TYPE","https://developers.line.me/ja/reference/messaging-api/");
+			$action_button[] = $bot->create_date_action_builder("DATE_TYPE","date_text","datetime");
+			$default_action = $bot->create_text_action_builder("DEFAULT_ACTION","デフォルトアクション");
 			$quick_reply_actions = test_quick_action();
 			$result = $bot->add_button_template_builder("代替テキスト","アクションボタンのテストもかねて",$action_button,"テンプレートボタンテスト",$photo_url,$default_action,$quick_reply_actions);
 		}
@@ -119,8 +119,8 @@ try {
 			// 確認テンプレートの作成
 			$action_button = array();
 			// アクションの作成
-			$action_button[] = $bot->create_text_action_builder("Yes","はい");
-			$action_button[] = $bot->create_text_action_builder("No","いいえ");
+			$action_button[] = $bot->create_text_action_builder("Yes","Yes");
+			$action_button[] = $bot->create_text_action_builder("No","No");
 			$quick_reply_actions = test_quick_action();
 			$result = $bot->add_confirm_template_builder("代替テキスト","確認テンプレートのサンプル",$action_button,$quick_reply_actions);
 		}
@@ -132,12 +132,12 @@ try {
 			for ($i=0; $i < 10; $i++) {
 				// アクションボタンの作成 1~3まで有効
 				$action_button = array();
-				$action_button[] = $bot->create_text_action_builder("TypeText","text_test");
-				$action_button[] = $bot->create_post_action_builder("TypePost","post_text");
-				$action_button[] = $bot->create_date_action_builder("TypeDate","date_text","datetime");
+				$action_button[] = $bot->create_text_action_builder("TEXT_TYPE","text_test");
+				$action_button[] = $bot->create_post_action_builder("POST_TYPE","post_text");
+				$action_button[] = $bot->create_date_action_builder("DATETIME_TYPE","date_text","datetime");
 				// デフォルトアクションの作成
 				$data_text = "デフォルトアクションtest" . ($i+1);
-				$default_action = $bot->create_text_action_builder("TypeText",$data_text);
+				$default_action = $bot->create_text_action_builder("TEXT_TYPE",$data_text);
 
 				// 本文
 				$text = ($i+1) . "ページ";

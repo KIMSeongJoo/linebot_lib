@@ -1694,7 +1694,7 @@ class LineBotClass extends LINEBot
 
 	/**
 	 * 返信を実行
-	 * @return  成功ならtrue 失敗ならfalse
+	 * @return boolean
 	 *
 	 * 返信は一度しか行えません
 	 */
