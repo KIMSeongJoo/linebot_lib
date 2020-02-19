@@ -21,10 +21,10 @@ try {
         $event_type = $bot->get_event_type();
         // $bot->add_text_builder("イベントタイプ:" . $event_type);
 
-        print("=================================== log tracking");
-        print($bot->get_post_data());
-        print($bot->get_post_params());
-        print("log tracking ===================================");
+        error_log("=================================== log tracking");
+        error_log($bot->get_post_data());
+        error_log($bot->get_post_params());
+        error_log("log tracking ===================================");
 
         // オウム返し
         if ($text !== false) {
