@@ -22,9 +22,7 @@ try {
         // $bot->add_text_builder("イベントタイプ:" . $event_type);
 
         error_log("=================================== log tracking");
-        error_log($bot->get_event_type());
-        error_log($bot->get_event_source_id());
-        error_log($bot->get_event_sonrce_type());
+        error_log($_POST);
         error_log("log tracking ===================================");
 
         // オウム返し
