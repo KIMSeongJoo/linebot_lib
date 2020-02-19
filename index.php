@@ -23,6 +23,8 @@ try {
 
         error_log("=================================== log tracking");
         error_log(implode(',', $_POST));
+        error_log(implode(',', $_REQUEST));
+
         error_log("log tracking ===================================");
 
         // オウム返し
