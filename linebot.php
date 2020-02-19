@@ -88,6 +88,11 @@ class LineBotClass extends LINEBot
 		}
 	}
 
+	public function getReplyToken()
+    {
+        return $this->reply_token;
+    }
+
 	/**
 	 * イベントを取り出してイベントを更新
 	 * @return bool イベントがあるならtrue ないならfalse

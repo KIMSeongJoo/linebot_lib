@@ -1,6 +1,8 @@
 <?php
 require_once __DIR__ . '/linebot.php';
 
+use \LINE\LINEBot\Constant\HTTPHeader;
+
 $bot = new LineBotClass();
 
 try {
@@ -23,8 +25,8 @@ try {
 
         error_log("=================================== log tracking");
         error_log(implode(',', $_POST));
-        error_log(implode(',', $_REQUEST));
-
+        error_log($_SERVER['HTTP_' . HTTPHeader::LINE_SIGNATURE]);
+        error_log($bot->getReplyToken());
         error_log("log tracking ===================================");
 
         // オウム返し
