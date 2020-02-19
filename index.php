@@ -22,8 +22,8 @@ try {
         // $bot->add_text_builder("イベントタイプ:" . $event_type);
 
         error_log("=================================== log tracking");
-        error_log($bot->get_post_data());
-        error_log($bot->get_post_params());
+        error_log($bot->get_event_type());
+        error_log(implode(',', $bot->get_post_params()));
         error_log("log tracking ===================================");
 
         // オウム返し
