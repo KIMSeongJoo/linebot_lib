@@ -24,7 +24,6 @@ try {
         // $bot->add_text_builder("イベントタイプ:" . $event_type);
 
         error_log("=================================== log tracking");
-        error_log(implode(',', $_POST));
         error_log($_SERVER['HTTP_' . HTTPHeader::LINE_SIGNATURE]);
         error_log($bot->getReplyToken());
         error_log("log tracking ===================================");

@@ -73,6 +73,7 @@ class LineBotClass extends LINEBot
 			// LINEAPIが付与した署名を取得
 			$signature = $_SERVER['HTTP_' . HTTPHeader::LINE_SIGNATURE];
 			// 署名が正当かチェック、正当ならリクエストをパースし配列に代入
+            error_log(file_get_contents('php://input'));
 			$this->events = $this->parseEventRequest(file_get_contents('php://input'),$signature);
 		}
 
@@ -91,6 +92,10 @@ class LineBotClass extends LINEBot
 	public function getReplyToken()
     {
         return $this->reply_token;
+    }
+
+    public function getDestination()
+    {
     }
 
 	/**
