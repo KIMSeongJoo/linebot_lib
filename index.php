@@ -26,7 +26,7 @@ try {
         error_log("=================================== log tracking");
         error_log($event_type);
         error_log($message_type);
-        error_log($event_type);
+        error_log($text);
         error_log("log tracking ===================================");
 
         // オウム返し
