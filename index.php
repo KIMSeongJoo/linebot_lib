@@ -24,8 +24,9 @@ try {
         // $bot->add_text_builder("イベントタイプ:" . $event_type);
 
         error_log("=================================== log tracking");
-        error_log($event_type);
-        error_log($message_type);
+        error_log('signature : ' . $_SERVER['HTTP_' . HTTPHeader::LINE_SIGNATURE]);
+        error_log('event_type : ' . $event_type);
+        error_log('message_type : ' . $message_type);
         error_log($text);
         error_log("log tracking ===================================");
 
