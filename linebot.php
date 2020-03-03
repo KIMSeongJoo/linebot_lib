@@ -93,8 +93,9 @@ class LineBotClass extends LINEBot
         return $this->reply_token;
     }
 
-    public function getDestination()
+    public function getEvent()
     {
+        return $this->event;
     }
 
 	/**

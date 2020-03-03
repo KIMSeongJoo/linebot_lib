@@ -24,7 +24,7 @@ try {
         // $bot->add_text_builder("イベントタイプ:" . $event_type);
 
         error_log("=================================== log tracking");
-        error_log('signature : ' . $_SERVER['HTTP_' . HTTPHeader::LINE_SIGNATURE]);
+        error_log('signature : ' . $_SERVER['HTTP_' . HTTPHeader::LINE_SIGNATURE]       );
         error_log('event_type : ' . $event_type);
         error_log('message_type : ' . $message_type);
         error_log($text);
@@ -53,6 +53,14 @@ try {
             foreach ((array)$post_params as $key => $value) {
                 $post_text .= $key . ":" . $value . "\n";
             }
+
+            error_log('====== post back ========');
+            error_log('post data : ' . $post_data);
+            error_log('post params : ' . implode(',' ,$post_params ));
+            error_log('post text : ' . $post_text);
+            error_log('====== post back ========');
+
+
             $bot->add_text_builder($post_text);
         }
 
