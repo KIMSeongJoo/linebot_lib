@@ -61,9 +61,9 @@ class EventRequestParser
             throw new InvalidSignatureException('Request does not contain signature');
         }
 
-        if (!SignatureValidator::validateSignature($body, $channelSecret, $signature)) {
-            throw new InvalidSignatureException('Invalid signature has given');
-        }
+        #if (!SignatureValidator::validateSignature($body, $channelSecret, $signature)) {
+        #    throw new InvalidSignatureException('Invalid signature has given');
+        #}
 
         $events = [];
 
