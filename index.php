@@ -37,9 +37,12 @@ try {
             if ($text == "start") {
                 $text = file_get_contents('json/start_01.json');
 
-                $message['type'] = \LINE\LINEBot\Constant\MessageType::FLEX;
-                $message['contents'] = $text;
-                $message['altText'] = "sjkim";
+                $message = [
+                    'type' => \LINE\LINEBot\Constant\MessageType::FLEX,
+                    'altText' => 'sjkim',
+                    'contents' => $text
+                ];
+
 //                $message['type'] = \LINE\LINEBot\Constant\MessageType::TEXT;
 //                $message['text'] = "お友だち登録ありがとう～っ\nLIFULL HOME'S公式アカウントからお得なキャンペーン情報やサービスの案内を配信してるから、楽しみにしててねっ！\n\n通知が気になる場合は、この画面内のトーク設定から「通知」をOFFにしてねっ！これからよろしくねっ！";
 

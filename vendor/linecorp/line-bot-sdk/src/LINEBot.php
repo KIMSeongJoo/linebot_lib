@@ -106,7 +106,6 @@ class LINEBot
      */
     public function replyMessageCustom(string $replyToken, $messageBuilder)
     {
-        error_log($messageBuilder);
         return $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
             'replyToken' => $replyToken,
             'messages' => $messageBuilder,
