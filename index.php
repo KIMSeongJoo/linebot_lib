@@ -36,9 +36,9 @@ try {
 
             if ($text == "start") {
 //                $text = file_get_contents('json/start_01.json');
-                $text = preg_replace("/\r|\n/", '', file_get_contents('json/start_01.json'));
+                $text = replaceDoubleQuotationJsonString(preg_replace("/\r|\n/", '', file_get_contents('json/start_01.json')));
 
-                $message = $text;
+                $message[] = $text;
 
 //                $message[] = [
 //                    'type' => 'text',
@@ -60,8 +60,7 @@ try {
 //                $message['type'] = \LINE\LINEBot\Constant\MessageType::TEXT;
 //                $message['text'] = "お友だち登録ありがとう～っ\nLIFULL HOME'S公式アカウントからお得なキャンペーン情報やサービスの案内を配信してるから、楽しみにしててねっ！\n\n通知が気になる場合は、この画面内のトーク設定から「通知」をOFFにしてねっ！これからよろしくねっ！";
 
-//                $response = $bot->replyFlex($bot->getReplyToken(), $message);
-                $response = myTest($bot->getReplyToken(), $message);
+                $response = $bot->replyFlex($bot->getReplyToken(), $message);
 //                if ($response -> isSucceeded() == false) {
 //                    error_log("深刻な返信エラー" . $response->getHTTPStatus() . ' ' . $response->getRawBody());
 //                    return false;
@@ -601,54 +600,6 @@ function create_sample_flex4(){
 
     // バブルコンテナを作成追加
     return $bot->create_bubble_container($bubble_blocks);
-}
-
-function test_quick_action(){
-    global $bot;
-    $actions = array();
-    $actions[] = $bot->create_quick_text_action("test","test_text");
-    $actions[] = $bot->create_quick_post_action("TypePost","post_text");
-    $actions[] = $bot->create_quick_date_action("TypeDate","date_text","datetime");
-    $actions[] = $bot->create_quick_camera_action("camera");
-    $actions[] = $bot->create_quick_camera_roll_action("camera_roll");
-    $actions[] = $bot->create_quick_location_action("location");
-    return $actions;
-}
-
-function myTest($replyToken, $messages)
-{
-    $headers = [
-        'Authorization: zE1fAeTt5cJPcWQF+tzg95Z+c68u1V1ADxkhIs+8N2qqM5Ntp4M4XEkfpq1+kCX8935PKz/T0fZ83VWH4mMge4brRDYazmoMFj7EWXV/+lWbxMOXE3w9Vvq00C7ZTTu4U9UNh1tqFtjHZesr05zAvAdB04t89/1O/w1cDnyilFU=',
-        'Content-Type: application/json; charset=UTF-8'
-    ];
-
-    $requestData = [
-        'replyToken' => $replyToken,
-        'messages' => $messages
-    ];
-
-    $requestData = json_encode($requestData,JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
-    $requestData = stripslashes($requestData);
-
-    $curl = curl_init();
-    curl_setopt($curl, CURLOPT_URL, 'https://api.line.me/v2/bot/message/reply');
-    curl_setopt($curl, CURLOPT_POST, 1);
-    curl_setopt($curl, CURLOPT_POSTFIELDS, replaceDoubleQuotationJsonString($requestData));
-    curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-
-    $result = curl_exec($curl);
-    $info = curl_getinfo($curl);
-    error_log($result);
-    error_log($info['http_code']);
-
-    if (!$result && $info['http_code'] !== 200) {
-        error_log('error');
-    }
-
-    curl_close($curl);
-
-    return $info['http_code'];
 }
 
 function replaceDoubleQuotationJsonString(string $jsonData) : string
