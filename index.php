@@ -35,7 +35,7 @@ try {
             $actions = test_quick_action();
 
             if ($text == "start") {
-                $test = " cyka1919191919";
+                $text = " cyka1919191919";
             }
 
 
