@@ -98,6 +98,21 @@ class LINEBot
     }
 
     /**
+     * sjkim custom
+     *
+     * @param string $replyToken
+     * @param string $messageBuilder
+     * @return Response
+     */
+    public function replyMessageCustom(string $replyToken, string $messageBuilder)
+    {
+        return $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
+            'replyToken' => $replyToken,
+            'messages' => $messageBuilder,
+        ]);
+    }
+
+    /**
      * Replies text message(s) to destination which is associated with reply token.
      *
      * This method receives variable texts. It can send text(s) message as bulk.
