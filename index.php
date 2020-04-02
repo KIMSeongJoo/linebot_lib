@@ -46,12 +46,14 @@ try {
             $message['replyToken'] = $bot->getReplyToken();
 //            $response = $bot->replyMessageCustom($bot->getReplyToken(), $message);
             $response = curlTest($message);
-            if ($response -> isSucceeded() == false) {
-                error_log("深刻な返信エラー" . $response->getHTTPStatus() . ' ' . $response->getRawBody());
-                return false;
-            }else{
-                return true;
-            }
+//            if ($response -> isSucceeded() == false) {
+//                error_log("深刻な返信エラー" . $response->getHTTPStatus() . ' ' . $response->getRawBody());
+//                return false;
+//            }else{
+//                return true;
+//            }
+
+            return true;
 
             $bot->add_text_builder($text);
         }
@@ -630,9 +632,12 @@ function curlTest($responseData)
     $result = curl_exec($curl);
     $info = curl_getinfo($curl);
 
+    error_log($result);
+    error_log($info['http_code']);
+
     if (!$result && $info['http_code'] !== 200) {
-        Log::error(curl_error($curl));
-        Log::error($info);
+        error_log(curl_error($curl));
+        error_log($info);
     }
 
     curl_close($curl);
