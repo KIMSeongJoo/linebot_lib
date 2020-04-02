@@ -33,14 +33,6 @@ try {
         // オウム返し
         if ($text !== false) {
             $actions = test_quick_action();
-
-            // 0xを抜いた数字の部分
-            $code = '100078';
-            // 16進エンコードされたバイナリ文字列をデコード
-            $bin = hex2bin(str_repeat('0', 8 - strlen($text)) . $text);
-            // UTF8へエンコード
-            $emoticon =  mb_convert_encoding($bin, 'UTF-8', 'UTF-32BE');
-
             $bot->add_text_builder($text);
         }
 
