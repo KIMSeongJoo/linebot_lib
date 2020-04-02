@@ -615,7 +615,7 @@ function curlTest($responseData)
     ];
 
     $requestData = [
-        'replyToken' => $responseData['reply_token'],
+        'replyToken' => $responseData['replyToken'],
         'messages' => $responseData['messages']
     ];
 
@@ -628,6 +628,7 @@ function curlTest($responseData)
     curl_setopt($curl, CURLOPT_POSTFIELDS, replaceDoubleQuotationJsonString($requestData));
     curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_HEADEROPT, true);
 
     $result = curl_exec($curl);
     $info = curl_getinfo($curl);
