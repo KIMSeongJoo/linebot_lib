@@ -630,6 +630,8 @@ function curlTest($responseData)
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($curl, CURLOPT_HEADEROPT, true);
 
+    error_log($headers[0], $headers[1]);
+
     $result = curl_exec($curl);
     $info = curl_getinfo($curl);
 
