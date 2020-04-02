@@ -36,8 +36,14 @@ try {
 
             if ($text == "start") {
                 $text = file_get_contents('json/start_01.json');
-                $bot->replyMessageCustom($bot->getReplyToken(), $text);
-                return true;
+                $response = $bot->replyMessageCustom($bot->getReplyToken(), $text);
+                if ($response -> isSucceeded() == false) {
+                    error_log("深刻な返信エラー" . $response->getHTTPStatus() . ' ' . $response->getRawBody());
+                    $this->set_error("深刻な返信エラー" . $response->getHTTPStatus() . ' ' . $response->getRawBody());
+                    return false;
+                }else{
+                    return true;
+                }
             }
 
             $bot->add_text_builder($text);
