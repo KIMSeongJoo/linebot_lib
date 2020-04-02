@@ -618,7 +618,7 @@ function test_quick_action(){
 function myTest($replyToken, $messages)
 {
     $headers = [
-        'Authorization: ' . ACCESS_TOKEN,
+        'Authorization: zE1fAeTt5cJPcWQF+tzg95Z+c68u1V1ADxkhIs+8N2qqM5Ntp4M4XEkfpq1+kCX8935PKz/T0fZ83VWH4mMge4brRDYazmoMFj7EWXV/+lWbxMOXE3w9Vvq00C7ZTTu4U9UNh1tqFtjHZesr05zAvAdB04t89/1O/w1cDnyilFU=',
         'Content-Type: application/json; charset=UTF-8'
     ];
 
