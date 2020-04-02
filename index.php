@@ -37,12 +37,10 @@ try {
             $message = [];
             if ($text === "start") {
 //                $text = file_get_contents('json/start_01.json');
-                $text = replaceDoubleQuotationJsonString(preg_replace("/\r|\n/", '', file_get_contents('json/start_01.json')));
-                $message[] = $text;
+                $message[] = replaceDoubleQuotationJsonString(preg_replace("/\r|\n/", '', file_get_contents('json/start_01.json')));
 
             } elseif ($text === 'second') {
-                $text = replaceDoubleQuotationJsonString(preg_replace("/\r|\n/", '', file_get_contents('json/start_03.json')));
-                $message[] = $text;
+                $message[] = replaceDoubleQuotationJsonString(preg_replace("/\r|\n/", '', file_get_contents('json/start_03.json')));
             }
 
             $response = $bot->replyMessageCustom($bot->getReplyToken(), $message);
