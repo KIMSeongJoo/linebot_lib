@@ -33,6 +33,12 @@ try {
         // オウム返し
         if ($text !== false) {
             $actions = test_quick_action();
+
+            if ($text == "start") {
+                $test = " cyka1919191919";
+            }
+
+
             $bot->add_text_builder($text);
         }
 
