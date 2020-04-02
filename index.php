@@ -59,6 +59,8 @@ try {
                     'text' => 'cyka18'
                 ];
 
+                error_log(json_encode($message));
+
 //                $message['type'] = \LINE\LINEBot\Constant\MessageType::TEXT;
 //                $message['text'] = "お友だち登録ありがとう～っ\nLIFULL HOME'S公式アカウントからお得なキャンペーン情報やサービスの案内を配信してるから、楽しみにしててねっ！\n\n通知が気になる場合は、この画面内のトーク設定から「通知」をOFFにしてねっ！これからよろしくねっ！";
 
