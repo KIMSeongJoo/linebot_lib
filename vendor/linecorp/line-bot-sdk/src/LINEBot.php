@@ -104,11 +104,11 @@ class LINEBot
      * @param string $messageBuilder
      * @return Response
      */
-    public function replyMessageCustom(string $replyToken, string $messageBuilder)
+    public function replyMessageCustom(string $replyToken, $messageBuilder)
     {
         return $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
             'replyToken' => $replyToken,
-            'messages' => $messageBuilder,
+            'messages' => [$messageBuilder],
         ]);
     }
 
