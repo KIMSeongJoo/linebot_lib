@@ -62,12 +62,13 @@ try {
 
 //                $response = $bot->replyFlex($bot->getReplyToken(), $message);
                 $response = myTest($bot->getReplyToken(), $message);
-                if ($response -> isSucceeded() == false) {
-                    error_log("深刻な返信エラー" . $response->getHTTPStatus() . ' ' . $response->getRawBody());
-                    return false;
-                }else{
-                    return true;
-                }
+//                if ($response -> isSucceeded() == false) {
+//                    error_log("深刻な返信エラー" . $response->getHTTPStatus() . ' ' . $response->getRawBody());
+//                    return false;
+//                }else{
+//                    return true;
+//                }
+                return true;
             }
 
             $bot->add_text_builder($text);
