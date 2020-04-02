@@ -1974,4 +1974,3 @@ class LineBotClass extends LINEBot
         }
     }
 }
-?>

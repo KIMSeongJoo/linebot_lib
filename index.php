@@ -38,7 +38,7 @@ try {
 //                $text = file_get_contents('json/start_01.json');
                 $text = preg_replace("/\r|\n/", '', file_get_contents('json/start_01.json'));
 
-                $message = [$text];
+                $message = $text;
 
 //                $message[] = [
 //                    'type' => 'text',
@@ -60,7 +60,8 @@ try {
 //                $message['type'] = \LINE\LINEBot\Constant\MessageType::TEXT;
 //                $message['text'] = "お友だち登録ありがとう～っ\nLIFULL HOME'S公式アカウントからお得なキャンペーン情報やサービスの案内を配信してるから、楽しみにしててねっ！\n\n通知が気になる場合は、この画面内のトーク設定から「通知」をOFFにしてねっ！これからよろしくねっ！";
 
-                $response = $bot->replyFlex($bot->getReplyToken(), $message);
+//                $response = $bot->replyFlex($bot->getReplyToken(), $message);
+                $response = myTest($bot->getReplyToken(), $message);
                 if ($response -> isSucceeded() == false) {
                     error_log("深刻な返信エラー" . $response->getHTTPStatus() . ' ' . $response->getRawBody());
                     return false;
@@ -612,4 +613,45 @@ function test_quick_action(){
     $actions[] = $bot->create_quick_location_action("location");
     return $actions;
 }
-?>
+
+function myTest($replyToken, $messages)
+{
+    $headers = [
+        'Authorization: ' . ACCESS_TOKEN,
+        'Content-Type: application/json; charset=UTF-8'
+    ];
+
+    $requestData = [
+        'replyToken' => $replyToken,
+        'messages' => $messages
+    ];
+
+    $requestData = json_encode($requestData,JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+    $requestData = stripslashes($requestData);
+
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, 'https://api.line.me/v2/bot/message/reply');
+    curl_setopt($curl, CURLOPT_POST, 1);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, replaceDoubleQuotationJsonString($requestData));
+    curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+    $result = curl_exec($curl);
+    $info = curl_getinfo($curl);
+
+    if (!$result && $info['http_code'] !== 200) {
+        error_log('error');
+    }
+
+    curl_close($curl);
+
+    return $info['http_code'];
+}
+
+function replaceDoubleQuotationJsonString(string $jsonData) : string
+{
+    $jsonData = preg_replace('/(\"\{)/m', '{', $jsonData);
+    $jsonData = preg_replace('/(\}\")/m', '}', $jsonData);
+
+    return $jsonData;
+}
