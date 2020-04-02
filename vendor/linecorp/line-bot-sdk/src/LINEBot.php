@@ -108,7 +108,7 @@ class LINEBot
     {
         return $this->httpClient->post($this->endpointBase . '/v2/bot/message/reply', [
             'replyToken' => $replyToken,
-            'messages' => $messageBuilder,
+            'messages' => [$messageBuilder],
         ]);
     }
 

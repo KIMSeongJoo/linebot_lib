@@ -46,7 +46,7 @@ try {
 //                $message['type'] = \LINE\LINEBot\Constant\MessageType::TEXT;
 //                $message['text'] = "お友だち登録ありがとう～っ\nLIFULL HOME'S公式アカウントからお得なキャンペーン情報やサービスの案内を配信してるから、楽しみにしててねっ！\n\n通知が気になる場合は、この画面内のトーク設定から「通知」をOFFにしてねっ！これからよろしくねっ！";
 
-                $response = $bot->replyMessageCustom($bot->getReplyToken(), [$message]);
+                $response = $bot->replyMessageCustom($bot->getReplyToken(), $message);
                 if ($response -> isSucceeded() == false) {
                     error_log("深刻な返信エラー" . $response->getHTTPStatus() . ' ' . $response->getRawBody());
                     return false;
