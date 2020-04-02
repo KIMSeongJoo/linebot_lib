@@ -38,26 +38,22 @@ try {
 //                $text = file_get_contents('json/start_01.json');
                 $text = preg_replace("/\r|\n/", '', file_get_contents('json/start_01.json'));
 
+                $message[] = $text;
+
 //                $message[] = [
-//                    'type' => \LINE\LINEBot\Constant\MessageType::FLEX,
-//                    'altText' => 'sjkim',
-//                    'contents' => $text
+//                    'type' => 'text',
+//                    'text' => 'cyka19'
 //                ];
-
-                $message[] = [
-                    'type' => 'text',
-                    'text' => 'cyka19'
-                ];
-
-                $message[] = [
-                    'type' => 'text',
-                    'text' => 'cyka20'
-                ];
-
-                $message[] = [
-                    'type' => 'text',
-                    'text' => 'cyka18'
-                ];
+//
+//                $message[] = [
+//                    'type' => 'text',
+//                    'text' => 'cyka20'
+//                ];
+//
+//                $message[] = [
+//                    'type' => 'text',
+//                    'text' => 'cyka18'
+//                ];
 
                 error_log(json_encode($message));
 
