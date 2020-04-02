@@ -639,6 +639,8 @@ function myTest($replyToken, $messages)
 
     $result = curl_exec($curl);
     $info = curl_getinfo($curl);
+    error_log($result);
+    error_log($info['http_code']);
 
     if (!$result && $info['http_code'] !== 200) {
         error_log('error');
