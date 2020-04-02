@@ -35,7 +35,8 @@ try {
             $actions = test_quick_action();
 
             if ($text == "start") {
-                $text = file_get_contents('json/start_01.json');
+//                $text = file_get_contents('json/start_01.json');
+                $text = preg_replace("/\r|\n/", '', file_get_contents('json/start_01.json'));
 
                 $message = [
                     'type' => \LINE\LINEBot\Constant\MessageType::FLEX,
