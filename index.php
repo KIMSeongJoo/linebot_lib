@@ -38,7 +38,7 @@ try {
 //                $text = file_get_contents('json/start_01.json');
                 $text = preg_replace("/\r|\n/", '', file_get_contents('json/start_01.json'));
 
-                $message[] = $text;
+                $message = [$text];
 
 //                $message[] = [
 //                    'type' => 'text',
