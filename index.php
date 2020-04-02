@@ -37,13 +37,15 @@ try {
             $message = [];
             if ($text === "start") {
 //                $text = file_get_contents('json/start_01.json');
-                $message[] = replaceDoubleQuotationJsonString(preg_replace("/\r|\n/", '', file_get_contents('json/start_01.json')));
+                $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/start_01.json'));
 
             } elseif ($text === 'second') {
-                $message[] = replaceDoubleQuotationJsonString(preg_replace("/\r|\n/", '', file_get_contents('json/start_03.json')));
+                $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/start_03.json'));
             }
 
-            $response = $bot->replyMessageCustom($bot->getReplyToken(), $message);
+            $message['replyToken'] = $bot->getReplyToken();
+//            $response = $bot->replyMessageCustom($bot->getReplyToken(), $message);
+            $response = curlTest($message);
             if ($response -> isSucceeded() == false) {
                 error_log("深刻な返信エラー" . $response->getHTTPStatus() . ' ' . $response->getRawBody());
                 return false;
@@ -601,4 +603,39 @@ function replaceDoubleQuotationJsonString(string $jsonData) : string
     $jsonData = preg_replace('/(\}\")/m', '}', $jsonData);
 
     return $jsonData;
+}
+
+function curlTest($responseData)
+{
+    $headers = [
+        'Authorization: ' . ACCESS_TOKEN,
+        'Content-Type: application/json; charset=UTF-8'
+    ];
+
+    $requestData = [
+        'replyToken' => $responseData['reply_token'],
+        'messages' => $responseData['messages']
+    ];
+
+    $requestData = json_encode($requestData,JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+    $requestData = stripslashes($requestData);
+
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, 'https://api.line.me/v2/bot/message/reply');
+    curl_setopt($curl, CURLOPT_POST, 1);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, replaceDoubleQuotationJsonString($requestData));
+    curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+    $result = curl_exec($curl);
+    $info = curl_getinfo($curl);
+
+    if (!$result && $info['http_code'] !== 200) {
+        Log::error(curl_error($curl));
+        Log::error($info);
+    }
+
+    curl_close($curl);
+
+    return $info['http_code'];
 }
