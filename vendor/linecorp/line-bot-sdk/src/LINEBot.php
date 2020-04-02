@@ -101,7 +101,7 @@ class LINEBot
      * sjkim custom
      *
      * @param string $replyToken
-     * @param string $messageBuilder
+     * @param  $messageBuilder
      * @return Response
      */
     public function replyMessageCustom(string $replyToken, $messageBuilder)

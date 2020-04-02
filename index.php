@@ -34,38 +34,23 @@ try {
         if ($text !== false) {
             $actions = test_quick_action();
 
-            if ($text == "start") {
+            $message = [];
+            if ($text === "start") {
 //                $text = file_get_contents('json/start_01.json');
                 $text = replaceDoubleQuotationJsonString(preg_replace("/\r|\n/", '', file_get_contents('json/start_01.json')));
-
                 $message[] = $text;
 
-//                $message[] = [
-//                    'type' => 'text',
-//                    'text' => 'cyka19'
-//                ];
-//
-//                $message[] = [
-//                    'type' => 'text',
-//                    'text' => 'cyka20'
-//                ];
-//
-//                $message[] = [
-//                    'type' => 'text',
-//                    'text' => 'cyka18'
-//                ];
+            } elseif ($text === 'second') {
+                $text = replaceDoubleQuotationJsonString(preg_replace("/\r|\n/", '', file_get_contents('json/start_03.json')));
+                $message[] = $text;
+            }
 
-//                $message['type'] = \LINE\LINEBot\Constant\MessageType::TEXT;
-//                $message['text'] = "お友だち登録ありがとう～っ\nLIFULL HOME'S公式アカウントからお得なキャンペーン情報やサービスの案内を配信してるから、楽しみにしててねっ！\n\n通知が気になる場合は、この画面内のトーク設定から「通知」をOFFにしてねっ！これからよろしくねっ！";
-
-                $response = $bot->replyMessageCustom($bot->getReplyToken(), $message);
-                if ($response -> isSucceeded() == false) {
-                    error_log("深刻な返信エラー" . $response->getHTTPStatus() . ' ' . $response->getRawBody());
-                    return false;
-                }else{
-                    return true;
-                }
-//                return true;
+            $response = $bot->replyMessageCustom($bot->getReplyToken(), $message);
+            if ($response -> isSucceeded() == false) {
+                error_log("深刻な返信エラー" . $response->getHTTPStatus() . ' ' . $response->getRawBody());
+                return false;
+            }else{
+                return true;
             }
 
             $bot->add_text_builder($text);

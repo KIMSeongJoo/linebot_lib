@@ -1,0 +1,21 @@
+{
+  "type": "template",
+  "altText": "this is a carousel template",
+  "template": {
+    "type": "carousel",
+    "actions": [],
+    "columns": [
+      {
+        "thumbnailImageUrl": "https://s3-ap-northeast-1.amazonaws.com/homes-cont/uploads/cont/100844/img/pixta_22253478_S.jpg",
+        "text": "マイホーム購入の最初の一歩。必要なお金や流れについて知ろう",
+        "actions": [
+          {
+            "type": "uri",
+            "label": "記事を見る",
+            "uri": "https://www.homes.co.jp/cont/money/money_00236/"
+          }
+        ]
+      }
+    ]
+  }
+}
