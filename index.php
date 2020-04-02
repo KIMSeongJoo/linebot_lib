@@ -610,7 +610,7 @@ function replaceDoubleQuotationJsonString(string $jsonData) : string
 function curlTest($responseData)
 {
     $headers = [
-        'Authorization: ' . ACCESS_TOKEN,
+        'Authorization: Bearer' . ACCESS_TOKEN,
         'Content-Type: application/json; charset=UTF-8'
     ];
 
