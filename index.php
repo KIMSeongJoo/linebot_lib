@@ -35,9 +35,8 @@ try {
             $actions = test_quick_action();
 
             if ($text == "start") {
-                $text = " cyka1919191919";
+                $text = file_get_contents('json/start_01.json');
             }
-
 
             $bot->add_text_builder($text);
         }
