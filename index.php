@@ -602,6 +602,18 @@ function create_sample_flex4(){
     return $bot->create_bubble_container($bubble_blocks);
 }
 
+function test_quick_action(){
+    global $bot;
+    $actions = array();
+    $actions[] = $bot->create_quick_text_action("test","test_text");
+    $actions[] = $bot->create_quick_post_action("TypePost","post_text");
+    $actions[] = $bot->create_quick_date_action("TypeDate","date_text","datetime");
+    $actions[] = $bot->create_quick_camera_action("camera");
+    $actions[] = $bot->create_quick_camera_roll_action("camera_roll");
+    $actions[] = $bot->create_quick_location_action("location");
+    return $actions;
+}
+
 function replaceDoubleQuotationJsonString(string $jsonData) : string
 {
     $jsonData = preg_replace('/(\"\{)/m', '{', $jsonData);
