@@ -36,6 +36,8 @@ try {
 
             if ($text == "start") {
                 $text = file_get_contents('json/start_01.json');
+                $bot->replyMessage($bot->getReplyToken(), $text);
+                exit;
             }
 
             $bot->add_text_builder($text);
