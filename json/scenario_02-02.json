@@ -1,0 +1,61 @@
+{
+  "type": "template",
+  "altText": "this is a carousel template",
+  "template": {
+    "type": "carousel",
+    "actions": [],
+    "columns": [
+      {
+        "thumbnailImageUrl": "https://www.homes.co.jp/search/assets/img/default/info/about/common/ogimg_top.png",
+        "title": "色んな物件を検討したい方へ",
+        "text": "あなたへのおすすめ物件情報をLINEで受け取りませんか？",
+        "actions": [
+          {
+            "type": "postback",
+            "label": "おすすめ物件を受け取る",
+            "text": "おすすめ物件を受け取る",
+            "data": "おすすめ物件を受け取る"
+          }
+        ]
+      },
+      {
+        "thumbnailImageUrl": "https://s3-ap-northeast-1.amazonaws.com/homes-cont/uploads/cont/3658/img/kounyu_020.jpg",
+        "title": "物件タイプでお悩みの方へ",
+        "text": "新築？中古？一戸建て？マンション？簡単な質問に答えるだけで、あなたに合う物件タイプを診断！",
+        "actions": [
+          {
+            "type": "postback",
+            "label": "物件タイプ診断スタート",
+            "text": "物件タイプ診断スタート",
+            "data": "物件タイプ診断スタート"
+          }
+        ]
+      },
+      {
+        "thumbnailImageUrl": "https://s3-ap-northeast-1.amazonaws.com/homes-cont/uploads/cont/111943/img/p02_img02_02.png",
+        "title": "住みたい『街』を探したい方へ",
+        "text": "街の特長や住んでいる人の口コミなどの街情報を見てみませんか？",
+        "actions": [
+          {
+            "type": "uri",
+            "label": "まちを探す",
+            "uri": "https://www.homes.co.jp/machimusubi/"
+          }
+        ]
+      },
+      {
+        "thumbnailImageUrl": "https://s3-ap-northeast-1.amazonaws.com/homes-cont/uploads/cont/62622/img/pixta_20864881_S-12.jpg",
+        "title": "誰かにサポートしてほしい方へ",
+        "text": "専属アドバイザーが中立な立場であなたの住み替えをサポートします。LINEで無料相談してみませんか？",
+        "actions": [
+          {
+            "type": "postback",
+            "label": "LINEで無料相談する",
+            "text": "相談する",
+            "data": "相談する"
+          }
+        ]
+      }
+    ]
+  }
+}

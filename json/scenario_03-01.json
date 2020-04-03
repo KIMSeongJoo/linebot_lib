@@ -1,0 +1,67 @@
+{
+  "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "bubble",
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "md",
+      "contents": [
+        {
+          "type": "box",
+          "layout": "vertical",
+          "flex": 1,
+          "contents": [
+            {
+              "type": "text",
+              "text": "物件の見学予定日はもう決まった？",
+              "size": "md",
+              "align": "start",
+              "wrap": true
+            },
+            {
+              "type": "text",
+              "text": "予定日を入力してくれたら、予定を忘れないように前日にメッセージを送るよっ♪",
+              "size": "md",
+              "align": "start",
+              "wrap": true
+            }
+          ]
+        }
+      ]
+    },
+    "footer": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "md",
+      "contents": [
+        {
+          "type": "button",
+          "action": {
+            "type": "datetimepicker",
+            "label": "予定日を入力する",
+            "data": "住み替え予定日登録",
+            "mode": "date",
+            "initial": "2020-04-01",
+            "max": "2025-12-31",
+            "min": "2020-04-01"
+          },
+          "color": "#ED6103",
+          "style": "primary"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "postback",
+            "label": "予定日が決まっていない",
+            "text": "予定日が決まっていない",
+            "data": "予定日が決まっていない"
+          },
+          "color": "#ED6103",
+          "style": "primary"
+        }
+      ]
+    }
+  }
+}

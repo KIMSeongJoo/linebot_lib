@@ -1,0 +1,148 @@
+{
+  "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "bubble",
+    "direction": "ltr",
+    "header": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "text",
+          "text": "シナリオ日にちを選択",
+          "align": "center"
+        }
+      ]
+    },
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "md",
+      "margin": "md",
+      "contents": [
+        {
+          "type": "text",
+          "text": "選択",
+          "align": "center"
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "postback",
+                "label": "２日目",
+                "text": "２日目",
+                "data": "scenario_01"
+              },
+              "color": "#ED6103",
+              "margin": "sm",
+              "height": "sm",
+              "style": "primary"
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "postback",
+                "label": "４日目",
+                "text": "４日目",
+                "data": "scenario_0\b2"
+              },
+              "color": "#ED6103",
+              "margin": "sm",
+              "height": "sm",
+              "style": "primary"
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "postback",
+                "label": "７日目",
+                "text": "７日目",
+                "data": "scenario_03"
+              },
+              "color": "#ED6103",
+              "margin": "sm",
+              "height": "sm",
+              "style": "primary"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "postback",
+                "label": "見学前日",
+                "text": "見学前日",
+                "data": "visit_before"
+              },
+              "color": "#ED6103",
+              "margin": "sm",
+              "height": "sm",
+              "style": "primary"
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "postback",
+                "label": "見学翌日",
+                "text": "見学翌日",
+                "data": "visit_after"
+              },
+              "color": "#ED6103",
+              "margin": "sm",
+              "height": "sm",
+              "style": "primary"
+            }
+          ]
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "postback",
+            "label": "契約後３日後",
+            "text": "契約後３日後",
+            "data": "contract_after_01"
+          },
+          "color": "#ED6103",
+          "margin": "sm",
+          "height": "sm",
+          "style": "primary"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "postback",
+            "label": "契約後４日目",
+            "text": "契約後４日目",
+            "data": "contract_after_02"
+          },
+          "color": "#ED6103",
+          "margin": "sm",
+          "height": "sm",
+          "style": "primary"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "postback",
+            "label": "契約後７日目",
+            "text": "契約後７日目",
+            "data": "contract_after_03"
+          },
+          "color": "#ED6103",
+          "margin": "sm",
+          "height": "sm",
+          "style": "primary"
+        }
+      ]
+    }
+  }
+}

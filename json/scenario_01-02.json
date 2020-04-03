@@ -1,0 +1,82 @@
+{
+  "type": "template",
+  "altText": "this is a carousel template",
+  "template": {
+    "type": "carousel",
+    "actions": [],
+    "columns": [
+      {
+        "thumbnailImageUrl": "https://lifull-lineofficial.s3-ap-northeast-1.amazonaws.com/after_inquire/rent/cont/chintai_kengakugo.png",
+        "title": "物件の購入金額から試算する",
+        "text": "あの物件、買ったらいくらの返済に？",
+        "actions": [
+          {
+            "type": "uri",
+            "label": "シミュレーションする",
+            "uri": "https://www.homes.co.jp/loan/simulation/borrowing/"
+          }
+        ]
+      },
+      {
+        "thumbnailImageUrl": "https://s3-ap-northeast-1.amazonaws.com/homes-cont/uploads/cont/126746/img/pixta_57837885_S.jpg",
+        "title": "月々の返済額から試算する",
+        "text": "今の家賃でいくらの家が買える？",
+        "actions": [
+          {
+            "type": "uri",
+            "label": "シミュレーションする",
+            "uri": "https://www.homes.co.jp/loan/simulation/monthly/"
+          }
+        ]
+      },
+      {
+        "thumbnailImageUrl": "https://s3-ap-northeast-1.amazonaws.com/homes-cont/uploads/cont/128016/img/pixta_26101958_S.jpg",
+        "title": "住宅購入にかかる諸費用",
+        "text": "新築と中古、マンションと一戸建てごとに解説",
+        "actions": [
+          {
+            "type": "uri",
+            "label": "記事を見る",
+            "uri": "https://www.homes.co.jp/cont/money/money_00293/"
+          }
+        ]
+      },
+      {
+        "thumbnailImageUrl": "https://s3-ap-northeast-1.amazonaws.com/homes-cont/uploads/cont/126443/img/pixta_46994989_S.jpg",
+        "title": "住宅ローンの審査基準",
+        "text": "金融機関が重視するポイントは？",
+        "actions": [
+          {
+            "type": "uri",
+            "label": "記事を見る",
+            "uri": "https://www.homes.co.jp/cont/money/money_00287/"
+          }
+        ]
+      },
+      {
+        "thumbnailImageUrl": "https://s3-ap-northeast-1.amazonaws.com/homes-cont/uploads/cont/126536/img/pixta_54947783_S.jpg",
+        "title": " ローンのタイムリミットとは",
+        "text": "住宅ローンの年齢制限は45歳までってホント？",
+        "actions": [
+          {
+            "type": "uri",
+            "label": "記事を見る",
+            "uri": "https://www.homes.co.jp/cont/money/money_00288/"
+          }
+        ]
+      },
+      {
+        "thumbnailImageUrl": "https://s3-ap-northeast-1.amazonaws.com/homes-cont/uploads/cont/112832/img/pixta_47903951_S.jpg",
+        "title": "その他、お金に関する情報",
+        "text": "住宅ローンや住まいに関する保険など、あなたの悩みや相談事を信頼性のある情報で解決",
+        "actions": [
+          {
+            "type": "uri",
+            "label": "記事を見る",
+            "uri": "https://www.homes.co.jp/cont/money/"
+          }
+        ]
+      }
+    ]
+  }
+}

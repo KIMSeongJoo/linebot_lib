@@ -2,6 +2,7 @@
 require_once __DIR__ . '/linebot.php';
 
 use \LINE\LINEBot\Constant\HTTPHeader;
+use Carbon\Carbon;
 
 $bot = new LineBotClass();
 
@@ -90,12 +91,55 @@ try {
                         }
                     }
                     if(!is_null($userInfo)) {
-                        $message['messages'][] = sprintf(preg_replace("/\r|\n/", '', file_get_contents('json/schedule_fixed.json')), $userInfo);
+                        $carbon = new Carbon($userInfo);
+                        $message['messages'][] = sprintf(preg_replace("/\r|\n/", '', file_get_contents('json/schedule_fixed.json')), $carbon->format('Y年m月d日'));
                     } else {
                         $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/schedule_dont_fixed.json'));
                     }
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/schedule_fixed_information.json'));
                     break;
+                case 'scenario_01':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/scenario_01-01.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/scenario_01-02.json'));
+                    break;
+                case 'scenario_02':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/scenario_02-01.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/scenario_02-02.json'));
+                    break;
+                case 'scenario_03':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/scenario_03-01.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/scenario_03-02.json'));
+                    break;
+                case 'scenario_03_date':
+                    $date = $bot->get_post_params();
+                    $userInfo = null;
+                    if (count($date) > 0) {
+                        foreach ($date as $key => $val) {
+                            if ( $key === 'date') {
+                                $userInfo = $val;
+                            }
+                        }
+                    }
+                    break;
+                case 'visit_before':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_before_01-01.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_before_01-02-01.json'));
+                    break;
+                case 'visit_after':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_after_01-01.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_after_01-01.json'));
+                    break;
+                case 'contract_after_01':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/scenario_01-01.json'));
+                    break;
+                case 'contract_after_02':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/scenario_01-01.json'));
+                    break;
+                case 'contract_after_03':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/scenario_01-01.json'));
+                    break;
+
+
             }
 
             $message['replyToken'] = $bot->getReplyToken();
