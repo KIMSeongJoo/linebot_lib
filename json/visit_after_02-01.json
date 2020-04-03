@@ -15,14 +15,14 @@
           "contents": [
             {
               "type": "text",
-              "text": "いい物件に出会えたんだね~っ★よかったね！！",
+              "text": "無事物件の見学は終わったかなっ？ ",
               "size": "md",
               "align": "start",
               "wrap": true
             },
             {
               "type": "text",
-              "text": "マンションと一戸建てはどちらにしたのかな？？",
+              "text": "見学完了を報告してくれたら、次のお役立ち情報をお届けっ★",
               "size": "md",
               "align": "start",
               "wrap": true
@@ -40,9 +40,9 @@
           "type": "button",
           "action": {
             "type": "postback",
-            "label": "マンション",
-            "text": "マンション",
-            "data": "マンション"
+            "label": "見学した",
+            "text": "見学した",
+            "data": "visit_complete"
           },
           "color": "#ED6103",
           "style": "primary"
@@ -51,9 +51,9 @@
           "type": "button",
           "action": {
             "type": "postback",
-            "label": "一戸建て",
-            "text": "一戸建て",
-            "data": "一戸建て"
+            "label": "見学してない",
+            "text": "見学してない",
+            "data": "visit_dont_complete"
           },
           "color": "#ED6103",
           "style": "primary"

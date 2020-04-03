@@ -1,0 +1,21 @@
+{
+  "type": "template",
+  "altText": "this is a carousel template",
+  "template": {
+    "type": "carousel",
+    "actions": [],
+    "columns": [
+      {
+        "thumbnailImageUrl": "https://lifull-lineofficial.s3-ap-northeast-1.amazonaws.com/after_inquire/rent/cont/shiyakusyo.jpg",
+        "text": "電気・ガス・水道や役所への届け出の手順を解説",
+        "actions": [
+          {
+            "type": "uri",
+            "label": "記事を見る",
+            "uri": "https://www.homes.co.jp/cont/rent/rent_00141/"
+          }
+        ]
+      }
+    ]
+  }
+}

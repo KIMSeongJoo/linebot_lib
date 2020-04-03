@@ -1,0 +1,43 @@
+{
+  "type": "template",
+  "altText": "this is a carousel template",
+  "template": {
+    "type": "carousel",
+    "actions": [],
+    "columns": [
+      {
+        "thumbnailImageUrl": "https://s3-ap-northeast-1.amazonaws.com/homes-cont/uploads/cont/110102/img/pixta_32634963_S.jpg",
+        "text": "不動産の売買契約書の内容とは？",
+        "actions": [
+          {
+            "type": "uri",
+            "label": "記事を見る",
+            "uri": "https://www.homes.co.jp/cont/buy_mansion/buy_mansion_00576/"
+          }
+        ]
+      },
+      {
+        "thumbnailImageUrl": "https://s3-ap-northeast-1.amazonaws.com/homes-cont/uploads/cont/4432/img/img_choice03_04.png",
+        "text": "いよいよ契約？その前に確認を！",
+        "actions": [
+          {
+            "type": "uri",
+            "label": "記事を見る",
+            "uri": "https://www.homes.co.jp/cont/reform/reform_00028/"
+          }
+        ]
+      },
+      {
+        "thumbnailImageUrl": "https://s3-ap-northeast-1.amazonaws.com/homes-cont/uploads/cont/111911/img/p01_img01_01.png",
+        "text": "この街はホントに住みやすい？ チェックポイントをたどって街歩き",
+        "actions": [
+          {
+            "type": "uri",
+            "label": "記事を見る",
+            "uri": "https://www.homes.co.jp/cont/town/town_00252/"
+          }
+        ]
+      }
+    ]
+  }
+}

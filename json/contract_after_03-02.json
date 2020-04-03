@@ -1,0 +1,54 @@
+{
+  "type": "template",
+  "altText": "this is a carousel template",
+  "template": {
+    "type": "carousel",
+    "actions": [],
+    "columns": [
+      {
+        "thumbnailImageUrl": "https://s3-ap-northeast-1.amazonaws.com/homes-cont/uploads/cont/20120/img/5253cf9dd3b1d33a05c1b04d8b72b249-300x198.jpg",
+        "text": "引越しそばはもう古い？引越しの挨拶で渡した粗品と金額を調査",
+        "actions": [
+          {
+            "type": "uri",
+            "label": "記事を見る",
+            "uri": "https://www.homes.co.jp/cont/data/data_00083/"
+          }
+        ]
+      },
+      {
+        "thumbnailImageUrl": "https://s3-ap-northeast-1.amazonaws.com/homes-cont/uploads/cont/126524/img/pixta_54980431_S.jpg",
+        "text": "住宅に必要な保険とは？ 適用範囲などを理解してぴったりの保険に加入しよう",
+        "actions": [
+          {
+            "type": "uri",
+            "label": "記事を見る",
+            "uri": "https://www.homes.co.jp/cont/buy_kodate/buy_kodate_00574/"
+          }
+        ]
+      },
+      {
+        "thumbnailImageUrl": "https://s3-ap-northeast-1.amazonaws.com/homes-cont/uploads/cont/106063/img/pic1-698x465.jpg",
+        "text": "すべての住宅で設置が義務づけられている「住宅用火災報知器」とは",
+        "actions": [
+          {
+            "type": "uri",
+            "label": "記事を見る",
+            "uri": "https://www.homes.co.jp/cont/living/living_00545/"
+          }
+        ]
+      },
+      {
+        "thumbnailImageUrl": "https://s3-ap-northeast-1.amazonaws.com/homes-cont/uploads/cont/98361/img/pic1-22-698x465.jpg",
+        "text": "独立洗面所のある間取りで収納を増やすアイデア",
+        "actions": [
+          {
+            "type": "uri",
+            "label": "記事を見る",
+            "uri": "https://www.homes.co.jp/cont/living/living_00513/"
+          }
+        ]
+      }
+    ]
+  }
+}

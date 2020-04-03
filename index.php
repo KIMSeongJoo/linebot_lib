@@ -124,23 +124,58 @@ try {
                     }
                     break;
                 case 'visit_before':
+                    // 前日
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_before_01-01.json'));
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_before_01-02-01.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_before_01-02.json'));
                     break;
                 case 'visit_after':
+                    // 翌日
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_after_01-01.json'));
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_after_01-01.json'));
                     break;
                 case 'contract_after_01':
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/scenario_01-01.json'));
+                    // 契約後３日
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/contract_after_01-01.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/contract_after_01-02.json'));
                     break;
                 case 'contract_after_02':
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/scenario_01-01.json'));
+                    // 契約後４日
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/contract_after_02-01.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/contract_after_02-02.json'));
                     break;
                 case 'contract_after_03':
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/scenario_01-01.json'));
+                    // 契約後７日
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/contract_after_03-01.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/contract_after_03-02.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/contract_after_03-03.json'));
                     break;
-
+                case 'visit_complete':
+                    ## 見学した
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_after_02-01-01.json'));
+                    break;
+                case 'visit_dont_complete':
+                    ## 見学してない
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_after_02-01-02.json'));
+                    break;
+                case 'contract_go':
+                    // 契約に進めそう
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_after_02-02.json'));
+                    break;
+                case 'contract_no':
+                    // 契約・もっと考える
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_after_02-03-01.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_after_02-03-02.json'));
+                    break;
+                case 'type_mansion':
+                    // マンション
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_after_02-02-01.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_after_02-02-02.json'));
+                    break;
+                case 'type_build':
+                    // 一戸建て
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_after_02-02-03.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_after_02-02-04.json'));
+                    break;
 
             }
 
