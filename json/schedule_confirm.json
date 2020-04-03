@@ -1,0 +1,71 @@
+{
+  "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "bubble",
+    "direction": "ltr",
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "md",
+      "contents": [
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "具体的な日付のイメージはあるかな~っ？？",
+              "align": "start",
+              "wrap": true
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "horizontal",
+          "spacing": "md",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "datetimepicker",
+                "label": "はい",
+                "data": "はい",
+                "mode": "date",
+                "initial": "2020-04-01",
+                "max": "2025-12-31",
+                "min": "2020-04-01"
+              },
+              "color": "#ED6103",
+              "style": "primary"
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "postback",
+                "label": "いいえ",
+                "text": "いいえ",
+                "data": "いいえ"
+              },
+              "color": "#ED6103",
+              "style": "primary"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "「月」はイメージがあるけど「日」はまだ…という人は、住み替えたい月の「1日」で設定してみてね~っ★☆彡",
+              "size": "xs",
+              "wrap": true
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

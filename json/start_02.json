@@ -1,80 +1,84 @@
 {
-  "type": "bubble",
-  "direction": "ltr",
-  "body": {
-    "type": "box",
-    "layout": "vertical",
-    "spacing": "md",
-    "contents": [
-      {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "text",
-            "text": "どれ位で住み替えたいかなっ？",
-            "align": "start"
-          }
-        ]
-      },
-      {
-        "type": "box",
-        "layout": "horizontal",
-        "spacing": "md",
-        "contents": [
-          {
-            "type": "button",
-            "action": {
-              "type": "postback",
-              "label": "1ヶ月以内",
-              "text": "1ヶ月以内",
-              "data": "1ヶ月以内"
+  "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "bubble",
+    "direction": "ltr",
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "md",
+      "contents": [
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "どれ位で住み替えたいかなっ？",
+              "align": "start"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "horizontal",
+          "spacing": "md",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "postback",
+                "label": "1ヶ月以内",
+                "text": "1ヶ月以内",
+                "data": "schedule_months"
+              },
+              "color": "#ED6103",
+              "style": "primary"
             },
-            "color": "#ED6103",
-            "style": "primary"
-          },
-          {
-            "type": "button",
-            "action": {
-              "type": "postback",
-              "label": "3ヶ月以内",
-              "text": "3ヶ月以内",
-              "data": "3ヶ月以内"
+            {
+              "type": "button",
+              "action": {
+                "type": "postback",
+                "label": "3ヶ月以内",
+                "text": "3ヶ月以内",
+                "data": "schedule_3_months"
+              },
+              "color": "#ED6103",
+              "style": "primary"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "horizontal",
+          "spacing": "md",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "postback",
+                "label": "1年以内",
+                "text": "1年以内",
+                "data": "schedule_under_year"
+              },
+              "color": "#ED6103",
+              "style": "primary"
             },
-            "color": "#ED6103",
-            "style": "primary"
-          }
-        ]
-      },
-      {
-        "type": "box",
-        "layout": "horizontal",
-        "spacing": "md",
-        "contents": [
-          {
-            "type": "button",
-            "action": {
-              "type": "postback",
-              "label": "1年以内",
-              "text": "1年以内",
-              "data": "1年以内"
-            },
-            "color": "#ED6103",
-            "style": "primary"
-          },
-          {
-            "type": "button",
-            "action": {
-              "type": "postback",
-              "label": "1年以上先",
-              "text": "1年以上先",
-              "data": "1年以上先"
-            },
-            "color": "#ED6103",
-            "style": "primary"
-          }
-        ]
-      }
-    ]
+            {
+              "type": "button",
+              "action": {
+                "type": "postback",
+                "label": "1年以上先",
+                "text": "1年以上先",
+                "data": "schedule_over_year"
+              },
+              "color": "#ED6103",
+              "style": "primary"
+            }
+          ]
+        }
+      ]
+    }
   }
 }

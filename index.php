@@ -38,6 +38,7 @@ try {
             if ($text === "start") {
 //                $text = file_get_contents('json/start_01.json');
                 $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/start_01.json'));
+                $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/start_02.json'));
 
             } elseif ($text === 'second') {
                 $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/start_03.json'));
@@ -46,16 +47,9 @@ try {
             $message['replyToken'] = $bot->getReplyToken();
 //            $response = $bot->replyMessageCustom($bot->getReplyToken(), $message);
             $response = curlTest($message);
-//            if ($response -> isSucceeded() == false) {
-//                error_log("深刻な返信エラー" . $response->getHTTPStatus() . ' ' . $response->getRawBody());
-//                return false;
-//            }else{
-//                return true;
-//            }
-
             return true;
 
-            $bot->add_text_builder($text);
+//           $bot->add_text_builder($text);
         }
 
         if ($message_type !== false) {
@@ -69,6 +63,7 @@ try {
 
         // ポストバックのイベントなら
         if ($event_type === "postback") {
+            $message = [];
             $post_data = $bot->get_post_data();
             $post_params = $bot->get_post_params();
             $post_text = "post_data:" . $post_data . "\n";
@@ -76,14 +71,22 @@ try {
                 $post_text .= $key . ":" . $value . "\n";
             }
 
-            error_log('====== post back ========');
-            error_log('post data : ' . $post_data);
-            error_log('post params : ' . implode(',' ,$post_params ));
-            error_log('post text : ' . $post_text);
-            error_log('====== post back ========');
+            // postback action
+            switch ($post_text) {
+                case 'schedule_months':
+                case 'schedule_3_months':
+                case 'schedule_under_year':
+                case 'schedule_over_year':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/schedule_confirm.json'));
+                    break;
 
+            }
 
-            $bot->add_text_builder($post_text);
+            $message['replyToken'] = $bot->getReplyToken();
+            $response = curlTest($message);
+            return true;
+
+//            $bot->add_text_builder($post_text);
         }
 
         // スタンプなら
