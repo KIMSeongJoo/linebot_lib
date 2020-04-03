@@ -71,9 +71,6 @@ try {
                 $post_text .= $key . ":" . $value . "\n";
             }
 
-            error_log($post_data);
-            error_log($post_text);
-
             // postback action
             switch ($post_data) {
                 case 'schedule_months':
@@ -92,7 +89,7 @@ try {
                             }
                         }
                     }
-                    if(is_null($userInfo)) {
+                    if(!is_null($userInfo)) {
                         $message['messages'][] = sprintf(preg_replace("/\r|\n/", '', file_get_contents('json/schedule_fixed.json')), $userInfo);
                     } else {
                         $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/schedule_dont_fixed.json'));
