@@ -2,6 +2,7 @@
 require_once __DIR__ . '/linebot.php';
 
 use \LINE\LINEBot\Constant\HTTPHeader;
+use Carbon\Carbon;
 
 $bot = new LineBotClass();
 
