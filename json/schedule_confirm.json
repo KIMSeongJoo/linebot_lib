@@ -31,7 +31,7 @@
               "action": {
                 "type": "datetimepicker",
                 "label": "はい",
-                "data": "はい",
+                "data": "schedule_detail",
                 "mode": "date",
                 "initial": "2020-04-01",
                 "max": "2025-12-31",
