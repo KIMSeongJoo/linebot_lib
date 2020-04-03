@@ -82,7 +82,10 @@ try {
                 case 'schedule_over_year':
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/schedule_confirm.json'));
                     break;
-
+                case 'schedule_detail':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/schedule_fixed.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/schedule_fixed_information.json'));
+                    break;
             }
 
             $message['replyToken'] = $bot->getReplyToken();

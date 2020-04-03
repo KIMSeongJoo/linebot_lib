@@ -46,7 +46,7 @@
                 "type": "postback",
                 "label": "いいえ",
                 "text": "いいえ",
-                "data": "いいえ"
+                "data": "schedule_detail"
               },
               "color": "#ED6103",
               "style": "primary"
