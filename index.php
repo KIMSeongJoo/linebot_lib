@@ -83,7 +83,20 @@ try {
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/schedule_confirm.json'));
                     break;
                 case 'schedule_detail':
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/schedule_fixed.json'));
+                    $date = $bot->get_post_params();
+                    $userInfo = null;
+                    if (count($date) > 0) {
+                        foreach ($date as $key => $val) {
+                            if ( $key === 'date') {
+                                $userInfo = $val;
+                            }
+                        }
+                    }
+                    if(is_null($userInfo)) {
+                        $message['messages'][] = sprintf(preg_replace("/\r|\n/", '', file_get_contents('json/schedule_fixed.json')), $userInfo);
+                    } else {
+                        $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/schedule_dont_fixed.json'));
+                    }
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/schedule_fixed_information.json'));
                     break;
             }
