@@ -41,8 +41,8 @@ try {
                 $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/start_01.json'));
                 $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/start_02.json'));
 
-            } elseif ($text === 'second') {
-                $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/start_03.json'));
+            } elseif ($text === 'scenario_start') {
+                $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/scenario_start.json'));
             }
 
             $message['replyToken'] = $bot->getReplyToken();
