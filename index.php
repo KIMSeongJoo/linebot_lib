@@ -71,8 +71,9 @@ try {
                 $post_text .= $key . ":" . $value . "\n";
             }
 
+            
             // postback action
-            switch ($post_text) {
+            switch ($post_data) {
                 case 'schedule_months':
                 case 'schedule_3_months':
                 case 'schedule_under_year':
