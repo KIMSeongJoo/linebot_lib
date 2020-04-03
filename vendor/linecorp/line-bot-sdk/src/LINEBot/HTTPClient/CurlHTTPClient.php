@@ -22,7 +22,6 @@ use LINE\LINEBot\Constant\Meta;
 use LINE\LINEBot\Exception\CurlExecutionException;
 use LINE\LINEBot\HTTPClient;
 use LINE\LINEBot\Response;
-use CURLFile;
 
 /**
  * Class CurlHTTPClient.
@@ -57,11 +56,17 @@ class CurlHTTPClient implements HTTPClient
      * Sends GET request to LINE Messaging API.
      *
      * @param string $url Request URL.
+     * @param array $data Request body
+     * @param array $headers Request headers.
      * @return Response Response of API request.
+     * @throws CurlExecutionException
      */
-    public function get($url)
+    public function get($url, array $data = [], array $headers = [])
     {
-        return $this->sendRequest('GET', $url, [], []);
+        if ($data) {
+            $url .= '?' . http_build_query($data);
+        }
+        return $this->sendRequest('GET', $url, $headers);
     }
 
     /**
@@ -71,6 +76,7 @@ class CurlHTTPClient implements HTTPClient
      * @param array $data Request body or resource path.
      * @param array|null $headers Request headers.
      * @return Response Response of API request.
+     * @throws CurlExecutionException
      */
     public function post($url, array $data, array $headers = null)
     {
@@ -78,35 +84,16 @@ class CurlHTTPClient implements HTTPClient
         return $this->sendRequest('POST', $url, $headers, $data);
     }
 
-    public function put($url, array $data, array $headers = null)
-    {
-        $headers = is_null($headers) ? ['Content-Type: application/json; charset=utf-8'] : $headers;
-        return $this->sendRequest('PUT', $url, $headers, $data);
-    }
-
     /**
      * Sends DELETE request to LINE Messaging API.
      *
      * @param string $url Request URL.
      * @return Response Response of API request.
+     * @throws CurlExecutionException
      */
     public function delete($url)
     {
         return $this->sendRequest('DELETE', $url, [], []);
-    }
-
-    /**
-     * @param string $reqBody
-     * @return string|CURLFile request body for CURLOPT_POSTFIELDS
-     */
-    private function polyfillRequestBody($reqBody)
-    {
-        if (isset($reqBody['__file']) && isset($reqBody['__type'])) {
-            $reqBody = new CURLFile($reqBody['__file'], $reqBody['__type']);
-        } elseif (!empty($reqBody)) {
-            $reqBody = json_encode($reqBody);
-        }
-        return $reqBody;
     }
 
     /**
@@ -129,8 +116,20 @@ class CurlHTTPClient implements HTTPClient
                 // Rel: https://github.com/line/line-bot-sdk-php/issues/35
                 $options[CURLOPT_HTTPHEADER][] = 'Content-Length: 0';
             } else {
-                $options[CURLOPT_POST] = true;
-                $options[CURLOPT_POSTFIELDS] = $this->polyfillRequestBody($reqBody);
+                if (isset($reqBody['__file']) && isset($reqBody['__type'])) {
+                    $options[CURLOPT_PUT] = true;
+                    $options[CURLOPT_INFILE] = fopen($reqBody['__file'], 'r');
+                    $options[CURLOPT_INFILESIZE] = filesize($reqBody['__file']);
+                } elseif (in_array('Content-Type: application/x-www-form-urlencoded', $headers)) {
+                    $options[CURLOPT_POST] = true;
+                    $options[CURLOPT_POSTFIELDS] = http_build_query($reqBody);
+                } elseif (!empty($reqBody)) {
+                    $options[CURLOPT_POST] = true;
+                    $options[CURLOPT_POSTFIELDS] = json_encode($reqBody);
+                } else {
+                    $options[CURLOPT_POST] = true;
+                    $options[CURLOPT_POSTFIELDS] = $reqBody;
+                }
             }
         }
         return $options;
@@ -150,7 +149,8 @@ class CurlHTTPClient implements HTTPClient
 
         $headers = array_merge($this->authHeaders, $this->userAgentHeader, $additionalHeader);
 
-        $curl->setoptArray($this->getOptions($method, $headers, $reqBody));
+        $options = $this->getOptions($method, $headers, $reqBody);
+        $curl->setoptArray($options);
 
         $result = $curl->exec();
 
@@ -173,6 +173,10 @@ class CurlHTTPClient implements HTTPClient
         }
 
         $body = substr($result, $responseHeaderSize);
+
+        if (isset($options[CURLOPT_INFILE])) {
+            fclose($options[CURLOPT_INFILE]);
+        }
 
         return new Response($httpStatus, $body, $responseHeaders);
     }

@@ -34,10 +34,10 @@ class CarouselColumnTemplateBuilder implements TemplateBuilder
     private $text;
     /** @var string */
     private $thumbnailImageUrl;
+    /** @var string */
+    private $imageBackgroundColor;
     /** @var TemplateActionBuilder[] */
     private $actionBuilders;
-    /** @var TemplateActionBuilder */
-    private $defaultActionBuilder;
 
     /** @var array */
     private $template;
@@ -49,14 +49,15 @@ class CarouselColumnTemplateBuilder implements TemplateBuilder
      * @param string $text
      * @param string $thumbnailImageUrl
      * @param TemplateActionBuilder[] $actionBuilders
+     * @param string|null $imageBackgroundColor
      */
-    public function __construct($title, $text, $thumbnailImageUrl, array $actionBuilders, $defaultActionBuilder="")
+    public function __construct($title, $text, $thumbnailImageUrl, array $actionBuilders, $imageBackgroundColor = null)
     {
         $this->title = $title;
         $this->text = $text;
         $this->thumbnailImageUrl = $thumbnailImageUrl;
         $this->actionBuilders = $actionBuilders;
-        $this->defaultActionBuilder = $defaultActionBuilder;
+        $this->imageBackgroundColor = $imageBackgroundColor;
     }
 
     /**
@@ -76,20 +77,14 @@ class CarouselColumnTemplateBuilder implements TemplateBuilder
         }
 
         $this->template = [
+            'thumbnailImageUrl' => $this->thumbnailImageUrl,
+            'title' => $this->title,
             'text' => $this->text,
             'actions' => $actions,
         ];
 
-        if (!empty($this->title)) {
-            $this->template['title'] = $this->title;
-        }
-
-        if (!empty($this->thumbnailImageUrl)) {
-            $this->template['thumbnailImageUrl'] = $this->thumbnailImageUrl;
-        }
-
-        if (!empty($this->defaultActionBuilder)) {
-            $this->template['defaultAction'] = $this->defaultActionBuilder->buildTemplateAction();;
+        if ($this->imageBackgroundColor) {
+            $this->template['imageBackgroundColor'] = $this->imageBackgroundColor;
         }
 
         return $this->template;

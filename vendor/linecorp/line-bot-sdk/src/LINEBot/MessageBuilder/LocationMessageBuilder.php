@@ -20,6 +20,8 @@ namespace LINE\LINEBot\MessageBuilder;
 
 use LINE\LINEBot\Constant\MessageType;
 use LINE\LINEBot\MessageBuilder;
+use LINE\LINEBot\QuickReplyBuilder;
+use LINE\LINEBot\SenderBuilder\SenderBuilder;
 
 /**
  * A builder class for location message.
@@ -30,14 +32,24 @@ class LocationMessageBuilder implements MessageBuilder
 {
     /** @var string */
     private $title;
+
     /** @var string */
     private $address;
+
     /** @var double */
     private $latitude;
+
     /** @var double */
     private $longitude;
+
     /** @var array */
-    private $quickReplys;
+    private $message = [];
+
+    /** @var QuickReplyBuilder|null */
+    private $quickReply;
+
+    /** @var SenderBuilder|null */
+    private $sender;
 
     /**
      * LocationMessageBuilder constructor.
@@ -46,14 +58,23 @@ class LocationMessageBuilder implements MessageBuilder
      * @param string $address
      * @param double $latitude
      * @param double $longitude
+     * @param QuickReplyBuilder|null $quickReply
+     * @param SenderBuilder|null $sender
      */
-    public function __construct($title, $address, $latitude, $longitude,$quickReplys=array())
-    {
+    public function __construct(
+        $title,
+        $address,
+        $latitude,
+        $longitude,
+        QuickReplyBuilder $quickReply = null,
+        SenderBuilder $sender = null
+    ) {
         $this->title = $title;
         $this->address = $address;
         $this->latitude = $latitude;
         $this->longitude = $longitude;
-        $this->quickReplys = $quickReplys;
+        $this->quickReply = $quickReply;
+        $this->sender = $sender;
     }
 
     /**
@@ -63,27 +84,28 @@ class LocationMessageBuilder implements MessageBuilder
      */
     public function buildMessage()
     {
-        $actions = array();
-        if (!empty($this->quickReplys)) {
-            foreach ($this->quickReplys as $key => $action) {
-                $actions[] = [
-                    'type' => 'action',
-                    'imageUrl' => $action["icon"],
-                    'action' => $action["action"]->buildTemplateAction()
-                ];
-            }
+        if (!empty($this->message)) {
+            return $this->message;
         }
 
-        $message = [
+        $locationMessage = [
             'type' => MessageType::LOCATION,
             'title' => $this->title,
             'address' => $this->address,
             'latitude' => $this->latitude,
             'longitude' => $this->longitude,
         ];
-        if (!empty($actions)) {
-            $message['quickReply']['items'] = $actions;
+
+        if ($this->quickReply) {
+            $locationMessage['quickReply'] = $this->quickReply->buildQuickReply();
         }
-        return [$message];
+
+        if ($this->sender) {
+            $locationMessage['sender'] = $this->sender->buildSender();
+        }
+
+        $this->message[] = $locationMessage;
+
+        return $this->message;
     }
 }

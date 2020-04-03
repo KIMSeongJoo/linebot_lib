@@ -18,14 +18,12 @@
 
 namespace LINE\LINEBot\RichMenuBuilder;
 
-use LINE\LINEBot\TemplateActionBuilder;
-
 /**
  * A builder class for area of rich menu area object.
  *
  * @package LINE\LINEBot\RichMenuBuilder
  */
-class RichMenuAreaBuilder
+class RichMenuAreaBoundsBuilder
 {
     /** @var int */
     private $x;
@@ -44,7 +42,7 @@ class RichMenuAreaBuilder
      * @param int $width Width of the area.
      * @param int $height Height of the area.
      */
-    public function __construct($x, $y, $width, $height, $actionBuilder)
+    public function __construct($x, $y, $width, $height)
     {
         $this->x = $x;
         $this->y = $y;

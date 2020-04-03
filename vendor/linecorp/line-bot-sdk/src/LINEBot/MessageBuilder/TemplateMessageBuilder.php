@@ -20,6 +20,8 @@ namespace LINE\LINEBot\MessageBuilder;
 
 use LINE\LINEBot\Constant\MessageType;
 use LINE\LINEBot\MessageBuilder;
+use LINE\LINEBot\QuickReplyBuilder;
+use LINE\LINEBot\SenderBuilder\SenderBuilder;
 
 /**
  * A builder class for template message.
@@ -30,21 +32,39 @@ class TemplateMessageBuilder implements MessageBuilder
 {
     /** @var string */
     private $altText;
+
     /** @var TemplateBuilder */
     private $templateBuilder;
+
     /** @var array */
-    private $quickReplys;
+    private $message = [];
+
+    /**
+     * @var QuickReplyBuilder|null
+     */
+    private $quickReply;
+
+    /** @var SenderBuilder|null */
+    private $sender;
 
     /**
      * TemplateMessageBuilder constructor.
+     *
      * @param string $altText
      * @param TemplateBuilder $templateBuilder
+     * @param QuickReplyBuilder|null $quickReply
+     * @param SenderBuilder|null $sender
      */
-    public function __construct($altText, TemplateBuilder $templateBuilder,$quickReplys=array())
-    {
+    public function __construct(
+        $altText,
+        TemplateBuilder $templateBuilder,
+        QuickReplyBuilder $quickReply = null,
+        SenderBuilder $sender = null
+    ) {
         $this->altText = $altText;
         $this->templateBuilder = $templateBuilder;
-        $this->quickReplys = $quickReplys;
+        $this->quickReply = $quickReply;
+        $this->sender = $sender;
     }
 
     /**
@@ -54,24 +74,26 @@ class TemplateMessageBuilder implements MessageBuilder
      */
     public function buildMessage()
     {
-        $actions = array();
-        if (!empty($this->quickReplys)) {
-            foreach ($this->quickReplys as $key => $action) {
-                $actions[] = [
-                    'type' => 'action',
-                    'imageUrl' => $action["icon"],
-                    'action' => $action["action"]->buildTemplateAction()
-                ];
-            }
+        if (!empty($this->message)) {
+            return $this->message;
         }
-        $message = [
+
+        $templateMessage = [
             'type' => MessageType::TEMPLATE,
             'altText' => $this->altText,
             'template' => $this->templateBuilder->buildTemplate(),
         ];
-        if (!empty($actions)) {
-            $message['quickReply']['items'] = $actions;
+
+        if ($this->quickReply) {
+            $templateMessage['quickReply'] = $this->quickReply->buildQuickReply();
         }
-        return [$message];
+
+        if ($this->sender) {
+            $templateMessage['sender'] = $this->sender->buildSender();
+        }
+
+        $this->message[] = $templateMessage;
+
+        return $this->message;
     }
 }

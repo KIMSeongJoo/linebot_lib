@@ -40,7 +40,7 @@ class PostbackTemplateActionBuilder implements TemplateActionBuilder
      *
      * @param string $label Label of action.
      * @param string $data Data of postback.
-     * @param string|null $text The text which will be sent when action is executed (optional).
+     * @param string|null $displayText The text which will be sent when action is executed (optional).
      */
     public function __construct($label, $data, $displayText = null)
     {

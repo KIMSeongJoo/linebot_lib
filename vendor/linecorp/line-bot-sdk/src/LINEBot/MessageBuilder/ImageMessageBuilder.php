@@ -20,6 +20,8 @@ namespace LINE\LINEBot\MessageBuilder;
 
 use LINE\LINEBot\Constant\MessageType;
 use LINE\LINEBot\MessageBuilder;
+use LINE\LINEBot\QuickReplyBuilder;
+use LINE\LINEBot\SenderBuilder\SenderBuilder;
 
 /**
  * A builder class for image message.
@@ -30,22 +32,37 @@ class ImageMessageBuilder implements MessageBuilder
 {
     /** @var string */
     private $originalContentUrl;
+
     /** @var string */
     private $previewImageUrl;
+
     /** @var array */
-    private $quickReplys;
+    private $message = [];
+
+    /** @var QuickReplyBuilder|null */
+    private $quickReply;
+
+    /** @var SenderBuilder|null */
+    private $sender;
 
     /**
      * ImageMessageBuilder constructor.
      *
      * @param string $originalContentUrl
      * @param string $previewImageUrl
+     * @param QuickReplyBuilder|null $quickReply
+     * @param SenderBuilder|null $sender
      */
-    public function __construct($originalContentUrl, $previewImageUrl,$quickReplys=array())
-    {
+    public function __construct(
+        $originalContentUrl,
+        $previewImageUrl,
+        QuickReplyBuilder $quickReply = null,
+        SenderBuilder $sender = null
+    ) {
         $this->originalContentUrl = $originalContentUrl;
         $this->previewImageUrl = $previewImageUrl;
-        $this->quickReplys = $quickReplys;
+        $this->quickReply = $quickReply;
+        $this->sender = $sender;
     }
 
     /**
@@ -55,25 +72,26 @@ class ImageMessageBuilder implements MessageBuilder
      */
     public function buildMessage()
     {
-        $actions = array();
-        if (!empty($this->quickReplys)) {
-            foreach ($this->quickReplys as $key => $action) {
-                $actions[] = [
-                    'type' => 'action',
-                    'imageUrl' => $action["icon"],
-                    'action' => $action["action"]->buildTemplateAction()
-                ];
-            }
+        if (!empty($this->message)) {
+            return $this->message;
         }
 
-        $message = [
+        $imageMessage = [
             'type' => MessageType::IMAGE,
             'originalContentUrl' => $this->originalContentUrl,
             'previewImageUrl' => $this->previewImageUrl,
         ];
-        if (!empty($actions)) {
-            $message['quickReply']['items'] = $actions;
+
+        if ($this->quickReply) {
+            $imageMessage['quickReply'] = $this->quickReply->buildQuickReply();
         }
-        return [$message];
+
+        if ($this->sender) {
+            $imageMessage['sender'] = $this->sender->buildSender();
+        }
+
+        $this->message[] = $imageMessage;
+
+        return $this->message;
     }
 }
