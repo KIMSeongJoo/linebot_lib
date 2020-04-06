@@ -101,18 +101,21 @@ try {
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/schedule_fixed_information.json'));
                     break;
                 case 'scenario_01':
+                    // 2日目
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/scenario_01-01.json'));
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/scenario_01-02.json'));
                     break;
                 case 'scenario_02':
+                    // 4日目
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/scenario_02-01.json'));
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/scenario_02-02.json'));
                     break;
                 case 'scenario_03':
+                    // 7日目
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/scenario_03-01.json'));
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/scenario_03-02.json'));
                     break;
                 case 'scenario_03_date':
+                    // 7日目日付入力
                     $date = $bot->get_post_params();
                     $userInfo = null;
                     if (count($date) > 0) {
@@ -150,11 +153,11 @@ try {
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/contract_after_03-03.json'));
                     break;
                 case 'visit_complete':
-                    ## 見学した
+                    // 見学した
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_after_02-01-01.json'));
                     break;
                 case 'visit_dont_complete':
-                    ## 見学してない
+                    // 見学してない
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_after_02-01-02.json'));
                     break;
                 case 'contract_go':
