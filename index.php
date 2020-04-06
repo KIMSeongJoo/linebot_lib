@@ -130,6 +130,7 @@ try {
                     if(!is_null($userInfo)) {
                         $carbon = new Carbon($userInfo);
                         $message['messages'][] = sprintf(preg_replace("/\r|\n/", '', file_get_contents('json/scenario_schedule_fixed.json')), $carbon->format('Y年m月d日'));
+                        $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/scenario_03-02.json'));
                     } else {
                         $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/scenario_schedule_dont_fixed.json'));
                     }
@@ -141,7 +142,6 @@ try {
                     break;
                 case 'visit_after':
                     // 翌日
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_after_01-01.json'));
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_after_01-01.json'));
                     break;
                 case 'contract_after_01':

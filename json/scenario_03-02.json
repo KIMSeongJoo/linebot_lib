@@ -1,0 +1,54 @@
+{
+  "type": "template",
+  "altText": "this is a carousel template",
+  "template": {
+    "type": "carousel",
+    "actions": [],
+    "columns": [
+      {
+        "thumbnailImageUrl": "https://lifull-lineofficial.s3-ap-northeast-1.amazonaws.com/after_inquire/rent/cont/tyukoma_kengakuyotei.png",
+        "text": "中古マンションのチェックポイント",
+        "actions": [
+          {
+            "type": "uri",
+            "label": "記事を見る",
+            "uri": "https://www.homes.co.jp/cont/buy_mansion/buy_mansion_00555/"
+          }
+        ]
+      },
+      {
+        "thumbnailImageUrl": "https://lifull-lineofficial.s3-ap-northeast-1.amazonaws.com/after_inquire/rent/cont/tyukoko_kengakuyotei.png",
+        "text": "中古一戸建てのチェックポイント",
+        "actions": [
+          {
+            "type": "uri",
+            "label": "記事を見る",
+            "uri": "https://www.homes.co.jp/cont/buy_kodate/buy_kodate_00345/"
+          }
+        ]
+      },
+      {
+        "thumbnailImageUrl": "https://lifull-lineofficial.s3-ap-northeast-1.amazonaws.com/after_inquire/rent/cont/shinchikuma_kengakuyotei.png",
+        "text": "新築マンションのチェックポイント",
+        "actions": [
+          {
+            "type": "uri",
+            "label": "記事を見る",
+            "uri": "https://www.homes.co.jp/cont/buy_mansion/buy_mansion_00352/"
+          }
+        ]
+      },
+      {
+        "thumbnailImageUrl": "https://lifull-lineofficial.s3-ap-northeast-1.amazonaws.com/after_inquire/rent/cont/shinchikuko_kengakuyotei.png",
+        "text": "新築一戸建てのチェックポイント",
+        "actions": [
+          {
+            "type": "uri",
+            "label": "記事を見る",
+            "uri": "https://www.homes.co.jp/cont/buy_kodate/buy_kodate_00201/"
+          }
+        ]
+      }
+    ]
+  }
+}
