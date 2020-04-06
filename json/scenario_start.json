@@ -34,8 +34,8 @@
               "type": "button",
               "action": {
                 "type": "postback",
-                "label": "２日目",
-                "text": "２日目",
+                "label": "1 : 2日目",
+                "text": "1 : 2日目",
                 "data": "scenario_01"
               },
               "color": "#ED6103",
@@ -47,8 +47,8 @@
               "type": "button",
               "action": {
                 "type": "postback",
-                "label": "４日目",
-                "text": "４日目",
+                "label": "2 : 4日目",
+                "text": "2 : 4日目",
                 "data": "scenario_02"
               },
               "color": "#ED6103",
@@ -60,8 +60,8 @@
               "type": "button",
               "action": {
                 "type": "postback",
-                "label": "７日目",
-                "text": "７日目",
+                "label": "3 : 7日目",
+                "text": "3 : 7日目",
                 "data": "scenario_03"
               },
               "color": "#ED6103",
@@ -79,8 +79,8 @@
               "type": "button",
               "action": {
                 "type": "postback",
-                "label": "見学前日",
-                "text": "見学前日",
+                "label": "4 : 見学前日",
+                "text": "4 : 見学前日",
                 "data": "visit_before"
               },
               "color": "#ED6103",
@@ -92,8 +92,8 @@
               "type": "button",
               "action": {
                 "type": "postback",
-                "label": "見学翌日",
-                "text": "見学翌日",
+                "label": "5 : 見学翌日",
+                "text": "5 : 見学翌日",
                 "data": "visit_after"
               },
               "color": "#ED6103",
@@ -105,8 +105,8 @@
               "type": "button",
               "action": {
                 "type": "postback",
-                "label": "契約チェック",
-                "text": "契約チェック",
+                "label": "6 : 契約チェック",
+                "text": "6 : 契約チェック",
                 "data": "contract_check"
               },
               "color": "#ED6103",
@@ -120,8 +120,8 @@
           "type": "button",
           "action": {
             "type": "postback",
-            "label": "契約後３日後",
-            "text": "契約後３日後",
+            "label": "7 : 契約後３日後",
+            "text": "7 : 契約後３日後",
             "data": "contract_after_01"
           },
           "color": "#ED6103",
@@ -133,8 +133,8 @@
           "type": "button",
           "action": {
             "type": "postback",
-            "label": "契約後４日目",
-            "text": "契約後４日目",
+            "label": "8 : 契約後４日目",
+            "text": "8 : 契約後４日目",
             "data": "contract_after_02"
           },
           "color": "#ED6103",
@@ -146,8 +146,8 @@
           "type": "button",
           "action": {
             "type": "postback",
-            "label": "契約後７日目",
-            "text": "契約後７日目",
+            "label": "9 : 契約後７日目",
+            "text": "9 : 契約後７日目",
             "data": "contract_after_03"
           },
           "color": "#ED6103",
