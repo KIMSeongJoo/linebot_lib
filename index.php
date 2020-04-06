@@ -117,6 +117,7 @@ try {
                 case 'scenario_03_date':
                     // 7日目日付入力
                     $date = $bot->get_post_params();
+                    error_log($date);
                     $userInfo = null;
                     if (count($date) > 0) {
                         foreach ($date as $key => $val) {
@@ -124,6 +125,13 @@ try {
                                 $userInfo = $val;
                             }
                         }
+                    }
+                    // 日付が入力されたら
+                    if(!is_null($userInfo)) {
+                        $carbon = new Carbon($userInfo);
+                        $message['messages'][] = sprintf(preg_replace("/\r|\n/", '', file_get_contents('json/scenario_schedule_fixed.json')), $carbon->format('Y年m月d日'));
+                    } else {
+                        $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/scenario_schedule_dont_fixed.json'));
                     }
                     break;
                 case 'visit_before':
