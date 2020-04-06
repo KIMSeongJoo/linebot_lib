@@ -41,7 +41,7 @@ try {
                 $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/start_01.json'));
                 $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/start_02.json'));
 
-            } elseif ($text === 'scenario_start') {
+            } elseif ($text === 'scenario') {
                 $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/scenario_start.json'));
             }
 
@@ -178,6 +178,7 @@ try {
                     break;
 
             }
+            error_log(count($message));
 
             $message['replyToken'] = $bot->getReplyToken();
             $response = curlTest($message);
