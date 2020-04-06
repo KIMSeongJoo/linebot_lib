@@ -35,7 +35,7 @@
             "type": "postback",
             "label": "契約に進めそう",
             "text": "契約に進めそう",
-            "data": "契約に進めそう"
+            "data": "contract_ok"
           },
           "color": "#ED6103",
           "style": "primary"
@@ -46,7 +46,7 @@
             "type": "postback",
             "label": "もっと考えたい",
             "text": "もっと考えたい",
-            "data": "もっと考えたい"
+            "data": "contract_no"
           },
           "color": "#ED6103",
           "style": "primary"

@@ -168,7 +168,7 @@ try {
                     // 見学してない
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_after_02-01-02.json'));
                     break;
-                case 'contract_go':
+                case 'contract_ok':
                     // 契約に進めそう
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_after_02-02.json'));
                     break;
