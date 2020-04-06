@@ -41,7 +41,7 @@
           "action": {
             "type": "datetimepicker",
             "label": "予定日を入力する",
-            "data": "住み替え予定日登録",
+            "data": "scenario_03_date",
             "mode": "date",
             "initial": "2020-04-01",
             "max": "2025-12-31",
@@ -56,7 +56,7 @@
             "type": "postback",
             "label": "予定日が決まっていない",
             "text": "予定日が決まっていない",
-            "data": "予定日が決まっていない"
+            "data": "scenario_03_date"
           },
           "color": "#ED6103",
           "style": "primary"
