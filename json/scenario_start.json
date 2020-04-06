@@ -107,8 +107,8 @@
           "type": "button",
           "action": {
             "type": "postback",
-            "label": "契約後３日後",
-            "text": "契約後３日後",
+            "label": "契約後３日目",
+            "text": "契約後３日目",
             "data": "contract_after_01"
           },
           "color": "#ED6103",
