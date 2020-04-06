@@ -1,0 +1,47 @@
+{
+  "type": "template",
+  "altText": "this is a carousel template",
+  "template": {
+    "type": "carousel",
+    "actions": [],
+    "columns": [
+      {
+        "thumbnailImageUrl": "https://s3-ap-northeast-1.amazonaws.com/homes-cont/uploads/cont/62622/img/pixta_20864881_S-12.jpg",
+        "title": "専属アドバイザーに無料で相談しませんか？",
+        "text": "LIFULL HOME'S 住まいの窓口は、あなたが理想の不動産会社に出会えるまで、何度でもサポートします。",
+        "actions": [
+          {
+            "type": "uri",
+            "label": "住まいの窓口とは？",
+            "uri": "https://www.homes.co.jp/counter/"
+          }
+        ]
+      },
+      {
+        "thumbnailImageUrl": "https://t15.pimg.jp/030/376/175/1/30376175.jpg",
+        "title": "LINE相談も出来ます！",
+        "text": "お手持ちのスマートフォンのLINEから、アドバイザーと直接やり取りが出来ます。お気軽にご相談ください！",
+        "actions": [
+          {
+            "type": "postback",
+            "label": "LINEで無料相談する",
+            "text": "相談する",
+            "data": "相談する"
+          }
+        ]
+      },
+      {
+        "thumbnailImageUrl": "https://t10.pimg.jp/043/494/850/1/43494850.jpg",
+        "title": "専門家監修の無料講座も開催中！",
+        "text": "住まいの窓口では、一戸建ての建築・購入を検討中の方向けの講座を無料で提供しています。",
+        "actions": [
+          {
+            "type": "uri",
+            "label": "無料講座を探す",
+            "uri": "https://www.homes.co.jp/counter/seminar/"
+          }
+        ]
+      }
+    ]
+  }
+}

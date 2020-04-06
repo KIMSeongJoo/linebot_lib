@@ -187,6 +187,17 @@ try {
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_after_02-02-03.json'));
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_after_02-02-04.json'));
                     break;
+                case 'contract_check':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_after_02-02-03.json'));
+                    break;
+                case 'contract_go':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/contract_go_01.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/contract_go_02.json'));
+                    break;
+                case 'contract_dont_go':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/contract_go_no_01.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/contract_go_no_02.json'));
+                    break;
 
             }
             error_log(count($message));

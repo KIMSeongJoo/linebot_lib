@@ -141,6 +141,19 @@
           "margin": "sm",
           "height": "sm",
           "style": "primary"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "postback",
+            "label": "契約チェック",
+            "text": "契約チェック",
+            "data": "contract_check"
+          },
+          "color": "#ED6103",
+          "margin": "sm",
+          "height": "sm",
+          "style": "primary"
         }
       ]
     }
