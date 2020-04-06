@@ -36,12 +36,12 @@ try {
             $actions = test_quick_action();
 
             $message = [];
-            if ($text === "start") {
+            if ($text === "開始") {
 //                $text = file_get_contents('json/start_01.json');
                 $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/start_01.json'));
                 $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/start_02.json'));
 
-            } elseif ($text === 'scenario') {
+            } elseif ($text === 'シナリオ') {
                 $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/scenario_start.json'));
             }
 
@@ -188,7 +188,7 @@ try {
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_after_02-02-04.json'));
                     break;
                 case 'contract_check':
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_after_02-02-03.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/contract_check.json'));
                     break;
                 case 'contract_go':
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/contract_go_01.json'));
