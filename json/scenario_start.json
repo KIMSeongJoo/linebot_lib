@@ -100,6 +100,19 @@
               "margin": "sm",
               "height": "sm",
               "style": "primary"
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "postback",
+                "label": "契約チェック",
+                "text": "契約チェック",
+                "data": "contract_check"
+              },
+              "color": "#ED6103",
+              "margin": "sm",
+              "height": "sm",
+              "style": "primary"
             }
           ]
         },
@@ -107,8 +120,8 @@
           "type": "button",
           "action": {
             "type": "postback",
-            "label": "契約後３日目",
-            "text": "契約後３日目",
+            "label": "契約後３日後",
+            "text": "契約後３日後",
             "data": "contract_after_01"
           },
           "color": "#ED6103",
@@ -136,19 +149,6 @@
             "label": "契約後７日目",
             "text": "契約後７日目",
             "data": "contract_after_03"
-          },
-          "color": "#ED6103",
-          "margin": "sm",
-          "height": "sm",
-          "style": "primary"
-        },
-        {
-          "type": "button",
-          "action": {
-            "type": "postback",
-            "label": "契約チェック",
-            "text": "契約チェック",
-            "data": "contract_check"
           },
           "color": "#ED6103",
           "margin": "sm",
