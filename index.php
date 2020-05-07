@@ -71,6 +71,8 @@ try {
                 $post_text .= $key . ":" . $value . "\n";
             }
 
+            error_log($post_data);
+
             // postback action
             switch ($post_data) {
                 case 'info_months':
