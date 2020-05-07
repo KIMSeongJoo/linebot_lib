@@ -1,0 +1,247 @@
+{
+  "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "carousel",
+    "contents": [
+      {
+        "type": "bubble",
+        "hero": {
+          "type": "image",
+          "url": "https://t13.pimg.jp/054/310/363/1/54310363.jpg",
+          "size": "full",
+          "aspectRatio": "20:13",
+          "aspectMode": "cover",
+          "action": {
+            "type": "uri",
+            "label": "Action",
+            "uri": "https://linecorp.com/"
+          }
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "理想の暮らしをイメージしよう",
+                  "size": "md",
+                  "align": "start",
+                  "weight": "bold",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "・日曜日はウッドデッキで昼寝したい",
+                  "size": "xs"
+                },
+                {
+                  "type": "text",
+                  "text": "・犬を飼いたい",
+                  "size": "xs"
+                },
+                {
+                  "type": "text",
+                  "text": "・リビングは家族団らんの空間にしたい",
+                  "size": "xs",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "・家事のしやすい間取りにこだわりたい",
+                  "size": "xs"
+                },
+                {
+                  "type": "text",
+                  "text": "書き出して優先順位をつけておくといいよっ！やってみてね~っ★",
+                  "size": "xs",
+                  "weight": "bold",
+                  "wrap": true
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "type": "bubble",
+        "hero": {
+          "type": "image",
+          "url": "https://t12.pimg.jp/057/555/552/1/57555552.jpg",
+          "size": "full",
+          "aspectRatio": "20:13",
+          "aspectMode": "cover",
+          "action": {
+            "type": "uri",
+            "label": "Action",
+            "uri": "https://linecorp.com/"
+          }
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "話し合って、条件の優先順位をつけよう",
+                  "size": "md",
+                  "align": "start",
+                  "weight": "bold",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "大きく3つについて、考えてみようっ！",
+                  "size": "xs"
+                },
+                {
+                  "type": "text",
+                  "text": "・住みたいエリア・駅",
+                  "size": "xs"
+                },
+                {
+                  "type": "text",
+                  "text": "・交通の便（通勤・通学時間、駅徒歩）",
+                  "size": "xs",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "・間取り・広さ",
+                  "size": "xs"
+                },
+                {
+                  "type": "text",
+                  "text": "家族みんなで話すと気付かなかったアイデアや意見が出てくることもあるよっ！",
+                  "size": "xs",
+                  "weight": "bold",
+                  "wrap": true
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "type": "bubble",
+        "hero": {
+          "type": "image",
+          "url": "https://t16.pimg.jp/063/050/076/1/63050076.jpg",
+          "size": "full",
+          "aspectRatio": "20:13",
+          "aspectMode": "cover",
+          "action": {
+            "type": "uri",
+            "label": "Action",
+            "uri": "https://linecorp.com/"
+          }
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "意見を無理に合わせる必要はない！",
+                  "size": "md",
+                  "align": "start",
+                  "weight": "bold",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "お互いに大事にしたい条件が違う場合もあるけど、まだ意見をムリに合わせる必要はないよ~っ★",
+                  "size": "xs",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "とりあえず優先順位を決めておいて、あとで不動産屋さんと一緒にすり合わせていけば大丈夫なんだっ！！",
+                  "size": "xs",
+                  "wrap": true
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "type": "bubble",
+        "hero": {
+          "type": "image",
+          "url": "https://t14.pimg.jp/056/252/784/1/56252784.jpg",
+          "size": "full",
+          "aspectRatio": "20:13",
+          "aspectMode": "cover",
+          "action": {
+            "type": "uri",
+            "label": "Action",
+            "uri": "https://linecorp.com/"
+          }
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "詳しくはこちら",
+                  "size": "md",
+                  "align": "start",
+                  "weight": "bold",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "物件探しをスムーズにするためには、あなたが「どのような家に住みたいのか」を理解することが大事なんだ～っ♪",
+                  "size": "xs",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "もっと詳しく知りたい人は、見てみてね～っ★☆彡",
+                  "size": "xs",
+                  "wrap": true
+                }
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "horizontal",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "uri",
+                "label": "「条件整理」の情報を見る",
+                "uri": "https://www.homes.co.jp/cont/living/living_00382/"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

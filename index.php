@@ -5,6 +5,7 @@ use \LINE\LINEBot\Constant\HTTPHeader;
 use Carbon\Carbon;
 
 $bot = new LineBotClass();
+$jsonBasePath = "json/proto2/";
 
 try {
     // メッセージがなくなるまでループ
@@ -37,10 +38,8 @@ try {
 
             $message = [];
             if ($text === "開始") {
-//                $text = file_get_contents('json/start_01.json');
-                $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/start_01.json'));
-                $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/start_02.json'));
-
+                $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath .'information_01.json'));
+                $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath .'information_02.json'));
             } elseif ($text === 'シナリオ') {
                 $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/scenario_start.json'));
             }
@@ -72,133 +71,46 @@ try {
                 $post_text .= $key . ":" . $value . "\n";
             }
 
-            error_log($post_data);
-
             // postback action
             switch ($post_data) {
-                case 'schedule_months':
-                case 'schedule_3_months':
-                case 'schedule_under_year':
-                case 'schedule_over_year':
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/schedule_confirm.json'));
+                case 'info_months':
+                    // 3ヶ月以内
+                case 'info_half_year':
+                    // 半年以内
+                case 'info_under_year':
+                    // １年以内
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'information_06.json'));
                     break;
-                case 'schedule_detail':
-                    $date = $bot->get_post_params();
-                    $userInfo = null;
-                    if (count($date) > 0) {
-                        foreach ($date as $key => $val) {
-                            if ( $key === 'date') {
-                                $userInfo = $val;
-                            }
-                        }
-                    }
-                    if(!is_null($userInfo)) {
-                        $carbon = new Carbon($userInfo);
-                        $message['messages'][] = sprintf(preg_replace("/\r|\n/", '', file_get_contents('json/schedule_fixed.json')), $carbon->format('Y年m月d日'));
-                    } else {
-                        $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/schedule_dont_fixed.json'));
-                    }
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/schedule_fixed_information.json'));
+                case 'info_over_year':
+                    // １年以上
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'information_03.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'information_04.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'information_05.json'));
                     break;
-                case 'scenario_01':
-                    // 2日目
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/scenario_01-01.json'));
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/scenario_01-02.json'));
+                case 'information_next':
+                    // 次へ
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'information_07.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'information_08.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'information_09.json'));
                     break;
-                case 'scenario_02':
-                    // 4日目
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/scenario_02-01.json'));
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/scenario_02-02.json'));
+                case 'information_dont_image':
+                    // 具体的なイメージはない
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'information_09.json'));
                     break;
-                case 'scenario_03':
-                    // 7日目
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/scenario_03-01.json'));
+                case 'information_go_money':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'information_13.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'information_14.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'information_15.json'));
                     break;
-                case 'scenario_03_date':
-                    // 7日目日付入力
-                    $date = $bot->get_post_params();
-                    error_log($date);
-                    $userInfo = null;
-                    if (count($date) > 0) {
-                        foreach ($date as $key => $val) {
-                            if ( $key === 'date') {
-                                $userInfo = $val;
-                            }
-                        }
-                    }
-                    // 日付が入力されたら
-                    if(!is_null($userInfo)) {
-                        $carbon = new Carbon($userInfo);
-                        $message['messages'][] = sprintf(preg_replace("/\r|\n/", '', file_get_contents('json/scenario_schedule_fixed.json')), $carbon->format('Y年m月d日'));
-                        $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/scenario_03-02.json'));
-                    } else {
-                        $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/scenario_schedule_dont_fixed.json'));
-                    }
+                case 'information_go_detail':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'information_10.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'information_11.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'information_12.json'));
                     break;
-                case 'visit_before':
-                    // 前日
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_before_01-01.json'));
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_before_01-02.json'));
+                case 'information_money_more':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'information_16.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'information_15.json'));
                     break;
-                case 'visit_after':
-                    // 翌日
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_after_01-01.json'));
-                    break;
-                case 'contract_after_01':
-                    // 契約後３日
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/contract_after_01-01.json'));
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/contract_after_01-02.json'));
-                    break;
-                case 'contract_after_02':
-                    // 契約後４日
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/contract_after_02-01.json'));
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/contract_after_02-02.json'));
-                    break;
-                case 'contract_after_03':
-                    // 契約後７日
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/contract_after_03-01.json'));
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/contract_after_03-02.json'));
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/contract_after_03-03.json'));
-                    break;
-                case 'visit_complete':
-                    // 見学した
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_after_02-01-01.json'));
-                    break;
-                case 'visit_dont_complete':
-                    // 見学してない
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_after_02-01-02.json'));
-                    break;
-                case 'contract_ok':
-                    // 契約に進めそう
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_after_02-02.json'));
-                    break;
-                case 'contract_no':
-                    // 契約・もっと考える
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_after_02-03-01.json'));
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_after_02-03-02.json'));
-                    break;
-                case 'type_mansion':
-                    // マンション
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_after_02-02-01.json'));
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_after_02-02-02.json'));
-                    break;
-                case 'type_build':
-                    // 一戸建て
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_after_02-02-03.json'));
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/visit_after_02-02-04.json'));
-                    break;
-                case 'contract_check':
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/contract_check.json'));
-                    break;
-                case 'contract_go':
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/contract_go_01.json'));
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/contract_go_02.json'));
-                    break;
-                case 'contract_dont_go':
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/contract_go_no_01.json'));
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/contract_go_no_02.json'));
-                    break;
-
             }
             error_log(count($message));
 

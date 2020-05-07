@@ -1,0 +1,48 @@
+{
+  "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "bubble",
+    "direction": "ltr",
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "md",
+      "contents": [
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "具体的な年月のイメージはあるかな~っ？？",
+              "align": "start",
+              "wrap": true
+            },
+            {
+              "type": "text",
+              "text": "「2022年3月」みたいに送ってみて~★ゴールにあわせたスケジュールを教えるよっ！！",
+              "wrap": true
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "horizontal",
+          "spacing": "md",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "postback",
+                "label": "具体的なイメージはない",
+                "text": "具体的なイメージはない",
+                "data": "information_dont_image"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

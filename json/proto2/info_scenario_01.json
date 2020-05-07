@@ -1,0 +1,75 @@
+{
+  "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "bubble",
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "md",
+      "contents": [
+        {
+          "type": "box",
+          "layout": "vertical",
+          "flex": 1,
+          "contents": [
+            {
+              "type": "text",
+              "text": "物件の見学予定日はもう決まった？予定日を入力してくれたら、",
+              "size": "md",
+              "align": "start",
+              "wrap": true
+            },
+            {
+              "type": "text",
+              "text": "物件見学のチェックリスト",
+              "size": "md",
+              "align": "start",
+              "weight": "bold",
+              "wrap": true
+            },
+            {
+              "type": "text",
+              "text": "を送るよ~っ♪住み始めてからのトラブルを避けるために、みてほしいなぁ~っ★",
+              "size": "md",
+              "align": "start",
+              "wrap": true
+            }
+          ]
+        }
+      ]
+    },
+    "footer": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "md",
+      "contents": [
+        {
+          "type": "button",
+          "action": {
+            "type": "datetimepicker",
+            "label": "予定日を入力する",
+            "data": "info_schedule_date",
+            "mode": "date",
+            "initial": "2020-04-01",
+            "max": "2025-12-31",
+            "min": "2020-04-01"
+          },
+          "color": "#ED6103",
+          "style": "primary"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "postback",
+            "label": "予定日が決まっていない",
+            "text": "予定日が決まっていない",
+            "data": "info_schedule_no"
+          },
+          "color": "#ED6103",
+          "style": "primary"
+        }
+      ]
+    }
+  }
+}

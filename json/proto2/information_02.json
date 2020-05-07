@@ -1,0 +1,86 @@
+{
+  "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "bubble",
+    "direction": "ltr",
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "md",
+      "contents": [
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "まずは「ゴール」をイメージしてみようっ♪ どれくらいで住み替えたいかなっ？",
+              "size": "sm",
+              "align": "start",
+              "wrap": true
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "horizontal",
+          "spacing": "md",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "postback",
+                "label": "3ヶ月以内",
+                "text": "3ヶ月以内",
+                "data": "info_months"
+              },
+              "color": "#ED6103",
+              "style": "primary"
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "postback",
+                "label": "半年以内",
+                "text": "半年以内",
+                "data": "info_half_year"
+              },
+              "color": "#ED6103",
+              "style": "primary"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "horizontal",
+          "spacing": "md",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "postback",
+                "label": "1年以内",
+                "text": "1年以内",
+                "data": "info_under_year"
+              },
+              "color": "#ED6103",
+              "style": "primary"
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "postback",
+                "label": "1年以上先",
+                "text": "1年以上先",
+                "data": "info_over_year"
+              },
+              "color": "#ED6103",
+              "style": "primary"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
