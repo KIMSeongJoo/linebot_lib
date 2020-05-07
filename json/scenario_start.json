@@ -34,8 +34,8 @@
               "type": "button",
               "action": {
                 "type": "postback",
-                "label": "1 : 2日目",
-                "text": "1 : 2日目",
+                "label": "1 : 3日目",
+                "text": "1 : 3日目",
                 "data": "scenario_01"
               },
               "color": "#ED6103",
@@ -47,8 +47,8 @@
               "type": "button",
               "action": {
                 "type": "postback",
-                "label": "2 : 4日目",
-                "text": "2 : 4日目",
+                "label": "2 : 2-2-1（見学予定日前日）",
+                "text": "2 : 2-2-1（見学予定日前日）",
                 "data": "scenario_02"
               },
               "color": "#ED6103",
@@ -60,28 +60,22 @@
               "type": "button",
               "action": {
                 "type": "postback",
-                "label": "3 : 7日目",
-                "text": "3 : 7日目",
+                "label": "3 : 2-3-1（見学予定日翌日）",
+                "text": "3 : 2-3-1（見学予定日翌日）",
                 "data": "scenario_03"
               },
               "color": "#ED6103",
               "margin": "sm",
               "height": "sm",
               "style": "primary"
-            }
-          ]
-        },
-        {
-          "type": "box",
-          "layout": "vertical",
-          "contents": [
+            },
             {
               "type": "button",
               "action": {
                 "type": "postback",
-                "label": "4 : 見学前日",
-                "text": "4 : 見学前日",
-                "data": "visit_before"
+                "label": "4 : 2-10-1（見学14日後）",
+                "text": "4 : 2-10-1（見学14日後）",
+                "data": "scenario_04"
               },
               "color": "#ED6103",
               "margin": "sm",
@@ -92,9 +86,9 @@
               "type": "button",
               "action": {
                 "type": "postback",
-                "label": "5 : 見学翌日",
-                "text": "5 : 見学翌日",
-                "data": "visit_after"
+                "label": "5 : 2-10-1（契約済み翌日）",
+                "text": "5 : 2-10-1（契約済み翌日）",
+                "data": "scenario_05"
               },
               "color": "#ED6103",
               "margin": "sm",
@@ -105,55 +99,30 @@
               "type": "button",
               "action": {
                 "type": "postback",
-                "label": "6 : 契約チェック",
-                "text": "6 : 契約チェック",
-                "data": "contract_check"
+                "label": "6 : 2-10-1（契約済み２日後）",
+                "text": "6 : 2-10-1（契約済み２日後）",
+                "data": "scenario_06"
+              },
+              "color": "#ED6103",
+              "margin": "sm",
+              "height": "sm",
+              "style": "primary"
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "postback",
+                "label": "7 : 2-10-1（契約済み１６日後）",
+                "text": "7 : 2-10-1（契約済み１６日後）",
+                "data": "scenario_07"
               },
               "color": "#ED6103",
               "margin": "sm",
               "height": "sm",
               "style": "primary"
             }
+
           ]
-        },
-        {
-          "type": "button",
-          "action": {
-            "type": "postback",
-            "label": "7 : 契約後３日後",
-            "text": "7 : 契約後３日後",
-            "data": "contract_after_01"
-          },
-          "color": "#ED6103",
-          "margin": "sm",
-          "height": "sm",
-          "style": "primary"
-        },
-        {
-          "type": "button",
-          "action": {
-            "type": "postback",
-            "label": "8 : 契約後４日目",
-            "text": "8 : 契約後４日目",
-            "data": "contract_after_02"
-          },
-          "color": "#ED6103",
-          "margin": "sm",
-          "height": "sm",
-          "style": "primary"
-        },
-        {
-          "type": "button",
-          "action": {
-            "type": "postback",
-            "label": "9 : 契約後７日目",
-            "text": "9 : 契約後７日目",
-            "data": "contract_after_03"
-          },
-          "color": "#ED6103",
-          "margin": "sm",
-          "height": "sm",
-          "style": "primary"
         }
       ]
     }

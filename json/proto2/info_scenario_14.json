@@ -1,0 +1,57 @@
+{
+  "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "bubble",
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "md",
+      "contents": [
+        {
+          "type": "box",
+          "layout": "vertical",
+          "flex": 1,
+          "contents": [
+            {
+              "type": "text",
+              "text": "お気に入りの物件に出会うことはできたかな～っ？",
+              "size": "md",
+              "align": "start",
+              "wrap": true
+            }
+          ]
+        }
+      ]
+    },
+    "footer": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "md",
+      "contents": [
+        {
+          "type": "button",
+          "action": {
+            "type": "postback",
+            "label": "出会えた！",
+            "text": "出会えた！",
+            "data": "buil_comp"
+          },
+          "color": "#ED6103",
+          "style": "primary"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "postback",
+            "label": "出会えなかった",
+            "text": "出会えなかった",
+            "data": "build_no_comp"
+          },
+          "color": "#ED6103",
+          "style": "primary"
+        }
+      ]
+    }
+  }
+}

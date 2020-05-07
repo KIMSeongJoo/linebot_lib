@@ -1,0 +1,83 @@
+{
+  "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "bubble",
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "lg",
+      "contents": [
+        {
+          "type": "box",
+          "layout": "vertical",
+          "flex": 1,
+          "contents": [
+            {
+              "type": "text",
+              "text": "お気に入りの物件に出会えたんだね~っ★おウチとの出会いは一期一会！！よかったね~っ！！",
+              "size": "md",
+              "align": "start",
+              "wrap": true
+            },
+            {
+              "type": "text",
+              "text": "申し込むのかな？それとも、もっと見学する？？",
+              "size": "md",
+              "align": "start",
+              "wrap": true
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "md",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "postback",
+                "label": "申し込みたい",
+                "text": "申し込みたい",
+                "data": "need_build"
+              },
+              "color": "#ED6103",
+              "style": "primary"
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "postback",
+                "label": "もっと見学する",
+                "text": "もっと見学する",
+                "data": "dont_need"
+              },
+              "color": "#ED6103",
+              "style": "primary"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "お金について気になるなら、これを読んでみてね~っ★",
+              "wrap": true
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "uri",
+                "label": "ローンの無理ない返済額",
+                "uri": "https://www.homes.co.jp/cont/money/money_00276/"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

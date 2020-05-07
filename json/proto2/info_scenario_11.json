@@ -1,0 +1,73 @@
+{
+  "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "bubble",
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "md",
+      "contents": [
+        {
+          "type": "box",
+          "layout": "vertical",
+          "flex": 1,
+          "contents": [
+            {
+              "type": "text",
+              "text": "無事物件の見学は終わったかなっ？   見学完了を報告してくれたら",
+              "size": "md",
+              "align": "start",
+              "wrap": true
+            },
+            {
+              "type": "text",
+              "text": "見学後の注意ポイント",
+              "size": "md",
+              "align": "start",
+              "weight": "bold",
+              "color": "#F00000",
+              "wrap": true
+            },
+            {
+              "type": "text",
+              "text": "をお知らせするよ~っ♪",
+              "size": "md",
+              "align": "start",
+              "wrap": true
+            }
+          ]
+        }
+      ]
+    },
+    "footer": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "md",
+      "contents": [
+        {
+          "type": "button",
+          "action": {
+            "type": "postback",
+            "label": "見学した",
+            "text": "見学した",
+            "data": "info_schedule_comp"
+          },
+          "color": "#ED6103",
+          "style": "primary"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "postback",
+            "label": "見学してない",
+            "text": "見学してない",
+            "data": "info_schedule_dont_go"
+          },
+          "color": "#ED6103",
+          "style": "primary"
+        }
+      ]
+    }
+  }
+}

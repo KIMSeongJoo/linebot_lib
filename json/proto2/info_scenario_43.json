@@ -1,0 +1,66 @@
+{
+  "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "bubble",
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "lg",
+      "contents": [
+        {
+          "type": "box",
+          "layout": "vertical",
+          "flex": 1,
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "text",
+              "text": "住み替えの準備は進んでるかな~っ？☆彡",
+              "size": "sm",
+              "align": "start",
+              "wrap": true
+            },
+            {
+              "type": "text",
+              "text": "「住み替えのサポート」はこれで終わりだよ~っ！ただ、これからもあなたの新しい生活が豊かになるようにサポートしていくね～っ♪",
+              "size": "sm",
+              "align": "start",
+              "wrap": true
+            },
+            {
+              "type": "text",
+              "text": "これからもよろしくねっ！★☆彡",
+              "size": "sm",
+              "align": "start",
+              "wrap": true
+            }
+          ]
+        }
+      ]
+    },
+    "footer": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "md",
+      "contents": [
+        {
+          "type": "text",
+          "text": "よかったらこのサービスを使った満足度を教えてほしいな~っ！！",
+          "size": "sm",
+          "wrap": true
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "uri",
+            "label": "アンケートに回答する",
+            "uri": "https://docs.google.com/forms/d/e/1FAIpQLSflrDDi5peT6IvdxjqUSqzid481Il3yE07MnPenHmJm1LJNXw/viewform?usp=sf_link"
+          },
+          "color": "#ED6103",
+          "style": "primary"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "bubble",
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "lg",
+      "contents": [
+        {
+          "type": "box",
+          "layout": "vertical",
+          "flex": 1,
+          "contents": [
+            {
+              "type": "text",
+              "text": "申し込みたいんだね~っ★",
+              "size": "md",
+              "align": "start",
+              "wrap": true
+            },
+            {
+              "type": "text",
+              "text": "マンションと一戸建てはどちらにしたのかな？？マンションか戸建てによって注意点が違うから教えて欲しいな~っ♪",
+              "size": "md",
+              "align": "start",
+              "wrap": true
+            }
+          ]
+        }
+      ]
+    },
+    "footer": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "md",
+      "contents": [
+        {
+          "type": "button",
+          "action": {
+            "type": "postback",
+            "label": "マンション",
+            "text": "マンション",
+            "data": "mansion"
+          },
+          "color": "#ED6103",
+          "style": "primary"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "postback",
+            "label": "一戸建て",
+            "text": "一戸建て",
+            "data": "build"
+          },
+          "color": "#ED6103",
+          "style": "primary"
+        }
+      ]
+    }
+  }
+}
