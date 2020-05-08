@@ -1,152 +1,156 @@
 {
-  "type": "bubble",
-  "body": {
-    "type": "box",
-    "layout": "vertical",
-    "contents": [
-      {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "text",
-            "text": "いよいよ明日は見学の日だよっ！",
-            "wrap": true,
-            "weight": "bold"
-          },
-          {
-            "type": "text",
-            "text": "持っていってほしいモノをお知らせするよ~っ♪",
-            "wrap": true
-          }
-        ],
-        "paddingBottom": "10px"
-      },
-      {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "text",
-            "text": "∴‥∵‥∴‥∵‥∴‥∴‥∵‥∴",
-            "align": "center"
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "text",
-                "text": "①事前に収集した資料・間取り図",
-                "weight": "bold",
-                "size": "sm"
-              }
-            ],
-            "paddingBottom": "5px"
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "text",
-                "text": "②筆記用具",
-                "weight": "bold",
-                "size": "sm"
-              },
-              {
-                "type": "text",
-                "text": "（気になったことを図面に書き込む）",
-                "size": "xs"
-              }
-            ],
-            "paddingBottom": "5px"
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "text",
-                "text": "③デジタルカメラやスマホ",
-                "weight": "bold",
-                "size": "sm"
-              },
-              {
-                "type": "text",
-                "text": "（イメージが記録できる）",
-                "size": "xs"
-              }
-            ],
-            "paddingBottom": "5px"
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "text",
-                "text": "④メジャー",
-                "weight": "bold",
-                "size": "sm"
-              },
-              {
-                "type": "text",
-                "text": "（室内の大きさを測るのに便利）",
-                "size": "xs"
-              }
-            ],
-            "paddingBottom": "5px"
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "text",
-                "text": "⑤手持ちの家具の大きさを記載したリスト",
-                "weight": "bold",
-                "size": "sm",
-                "wrap": true
-              }
-            ]
-          },
-          {
-            "type": "text",
-            "text": "∴‥∵‥∴‥∵‥∴‥∴‥∵‥∴",
-            "align": "center"
-          }
-        ],
-        "backgroundColor": "#fffaf0",
-        "cornerRadius": "10px",
-        "paddingAll": "10px"
-      },
-      {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "text",
-            "text": "ステキな住み替えが出来るように\nお守りをプレゼント～っ♪ \n\n気をつけて行ってきてねっ！！",
-            "wrap": true
-          }
-        ],
-        "paddingTop": "15px"
-      }
-    ]
-  },
-  "footer": {
-    "type": "box",
-    "layout": "vertical",
-    "contents": [
-      {
-        "type": "button",
-        "action": {
-          "type": "postback",
-          "label": "チェックリストを見る",
-          "data": "info_chk_list"
+  "type": "flex",
+  "altText": "文言文言",
+  "contents": {
+    "type": "bubble",
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "いよいよ明日は見学の日だよっ！",
+              "wrap": true,
+              "weight": "bold"
+            },
+            {
+              "type": "text",
+              "text": "持っていってほしいモノをお知らせするよ~っ♪",
+              "wrap": true
+            }
+          ],
+          "paddingBottom": "10px"
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "∴‥∵‥∴‥∵‥∴‥∴‥∵‥∴",
+              "align": "center"
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "①事前に収集した資料・間取り図",
+                  "weight": "bold",
+                  "size": "sm"
+                }
+              ],
+              "paddingBottom": "5px"
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "②筆記用具",
+                  "weight": "bold",
+                  "size": "sm"
+                },
+                {
+                  "type": "text",
+                  "text": "（気になったことを図面に書き込む）",
+                  "size": "xs"
+                }
+              ],
+              "paddingBottom": "5px"
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "③デジタルカメラやスマホ",
+                  "weight": "bold",
+                  "size": "sm"
+                },
+                {
+                  "type": "text",
+                  "text": "（イメージが記録できる）",
+                  "size": "xs"
+                }
+              ],
+              "paddingBottom": "5px"
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "④メジャー",
+                  "weight": "bold",
+                  "size": "sm"
+                },
+                {
+                  "type": "text",
+                  "text": "（室内の大きさを測るのに便利）",
+                  "size": "xs"
+                }
+              ],
+              "paddingBottom": "5px"
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "⑤手持ちの家具の大きさを記載したリスト",
+                  "weight": "bold",
+                  "size": "sm",
+                  "wrap": true
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": "∴‥∵‥∴‥∵‥∴‥∴‥∵‥∴",
+              "align": "center"
+            }
+          ],
+          "backgroundColor": "#fffaf0",
+          "cornerRadius": "10px",
+          "paddingAll": "10px"
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "ステキな住み替えが出来るように\nお守りをプレゼント～っ♪ \n\n気をつけて行ってきてねっ！！",
+              "wrap": true
+            }
+          ],
+          "paddingTop": "15px"
         }
-      }
-    ]
+      ]
+    },
+    "footer": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "button",
+          "action": {
+            "type": "postback",
+            "label": "チェックリストを見る",
+            "data": "info_chk_list"
+          }
+        }
+      ]
+    }
   }
 }
