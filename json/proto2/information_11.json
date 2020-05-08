@@ -1,0 +1,31 @@
+{
+  "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "bubble",
+    "direction": "ltr",
+    "footer": {
+      "type": "box",
+      "layout": "horizontal",
+      "contents": [
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "uri",
+                "label": "条件整理シートをDL",
+                "uri": "https://lifull-lineofficial-dev.s3-ap-northeast-1.amazonaws.com/scenario_message/条件整理シート（シナリオテスト用）.pdf"
+              },
+              "flex": 8,
+              "color": "#ED6103",
+              "style": "primary"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
