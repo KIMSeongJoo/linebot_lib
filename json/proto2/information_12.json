@@ -39,17 +39,6 @@
           },
           "color": "#ED6103",
           "style": "primary"
-        },
-        {
-          "type": "button",
-          "action": {
-            "type": "postback",
-            "label": "もっと詳しく",
-            "text": "もっと詳しく",
-            "data": "information_ng_detail_more"
-          },
-          "color": "#ED6103",
-          "style": "primary"
         }
       ]
     }
