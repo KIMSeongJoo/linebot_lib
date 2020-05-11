@@ -7,7 +7,7 @@ use Carbon\Carbon;
 $bot = new LineBotClass();
 $jsonBasePath = "json/proto2/";
 
-$richMenu1 = "richmenu-34b18d60ee521bc55af1b2a970a905c0";
+$richMenu1 = "richmenu-10c23c4ba60610843651b43109330b57";
 
 try {
     // メッセージがなくなるまでループ
@@ -313,11 +313,13 @@ try {
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick/more_info_01.json'));
                     break;
 
-                case 'rich_2-1':
-                    setRichMenu($userId, "richmenu-d5d17591356b87a1ca94d3e10dbdbb04");
+                case 'market:ry,method:status,visit_status:0':
+                    // 스테이터스 리치 메뉴로 전환
+                    setRichMenu($userId, "richmenu-9193c8ec6e914d790e6f59ce14fca499");
                     break;
-                case 'rich_3-1':
-                    setRichMenu($userId, "richmenu-afacc9b55b2d09f84d4549e54dd0bf1d");
+                case 'market:ry,method:info,visit_status:0':
+                    // 도움 되는 정보 리치 메뉴로 전환
+                    setRichMenu($userId, "richmenu-5a12ef887b0a7fbb506656a6da8e5c03");
                     break;
                 case 'rich_3-1-1':
                     // 리치 메뉴 도음되는 정보 1
