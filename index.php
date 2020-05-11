@@ -8,6 +8,45 @@ $bot = new LineBotClass();
 $jsonBasePath = "json/proto2/";
 
 $richMenu1 = "richmenu-10c23c4ba60610843651b43109330b57";
+$exceptionStringList = [
+    "3ヶ月以内"
+    , "半年以内 "
+    , "1年以内"
+    , "1年以上先"
+    , "OK！次へ"
+    , "年月を変更する"
+    , "OK！次はお金について"
+    , "もっと詳しく"
+    , "OK！次はお金について"
+    , "もっと見る"
+    ,"見学した"
+    ,"見学してない"
+    ,"出会えた！"
+    ,"出会えなかった"
+    ,"申し込みたい"
+    ,"もっと見学する"
+    ,"マンション"
+    ,"一戸建て"
+    ,"契約した"
+    ,"もっと考えたい"
+    ,"購入予算の計算方法"
+    ,"住宅ローン"
+    ,"相場金額を知りたい"
+    ,"何のお金が必要？"
+    ,"その他"
+    ,"お金について"
+    ,"条件整理の方法"
+    ,"家の買い時"
+    ,"住み替えの流れ・スケジュール"
+    ,"街の選び方"
+    ,"その他"
+    ,"物件情報収集の方法"
+    ,"不動産の選び方"
+    ,"家の種類"
+    ,"詳しい人の話が聞きたい"
+    ,"もっと色んな情報が見たい"
+    ,"戻る"
+];
 
 try {
     // メッセージがなくなるまでループ
@@ -55,7 +94,12 @@ try {
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'information_04.json'));
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'information_05.json'));
                 } else {
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath .'message_ng.json'));
+                    // 에러 안 나게 할 문자 체크
+                    if (!in_array($text, $exceptionStringList)) {
+                        $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath .'message_ng.json'));
+                    } else {
+                        return true;
+                    }
                 }
             }
 
