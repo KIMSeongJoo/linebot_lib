@@ -386,6 +386,9 @@ try {
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick/more_info_01.json'));
                     break;
 
+                case 'market:ry,method:status_change,visit_status:0':
+                    setRichMenu($userId, "richmenu-9193c8ec6e914d790e6f59ce14fca499");
+                    break;
                 case 'market:ry,method:status,visit_status:0':
                     // 스테이터스 리치 메뉴로 전환
                     setRichMenu($userId, "richmenu-9193c8ec6e914d790e6f59ce14fca499");
@@ -406,9 +409,20 @@ try {
                     setRichMenu($userId, "richmenu-6cd601bb86c53a20257a4ca068275d6b");
                     // 계약 완료
                     break;
+                case 'market:ry,method:now,visit_status:300':
+                    // 계약완료 -> 나의 상태
+                    setRichMenu($userId, "richmenu-88365fc382f39ce45e5cf526e0a32c98");
+                    break;
                 case 'market:ry,method:info_list,visit_status:0':
                     // 리치 메뉴 도음되는 정보 1
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick_1-1.json'));
+                    break;
+                case 'market:ry,method:info_list,visit_status:300':
+                    // 게약완료 -> 도음 정보
+                    setRichMenu($userId, "richmenu-616f0d3f1a0c7493913f8ea10785007c");
+                    break;
+                case 'market:ry,method:move,visit_status:300':
+                    // 계약 완료 -> 이사
                     break;
             }
             error_log(count($message));
