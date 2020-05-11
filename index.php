@@ -70,10 +70,10 @@ try {
         $userId = $bot->get_user_id();
 
         error_log("=================================== log tracking");
-        error_log('signature : ' . $_SERVER['HTTP_' . HTTPHeader::LINE_SIGNATURE] );
+//        error_log('signature : ' . $_SERVER['HTTP_' . HTTPHeader::LINE_SIGNATURE] );
         error_log('event_type : ' . $event_type);
         error_log('message_type : ' . $message_type);
-        error_log('reply_token : ' . $bot->getReplyToken());
+//        error_log('reply_token : ' . $bot->getReplyToken());
         error_log("log tracking ===================================");
 
         // オウム返し
@@ -96,6 +96,9 @@ try {
                 } else {
                     // 에러 안 나게 할 문자 체크
                     if (!in_array($text, $exceptionStringList)) {
+                        error_log("=========error text============");
+                        error_log($text);
+                        error_log("=========error text============");
                         $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath .'message_ng.json'));
                     } else {
                         return true;
@@ -129,8 +132,6 @@ try {
             foreach ((array)$post_params as $key => $value) {
                 $post_text .= $key . ":" . $value . "\n";
             }
-
-            error_log($post_data);
 
             // postback action
             switch ($post_data) {
@@ -430,7 +431,6 @@ try {
                     // 계약 완료 -> 이사
                     break;
             }
-            error_log(count($message));
 
             $message['replyToken'] = $bot->getReplyToken();
             $response = curlTest($message);
@@ -703,14 +703,8 @@ function curlTest($responseData)
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($curl, CURLOPT_HEADEROPT, true);
 
-    error_log($headers[0]);
-    error_log($headers[1]);
-
     $result = curl_exec($curl);
     $info = curl_getinfo($curl);
-
-    error_log($result);
-    error_log($info['http_code']);
 
     if (!$result && $info['http_code'] !== 200) {
         error_log(curl_error($curl));
