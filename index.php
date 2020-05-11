@@ -134,7 +134,22 @@ try {
                     break;
                 case 'info_schedule_date':
                     // 見学予定日入力
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_06.json'));
+                    $userInfo = null;
+                    $date = $bot->get_post_params();
+                    if (count($date) > 0) {
+                        foreach ($date as $key => $val) {
+                            if ( $key === 'date') {
+                                $userInfo = $val;
+                            }
+                        }
+                    }
+                    if(!is_null($userInfo)) {
+                        $carbon = new Carbon($userInfo);
+                        $message['messages'][] = sprintf(preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_06.json')), $carbon->format('Y年m月d日'));
+//                        $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_06.json'));
+                    } else {
+                        $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_06.json'));
+                    }
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_07.json'));
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick_2-1.json'));
                     break;
