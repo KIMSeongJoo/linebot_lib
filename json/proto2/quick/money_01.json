@@ -1,0 +1,88 @@
+{
+  "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "bubble",
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "lg",
+      "contents": [
+        {
+          "type": "box",
+          "layout": "vertical",
+          "flex": 1,
+          "contents": [
+            {
+              "type": "text",
+              "text": "気になるのはなにかな～っ？？",
+              "size": "md",
+              "align": "start",
+              "wrap": true
+            }
+          ]
+        }
+      ]
+    },
+    "footer": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "md",
+      "contents": [
+        {
+          "type": "button",
+          "action": {
+            "type": "postback",
+            "label": "購入予算の計算方法",
+            "text": "購入予算の計算方法",
+            "data": "quick_1-1"
+          },
+          "color": "#ED6103",
+          "style": "primary"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "postback",
+            "label": "住宅ローン",
+            "text": "住宅ローン",
+            "data": "quick_1-2"
+          },
+          "color": "#ED6103",
+          "style": "primary"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "postback",
+            "label": "相場金額を知りたい",
+            "text": "相場金額を知りたい",
+            "data": "quick_1-3"
+          },
+          "color": "#ED6103",
+          "style": "primary"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "postback",
+            "label": "何のお金が必要？",
+            "text": "何のお金が必要？",
+            "data": "quick_1-4"
+          },
+          "color": "#ED6103",
+          "style": "primary"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "postback",
+            "label": "その他",
+            "text": "その他",
+            "data": "quick_1-5"
+          }
+        }
+      ]
+    }
+  }
+}

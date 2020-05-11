@@ -1,0 +1,125 @@
+{
+  "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "carousel",
+    "contents": [
+      {
+        "type": "bubble",
+        "hero": {
+          "type": "image",
+          "url": "https://s3-ap-northeast-1.amazonaws.com/homes-cont/uploads/cont/62622/img/pixta_18234313_M-1-640x455.jpg",
+          "size": "full",
+          "aspectRatio": "20:13",
+          "aspectMode": "cover",
+          "action": {
+            "type": "uri",
+            "label": "Action",
+            "uri": "https://linecorp.com/"
+          }
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "md",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "vertical",
+              "flex": 1,
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "条件整理の手順を知りたいあなたに",
+                  "size": "md",
+                  "align": "start",
+                  "weight": "bold",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "理想のマイホームはどんな家？最初の条件整理と話し合い",
+                  "size": "sm",
+                  "wrap": true
+                }
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "horizontal",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "uri",
+                "label": "詳細をみる",
+                "uri": "https://www.homes.co.jp/cont/living/living_00382/"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "bubble",
+        "hero": {
+          "type": "image",
+          "url": "https://s3-ap-northeast-1.amazonaws.com/homes-cont/uploads/cont/62622/img/cc9a6e5df7fece3a78b4bfefeaf7c64c-640x395.png",
+          "size": "full",
+          "aspectRatio": "20:13",
+          "aspectMode": "cover",
+          "action": {
+            "type": "uri",
+            "label": "Action",
+            "uri": "https://linecorp.com/"
+          }
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "md",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "vertical",
+              "flex": 1,
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "その他の「条件整理」に関するお役立ち情報",
+                  "size": "md",
+                  "align": "start",
+                  "weight": "bold",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "LIFULL HOME'S 住まいのお役立ち情報",
+                  "size": "sm",
+                  "wrap": true
+                }
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "horizontal",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "uri",
+                "label": "詳細をみる",
+                "uri": "https://www.homes.co.jp/cont/?s=条件整理"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "bubble",
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "lg",
+      "contents": [
+        {
+          "type": "box",
+          "layout": "vertical",
+          "flex": 1,
+          "contents": [
+            {
+              "type": "text",
+              "text": "気になるのはなにかな～っ？？",
+              "size": "md",
+              "align": "start",
+              "wrap": true
+            }
+          ]
+        }
+      ]
+    },
+    "footer": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "md",
+      "contents": [
+        {
+          "type": "button",
+          "action": {
+            "type": "postback",
+            "label": "何から始めたらいい？",
+            "text": "何から始めたらいい？",
+            "data": "quick_4-1"
+          },
+          "color": "#ED6103",
+          "style": "primary"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "postback",
+            "label": "全体の流れ",
+            "text": "全体の流れ",
+            "data": "quick_4-2"
+          },
+          "color": "#ED6103",
+          "style": "primary"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "postback",
+            "label": "申込～入居までの流れ",
+            "text": "申込～入居までの流れ",
+            "data": "quick_4-3"
+          },
+          "color": "#ED6103",
+          "style": "primary"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "postback",
+            "label": "その他",
+            "text": "その他",
+            "data": "quick_4-4"
+          }
+        }
+      ]
+    }
+  }
+}

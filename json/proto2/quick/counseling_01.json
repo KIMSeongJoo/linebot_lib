@@ -1,0 +1,57 @@
+{
+  "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "bubble",
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "lg",
+      "contents": [
+        {
+          "type": "box",
+          "layout": "vertical",
+          "flex": 1,
+          "contents": [
+            {
+              "type": "text",
+              "text": "気になるのはなにかな～っ？？",
+              "size": "md",
+              "align": "start",
+              "wrap": true
+            }
+          ]
+        }
+      ]
+    },
+    "footer": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "md",
+      "contents": [
+        {
+          "type": "button",
+          "action": {
+            "type": "postback",
+            "label": "経験者の声",
+            "text": "経験者の声",
+            "data": "quick_9-1"
+          },
+          "color": "#ED6103",
+          "style": "primary"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "postback",
+            "label": "専門家の声",
+            "text": "専門家の声",
+            "data": "quick_9-2"
+          },
+          "color": "#ED6103",
+          "style": "primary"
+        }
+      ]
+    }
+  }
+}

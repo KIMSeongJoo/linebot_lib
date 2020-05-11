@@ -1,0 +1,60 @@
+{
+  "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "bubble",
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "lg",
+      "contents": [
+        {
+          "type": "box",
+          "layout": "vertical",
+          "flex": 1,
+          "contents": [
+            {
+              "type": "text",
+              "text": "【自分に合う種類を診断】のお役立ち情報だよ~っ★",
+              "size": "md",
+              "align": "start",
+              "wrap": true
+            },
+            {
+              "type": "text",
+              "text": "LIFULL HOME'Sでは、LINEで簡単な質問に答えるだけで、あなたに合う物件タイプを診断するサービスがあるよ~っ！",
+              "size": "xs",
+              "align": "start",
+              "wrap": true
+            },
+            {
+              "type": "text",
+              "text": "簡単だから、やってみてね~っ♪",
+              "size": "xs",
+              "align": "start",
+              "wrap": true
+            }
+          ]
+        }
+      ]
+    },
+    "footer": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "md",
+      "contents": [
+        {
+          "type": "button",
+          "action": {
+            "type": "postback",
+            "label": "物件タイプ診断スタート",
+            "text": "物件タイプ診断スタート",
+            "data": "物件タイプ診断スタート"
+          },
+          "color": "#ED6103",
+          "style": "primary"
+        }
+      ]
+    }
+  }
+}

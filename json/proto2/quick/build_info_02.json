@@ -1,0 +1,241 @@
+{
+  "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "carousel",
+    "contents": [
+      {
+        "type": "bubble",
+        "hero": {
+          "type": "image",
+          "url": "https://lifull-lineofficial.s3-ap-northeast-1.amazonaws.com/after_inquire/rent/cont/shinchikuma_kengakuyotei.png",
+          "size": "full",
+          "aspectRatio": "20:13",
+          "aspectMode": "cover",
+          "action": {
+            "type": "uri",
+            "label": "Action",
+            "uri": "https://linecorp.com/"
+          }
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "md",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "vertical",
+              "flex": 1,
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "「新築マンション」の情報を収集したいあなたに",
+                  "size": "md",
+                  "align": "start",
+                  "weight": "bold",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "新築マンションの探し方とは？情報収集の方法を紹介",
+                  "size": "sm",
+                  "wrap": true
+                }
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "horizontal",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "uri",
+                "label": "詳細をみる",
+                "uri": "https://www.homes.co.jp/cont/buy_mansion/buy_mansion_00351/"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "bubble",
+        "hero": {
+          "type": "image",
+          "url": "https://lifull-lineofficial.s3-ap-northeast-1.amazonaws.com/after_inquire/rent/cont/shinchikuko_kengakuyotei.png",
+          "size": "full",
+          "aspectRatio": "20:13",
+          "aspectMode": "cover",
+          "action": {
+            "type": "uri",
+            "label": "Action",
+            "uri": "https://linecorp.com/"
+          }
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "md",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "vertical",
+              "flex": 1,
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "「新築一戸建て」の情報を収集したいあなたに",
+                  "size": "md",
+                  "align": "start",
+                  "weight": "bold",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "情報収集が大事！新築一戸建ての上手な探し方",
+                  "size": "sm",
+                  "wrap": true
+                }
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "horizontal",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "uri",
+                "label": "詳細をみる",
+                "uri": "https://www.homes.co.jp/cont/buy_kodate/buy_kodate_00318/"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "bubble",
+        "hero": {
+          "type": "image",
+          "url": "https://s3-ap-northeast-1.amazonaws.com/homes-cont/uploads/cont/126743/img/pixta_39991396_S.jpg",
+          "size": "full",
+          "aspectRatio": "20:13",
+          "aspectMode": "cover",
+          "action": {
+            "type": "uri",
+            "label": "Action",
+            "uri": "https://linecorp.com/"
+          }
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "md",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "vertical",
+              "flex": 1,
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "WEBで見れない「未公開物件」が気になるあなたに",
+                  "size": "md",
+                  "align": "start",
+                  "weight": "bold",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "物件探しで見かける未公開物件とは？ よい点や注意点も解説",
+                  "size": "sm",
+                  "wrap": true
+                }
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "horizontal",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "uri",
+                "label": "詳細をみる",
+                "uri": "https://www.homes.co.jp/cont/buy_kodate/buy_kodate_00576/"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "bubble",
+        "hero": {
+          "type": "image",
+          "url": "https://t11.pimg.jp/064/116/681/1/64116681.jpg",
+          "size": "full",
+          "aspectRatio": "20:13",
+          "aspectMode": "cover",
+          "action": {
+            "type": "uri",
+            "label": "Action",
+            "uri": "https://linecorp.com/"
+          }
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "md",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "vertical",
+              "flex": 1,
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "その他の「情報収集」に関するお役立ち情報",
+                  "size": "md",
+                  "align": "start",
+                  "weight": "bold",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "LIFULL HOME'S 住まいのお役立ち情報",
+                  "size": "sm",
+                  "wrap": true
+                }
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "horizontal",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "uri",
+                "label": "詳細をみる",
+                "uri": "https://www.homes.co.jp/cont/?s=情報収集"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -103,7 +103,7 @@ try {
                     // お金について見る
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'information_13.json'));
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'information_14.json'));
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'information_15.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick_1-1.json'));
                     break;
                 case 'information_ng':
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'information_17.json'));
@@ -117,7 +117,7 @@ try {
                 case 'information_money_more':
                     // お金案内＞もっと見る
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'information_16.json'));
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'information_15.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick_1-1.json'));
                     break;
                 case 'scenario_01':
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_01.json'));
@@ -126,19 +126,20 @@ try {
                     // 見学予定日入力
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_06.json'));
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_07.json'));
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_08.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick_2-1.json'));
                     break;
                 case 'info_schedule_no':
                     // 予定日決まってない
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_02.json'));
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_03.json'));
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_04.json'));
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_05.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick_1-2.json'));
                     break;
                 case 'scenario_02':
                     // 予定日前日
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_09.json'));
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_10.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick_2-1.json'));
                     break;
                 case 'info_chk_list':
                     // チェックリスト
@@ -164,30 +165,30 @@ try {
                     // マンション
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_23.json'));
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_24.json'));
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_25.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick_3-2.json'));
                     break;
                 case 'build':
                     // 一戸建て
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_26.json'));
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_27.json'));
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_28.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick_3-2.json'));
                     break;
                 case 'dont_need':
                     // もっと見学する
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_19.json'));
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_20.json'));
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_22.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick_3-1.json'));
                     break;
                 case 'build_no_comp':
                     // 出会えなかった
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_15.json'));
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_16.json'));
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_17.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick_3-1.json'));
                     break;
                 case 'info_schedule_dont_go':
                     // 見学してない
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_12.json'));
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_13.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick_2-1.json'));
                     break;
                 case 'scenario_04':
                     // 契約した？
@@ -197,31 +198,111 @@ try {
                     // 契約した
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_33.json'));
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_34.json'));
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_35.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick_4-1.json'));
                     break;
                 case 'dont_contract':
                     // 契約してない
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_30.json'));
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_31.json'));
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_32.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick_3-2.json'));
                     break;
                 case 'scenario_05':
                     // 契約したー＞1日後
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_36.json'));
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_37.json'));
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_38.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick_4-1.json'));
                     break;
                 case 'scenario_06':
                     // 契約したー＞２日後
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_39.json'));
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_40.json'));
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_41.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick_4-1.json'));
                     break;
                 case 'scenario_07':
                     // 契約したー＞16日後
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_42.json'));
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_43.json'));
                     break;
+
+                case 'quick_money':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick/money_01.json'));
+                    break;
+                case 'quick_1-1':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick/money_01_01.json'));
+                    break;
+                case 'quick_1-2':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick/money_02_01.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick/money_02_02.json'));
+                    break;
+                case 'quick_1-3':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick/money_03_01.json'));
+                    break;
+                case 'quick_1-4':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick/money_04_01.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick/money_04_02.json'));
+                    break;
+                case 'quick_1-5':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick/money_05_01.json'));
+                    break;
+                case 'quick_condition':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick/condition_01.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick/condition_02.json'));
+                    break;
+                case 'quick_buy_home':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick/buy_home_01.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick/buy_home_02.json'));
+                    break;
+                case 'quick_schedule':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick/schedule_01.json'));
+                    break;
+                case 'quick_4-1':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick/schedule_01_01.json'));
+                    break;
+                case 'quick_4-2':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick/schedule_02_01.json'));
+                    break;
+                case 'quick_4-3':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick/schedule_03_01.json'));
+                    break;
+                case 'quick_4-4':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick/schedule_04_01.json'));
+                    break;
+                case 'quick_choice_town':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick/choice_town_01.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick/choice_town_02.json'));
+                    break;
+                case 'quick_build_info':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick/build_info_01.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick/build_info_02.json'));
+                    break;
+                case 'quick_estate':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick/estate_01.json'));
+                    break;
+                case 'quick_home_type':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick/home_type_01.json'));
+                    break;
+                case 'quick_8-1':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick/home_type_02_01.json'));
+                    break;
+                case 'quick_8-2':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick/home_type_03_01.json'));
+                    break;
+                case 'quick_8-3':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick/home_type_04_01.json'));
+                    break;
+                case 'quick_counseling':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick/counseling_01.json'));
+                    break;
+                case 'quick_9-1':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick/counseling_02_01.json'));
+                    break;
+                case 'quick_9-2':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick/counseling_03_01.json'));
+                    break;
+                case 'quick_more_info':
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick/more_info_01.json'));
+                    break;
+
             }
             error_log(count($message));
 
@@ -231,326 +312,6 @@ try {
 
 //            $bot->add_text_builder($post_text);
         }
-
-        // スタンプなら
-        if ($message_type == "sticker") {
-            $stame_id = $bot->get_stamp_id();
-            $id_text = "";
-            foreach ($stame_id as $key => $value) {
-                $id_text .= $key . ":" . $value . "\n";
-            }
-            $bot->add_text_builder($id_text);
-        }
-
-        // 位置情報なら
-        if ($message_type == "location") {
-            // 位置情報のデータを取得
-            $locaation = $bot->get_location();
-            $locaation_test = "";
-            foreach ($locaation as $key => $value) {
-                $locaation_test .= $key . ":" . $value . "\n";
-            }
-            // メッセージを追加
-            $bot->add_text_builder($locaation_test);
-        }
-
-        // 画像メッセージの追加
-        if ($text == "イメージ") {
-            $actions = test_quick_action();
-            $bot->add_image_builder($photo_url,$photo_url,$actions);
-        }
-
-        // 位置情報メッセージの追加
-        if ($text == "位置情報") {
-            // 位置情報
-            $title = "ゲームフリーク";
-            $address = "東京都世田谷区太子堂4丁目1番1号 キャロットタワー22階";
-            $lat = 35.643656;
-            $lon = 139.669046;
-            $bot->add_location_builder($title,$address,$lat,$lon);
-        }
-
-        // スタンプメッセージの追加
-        if ($text == "スタンプ") {
-            $actions = test_quick_action();
-            $bot->add_stamp_builder(141,2,$actions);
-        }
-
-        // 動画メッセージの追加
-        if ($text == "動画") {
-            $bot->add_video_builder($video_url,$photo_url);
-        }
-
-        // 音声メッセージの追加
-        if ($text == "音声") {
-            $bot->add_audeo_builder($audio_url,60000);
-        }
-
-        // ボタンテンプレート
-        if ($text == "ボタン") {
-            // アクションボタンの作成
-            $action_button = array();
-            $action_button[] = $bot->create_text_action_builder("TEXT_TYPE","text_test");
-            $action_button[] = $bot->create_post_action_builder("POST_TYPE","post_text");
-            $action_button[] = $bot->create_url_action_builder("URL_TYPE","https://developers.line.me/ja/reference/messaging-api/");
-            $action_button[] = $bot->create_date_action_builder("DATE_TYPE","date_text","datetime");
-            $default_action = $bot->create_text_action_builder("DEFAULT_ACTION","デフォルトアクション");
-            $quick_reply_actions = test_quick_action();
-            $result = $bot->add_button_template_builder("代替テキスト","アクションボタンのテストもかねて",$action_button,"テンプレートボタンテスト",$photo_url,$default_action,$quick_reply_actions);
-        }
-
-        // 確認テンプレート
-        if ($text == "確認") {
-            // 確認テンプレートの作成
-            $action_button = array();
-            // アクションの作成
-            $action_button[] = $bot->create_text_action_builder("Yes","Yes");
-            $action_button[] = $bot->create_text_action_builder("No","No");
-            $quick_reply_actions = test_quick_action();
-            $result = $bot->add_confirm_template_builder("代替テキスト","確認テンプレートのサンプル",$action_button,$quick_reply_actions);
-        }
-
-        // カルーセルテンプレート
-        if ($text == "カルーセル") {
-            // カルーセルテンプレートの作成
-            $column_builders = array();
-            for ($i=0; $i < 10; $i++) {
-                // アクションボタンの作成 1~3まで有効
-                $action_button = array();
-                $action_button[] = $bot->create_text_action_builder("TEXT_TYPE","text_test");
-                $action_button[] = $bot->create_post_action_builder("POST_TYPE","post_text");
-                $action_button[] = $bot->create_date_action_builder("DATETIME_TYPE","date_text","datetime");
-                // デフォルトアクションの作成
-                $data_text = "デフォルトアクションtest" . ($i+1);
-                $default_action = $bot->create_text_action_builder("TEXT_TYPE",$data_text);
-
-                // 本文
-                $text = ($i+1) . "ページ";
-                // タイトル
-                $title = "カルーセルテンプレートテスト";
-                // カラムテンプレートビルダーの作成
-                $result = $bot->create_carousel_column_template_builder($text,$action_button,$title,$photo_url,$default_action);
-                if ($result !== false) {
-                    $column_builders[] = $result;
-                }
-            }
-            $quick_reply_actions = test_quick_action();
-            // カルーセルテンプレートビルダーの追加
-            $bot->add_carousel_template_builder("代替テキスト",$column_builders,$quick_reply_actions);
-        }
-
-        // イメージカルーセルテンプレート
-        if ($text == "イメージカルーセル") {
-            // イメージカルーセルテンプレートの作成
-            $image_column_builders = array();
-            for ($i=1; $i <= 10; $i++) {
-                // アクションビルダーを作成
-                $action_builder = $bot->create_text_action_builder("イメージ" . $i,"イメージ" . $i);
-                // イメージカラムビルダーを作成
-                $image_column_builders[] = $bot->create_image_column_template_builder($photo_url,$action_builder);
-            }
-            $quick_reply_actions = test_quick_action();
-            // イメージカルーセルテンプレートの追加
-            $bot->add_image_carousel_template_builder("代替テキスト",$image_column_builders,$quick_reply_actions);
-        }
-
-        // イメージマップ
-        if ($text == "イメージマップ") {
-            // // イメージマップの作成
-            $action_area_builders = array();
-            // アクションエリアビルダーの作成
-            $action_area_builders[] = $bot->create_imagemap_action_area_builder(0,0,520,1040,"text","左");
-            $action_area_builders[] = $bot->create_imagemap_action_area_builder(520,0,520,1040,"text","右");
-            // ベースurl
-            $base_url = "https://hoge.com/hoge";
-            // イメージマップビルダーを追加
-            $result = $bot->add_imagemap_buildr("代替テキスト",$base_url,1040,$action_area_builders);
-            // 追加失敗ならエラーをスロー
-            if ($result === false) {
-                throw new Exception("イメージマップの追加失敗");
-            }
-        }
-
-        if ($text == "flex") {
-            $flex_box_main = array();
-            $flex_components = array();
-            $flex_bubble = array();
-
-            // flexサンプル
-            $flex_components['body'][] = $bot->create_text_component("タイトル",array("size"=>7,"weight"=>"bold"));
-            $flex_components['body'][] = $bot->create_text_component("小タイトル",array("size"=>5));
-            $flex_components['body'][] = $bot->create_text_component("本文",array("size"=>4,"wrap"=>true));
-            // 境界線
-            $flex_components['body'][] = $bot->create_separator_container();
-            $flex_components['body'][] = $bot->create_text_component("小タイトル2",array("size"=>5));
-            $flex_components['body'][] = $bot->create_text_component("本文2",array("size"=>4,"wrap"=>true));
-
-
-            // ボディメインボックス
-            $flex_box_main['body'] = $bot->create_box_component("vertical",$flex_components['body'],array("spacing"=>3));
-
-            // フッターのアクションボタン
-            $action = $bot->create_text_action_builder("次のflexSample","flex2");
-            $flex_components['footer'][] = $bot->create_button_component($action,array("style"=>"secondary"));
-            // フッターメインボックス
-            $flex_box_main['footer'] = $bot->create_box_component("vertical",$flex_components['footer'],array("spacing"=>3));
-
-            // ブロック
-            $bubble_blocks = array(
-                 "body" => $flex_box_main['body']
-                ,"footer" => $flex_box_main['footer']
-            );
-
-            // バブルコンテナを作成追加
-            $flex_bubble[] = $bot->create_bubble_container($bubble_blocks);
-
-            $quick_reply_actions = test_quick_action();
-            // flexメッセージを追加
-            $bot->add_flex_builder("sample_flex",$flex_bubble,$quick_reply_actions);
-        }
-
-        if ($text == "flex2") {
-            $flex_box_main = array();
-            $flex_components = array();
-            $flex_bubble = array();
-
-            // ヘッドの情報
-            $flex_components['header'][] = $bot->create_text_component("No.1",array("size"=>5,"color"=>"#1DB446"));
-            $flex_components['header'][] = $bot->create_text_component("タイトル",array("size"=>7,"wrap"=>true,"weight"=>"bold","color"=>"#e60033"));
-            $flex_components['header'][] = $bot->create_text_component("title",array("size"=>3,"color"=>"#939393"));
-            // ヘッドメインボックス
-            $flex_box_main['header'] = $bot->create_box_component("vertical",$flex_components['header'],array("spacing"=>4));
-
-            // ボディの情報
-            $flex_components['body'][] = $bot->create_text_component("小項目",array("size"=>5));
-            $flex_components['body'][] = create_item("アイテム","1",array("flex"=>1),array("flex"=>2));
-            $flex_components['body'][] = create_item("アイテム２","2",array("flex"=>1),array("flex"=>2));
-            // 境界線
-            $flex_components['body'][] = $bot->create_separator_container();
-
-            $flex_components['body'][] = $bot->create_text_component("小項目2",array("size"=>5));
-            $flex_components['body'][] = create_item("アイテム1","1",array("flex"=>1),array("flex"=>2));
-            $flex_components['body'][] = create_item("アイテム2","2",array("flex"=>1),array("flex"=>2));
-            $flex_components['body'][] = create_item("アイテム3","3",array("flex"=>1),array("flex"=>2));
-            // 境界線
-            $flex_components['body'][] = $bot->create_separator_container();
-
-            // ボディメインボックス
-            $flex_box_main['body'] = $bot->create_box_component("vertical",$flex_components['body'],array("spacing"=>3));
-
-            // フッターの情報
-            // フッターのアクションボタン
-            $action = $bot->create_text_action_builder("次のflexSample","flex3");
-            $flex_components['footer'][] = $bot->create_button_component($action,array("style"=>"secondary"));
-            // フッターメインボックス
-            $flex_box_main['footer'] = $bot->create_box_component("vertical",$flex_components['footer'],array("spacing"=>3));
-
-            // ブロック
-            $bubble_blocks = array(
-                 "header" => $flex_box_main['header']
-                ,"body" => $flex_box_main['body']
-                ,"footer" => $flex_box_main['footer']
-            );
-
-            // バブルコンテナを作成追加
-            $flex_bubble[] = $bot->create_bubble_container($bubble_blocks);
-
-            // flexメッセージを追加
-            $bot->add_flex_builder("sample_flex",$flex_bubble);
-        }
-
-        if ($text == "flex3") {
-            $flex_box_main = array();
-            $flex_components = array();
-            $flex_bubble = array();
-
-            // ヘッドの情報
-            $flex_components['header'][] = $bot->create_text_component("猫系プログラマー",array("size"=>7,"weight"=>"bold","color"=>"#e60033"));
-            // ヘッドメインボックス
-            $flex_box_main['header'] = $bot->create_box_component("vertical",$flex_components['header'],array("spacing"=>4));
-
-            // ボディの情報
-            $flex_components['body'][] = $bot->create_text_component("I am a cat",array("size"=>5));
-            $flex_components['body'][] = $bot->create_text_component("吾輩は猫である、名前はまだない\n人間になりたい、この肉球ではタイピングが大変だ",array("size"=>4,"wrap"=>true));
-
-            // ボディメインボックス
-            $flex_box_main['body'] = $bot->create_box_component("vertical",$flex_components['body'],array("spacing"=>3));
-
-            // フッターのアクションボタン
-            $action = $bot->create_text_action_builder("次のflexSample","flex4");
-            $flex_components['footer'][] = $bot->create_button_component($action,array("style"=>"secondary"));
-            // フッターメインボックス
-            $flex_box_main['footer'] = $bot->create_box_component("vertical",$flex_components['footer'],array("spacing"=>3));
-
-            // ブロック
-            $bubble_blocks = array(
-                 "header" => $flex_box_main['header']
-                ,"hero" => $bot->create_image_component($photo_url,array("size"=>11,"aspectRatio"=>"4:3"))
-                ,"body" => $flex_box_main['body']
-                ,"footer" => $flex_box_main['footer']
-            );
-
-            // バブルコンテナを作成追加
-            $flex_bubble[] = $bot->create_bubble_container($bubble_blocks);
-
-            // flexメッセージを追加
-            $bot->add_flex_builder("sample_flex",$flex_bubble);
-        }
-
-        if ($text == "flex4") {
-            $flex_box_main = array();
-            $flex_components = array();
-            $flex_bubble = array();
-
-            // flexサンプル
-            // タイトル
-            $flex_components['body'][] = $bot->create_text_component("flexサンプル一覧",array("size"=>7,"weight"=>"bold"));
-            $action = $bot->create_action_builder("post","",["post"=>"そこじゃなくて青文字の一覧の方をタップして"]);
-            $flex_components['body'][] = $bot->create_text_component("タップ可能",array("size"=>5,"weight"=>"bold","action"=>$action));
-
-            // アクション作成
-            $action = $bot->create_text_action_builder("","flex");
-            // 項目作成
-            $flex_components['body'][] = $bot->create_text_component("flex1",array("size"=>4,"wrap"=>true,"action"=>$action,"align"=>"center","color"=>"#0000ff"));
-
-            $action = $bot->create_text_action_builder("","flex2");
-            $flex_components['body'][] = $bot->create_text_component("flex2",array("size"=>4,"wrap"=>true,"action"=>$action,"align"=>"center","color"=>"#0000ff"));
-
-            $action = $bot->create_text_action_builder("","flex3");
-            $flex_components['body'][] = $bot->create_text_component("flex3",array("size"=>4,"wrap"=>true,"action"=>$action,"align"=>"center","color"=>"#0000ff"));
-
-            $action = $bot->create_text_action_builder("","flex4");
-            $flex_components['body'][] = $bot->create_text_component("flex4",array("size"=>4,"wrap"=>true,"action"=>$action,"align"=>"center","color"=>"#0000ff"));
-
-            $action = $bot->create_text_action_builder("","flex_all");
-            $flex_components['body'][] = $bot->create_text_component("全て表示",array("size"=>4,"wrap"=>true,"action"=>$action,"align"=>"center","color"=>"#0000ff"));
-
-
-            // ボディメインボックス
-            $flex_box_main['body'] = $bot->create_box_component("vertical",$flex_components['body'],array("spacing"=>3));
-
-            // ブロック
-            $bubble_blocks = array(
-                 "body" => $flex_box_main['body']
-            );
-
-            // バブルコンテナを作成追加
-            $flex_bubble[] = $bot->create_bubble_container($bubble_blocks);
-
-            // flexメッセージを追加
-            $bot->add_flex_builder("sample_flex",$flex_bubble);
-        }
-
-        if ($text == "flex_all") {
-            $flex_bubble = array();
-            $flex_bubble[] = create_sample_flex();
-            $flex_bubble[] = create_sample_flex2();
-            $flex_bubble[] = create_sample_flex3($photo_url);
-            $flex_bubble[] = create_sample_flex4();
-            // flexメッセージを追加
-            $bot->add_flex_builder("sample_flex",$flex_bubble);
-        }
-
 
         // 返信実行
         $bot->reply();

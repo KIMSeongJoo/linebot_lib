@@ -1,0 +1,241 @@
+{
+  "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "carousel",
+    "contents": [
+      {
+        "type": "bubble",
+        "hero": {
+          "type": "image",
+          "url": "https://s3-ap-northeast-1.amazonaws.com/homes-cont/uploads/cont/100902/img/pixta_43154800_S.jpg",
+          "size": "full",
+          "aspectRatio": "20:13",
+          "aspectMode": "cover",
+          "action": {
+            "type": "uri",
+            "label": "Action",
+            "uri": "https://linecorp.com/"
+          }
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "md",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "vertical",
+              "flex": 1,
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "住宅ローンの金利とは？",
+                  "size": "md",
+                  "align": "start",
+                  "weight": "bold",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "意味や種類、実際のローン計算例などをご案内",
+                  "size": "sm",
+                  "wrap": true
+                }
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "horizontal",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "uri",
+                "label": "詳細をみる",
+                "uri": "https://www.homes.co.jp/cont/money/money_00240/"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "bubble",
+        "hero": {
+          "type": "image",
+          "url": "https://s3-ap-northeast-1.amazonaws.com/homes-cont/uploads/cont/126746/img/pixta_57837885_S.jpg",
+          "size": "full",
+          "aspectRatio": "20:13",
+          "aspectMode": "cover",
+          "action": {
+            "type": "uri",
+            "label": "Action",
+            "uri": "https://linecorp.com/"
+          }
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "md",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "vertical",
+              "flex": 1,
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "家の購入で発生する費用を知りたいあなたに",
+                  "size": "md",
+                  "align": "start",
+                  "weight": "bold",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "住宅購入にかかる諸費用（諸経費）はどのくらい？　新築と中古、マンションと一戸建てごとに解説",
+                  "size": "sm",
+                  "wrap": true
+                }
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "horizontal",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "uri",
+                "label": "詳細をみる",
+                "uri": "https://www.homes.co.jp/cont/money/money_00293/"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "bubble",
+        "hero": {
+          "type": "image",
+          "url": "https://s3-ap-northeast-1.amazonaws.com/homes-cont/uploads/cont/5254/img/ThinkstockPhotos-487877271-640x427.jpg",
+          "size": "full",
+          "aspectRatio": "20:13",
+          "aspectMode": "cover",
+          "action": {
+            "type": "uri",
+            "label": "Action",
+            "uri": "https://linecorp.com/"
+          }
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "md",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "vertical",
+              "flex": 1,
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "頭金が心配なあなたに",
+                  "size": "md",
+                  "align": "start",
+                  "weight": "bold",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "頭金は最低2割はホント？頭金0でも大丈夫？手持ちのお金が足りない時の購入方法",
+                  "size": "sm",
+                  "wrap": true
+                }
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "horizontal",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "uri",
+                "label": "詳細をみる",
+                "uri": "https://www.homes.co.jp/cont/buy_kodate/buy_kodate_00143/"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "bubble",
+        "hero": {
+          "type": "image",
+          "url": "https://t17.pimg.jp/060/592/867/1/60592867.jpg",
+          "size": "full",
+          "aspectRatio": "20:13",
+          "aspectMode": "cover",
+          "action": {
+            "type": "uri",
+            "label": "Action",
+            "uri": "https://linecorp.com/"
+          }
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "md",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "vertical",
+              "flex": 1,
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "その他の「お金」に関するお役立ち情報",
+                  "size": "md",
+                  "align": "start",
+                  "weight": "bold",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "LIFULL HOME'S 住まいのお役立ち情報",
+                  "size": "sm",
+                  "wrap": true
+                }
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "horizontal",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "uri",
+                "label": "詳細をみる",
+                "uri": "https://www.homes.co.jp/cont/money/"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

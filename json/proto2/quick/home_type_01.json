@@ -1,0 +1,68 @@
+{
+  "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "bubble",
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "lg",
+      "contents": [
+        {
+          "type": "box",
+          "layout": "vertical",
+          "flex": 1,
+          "contents": [
+            {
+              "type": "text",
+              "text": "気になるのはなにかな～っ？？",
+              "size": "md",
+              "align": "start",
+              "wrap": true
+            }
+          ]
+        }
+      ]
+    },
+    "footer": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "md",
+      "contents": [
+        {
+          "type": "button",
+          "action": {
+            "type": "postback",
+            "label": "家の種類の決め方",
+            "text": "家の種類の決め方",
+            "data": "quick_8-1"
+          },
+          "color": "#ED6103",
+          "style": "primary"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "postback",
+            "label": "自分に合う種類を診断",
+            "text": "自分に合う種類を診断",
+            "data": "quick_8-2"
+          },
+          "color": "#ED6103",
+          "style": "primary"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "postback",
+            "label": "注文住宅も検討できる？",
+            "text": "注文住宅も検討できる？",
+            "data": "quick_8-3"
+          },
+          "color": "#ED6103",
+          "style": "primary"
+        }
+      ]
+    }
+  }
+}

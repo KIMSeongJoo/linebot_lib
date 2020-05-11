@@ -1,0 +1,241 @@
+{
+  "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "carousel",
+    "contents": [
+      {
+        "type": "bubble",
+        "hero": {
+          "type": "image",
+          "url": "https://t10.pimg.jp/060/277/830/1/60277830.jpg",
+          "size": "full",
+          "aspectRatio": "20:13",
+          "aspectMode": "cover",
+          "action": {
+            "type": "uri",
+            "label": "Action",
+            "uri": "https://linecorp.com/"
+          }
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "md",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "vertical",
+              "flex": 1,
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "マイホームの買い時を知りたいあなたに",
+                  "size": "md",
+                  "align": "start",
+                  "weight": "bold",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "ベストタイミングはいつ？ 家の「買い時」",
+                  "size": "sm",
+                  "wrap": true
+                }
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "horizontal",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "uri",
+                "label": "詳細をみる",
+                "uri": "https://www.homes.co.jp/cont/buy_kodate/buy_kodate_00373/"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "bubble",
+        "hero": {
+          "type": "image",
+          "url": "https://t15.pimg.jp/048/824/405/1/48824405.jpg",
+          "size": "full",
+          "aspectRatio": "20:13",
+          "aspectMode": "cover",
+          "action": {
+            "type": "uri",
+            "label": "Action",
+            "uri": "https://linecorp.com/"
+          }
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "md",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "vertical",
+              "flex": 1,
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "1年の中の「買い時」っていつ？",
+                  "size": "md",
+                  "align": "start",
+                  "weight": "bold",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "物件数が多い時期、価格を交渉しやすそうな時期は？",
+                  "size": "sm",
+                  "wrap": true
+                }
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "horizontal",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "uri",
+                "label": "詳細をみる",
+                "uri": "https://www.homes.co.jp/cont/buy_kodate/buy_kodate_00373/"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "bubble",
+        "hero": {
+          "type": "image",
+          "url": "https://s3-ap-northeast-1.amazonaws.com/homes-cont/uploads/cont/67344/img/pixta_28296334_S2-640x323.jpg",
+          "size": "full",
+          "aspectRatio": "20:13",
+          "aspectMode": "cover",
+          "action": {
+            "type": "uri",
+            "label": "Action",
+            "uri": "https://linecorp.com/"
+          }
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "md",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "vertical",
+              "flex": 1,
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "年齢的に早く買った方がいいの？",
+                  "size": "md",
+                  "align": "start",
+                  "weight": "bold",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "家の購入｢今｣｢5年後｣｢10年後｣｢買わない｣の支払総額を比較してみた",
+                  "size": "sm",
+                  "wrap": true
+                }
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "horizontal",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "uri",
+                "label": "詳細をみる",
+                "uri": "https://www.homes.co.jp/cont/money/money_00146/"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "bubble",
+        "hero": {
+          "type": "image",
+          "url": "https://t17.pimg.jp/036/098/237/1/36098237.jpg",
+          "size": "full",
+          "aspectRatio": "20:13",
+          "aspectMode": "cover",
+          "action": {
+            "type": "uri",
+            "label": "Action",
+            "uri": "https://linecorp.com/"
+          }
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "md",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "vertical",
+              "flex": 1,
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "その他の「買い時」に関するお役立ち情報",
+                  "size": "md",
+                  "align": "start",
+                  "weight": "bold",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "LIFULL HOME'S 住まいのお役立ち情報",
+                  "size": "sm",
+                  "wrap": true
+                }
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "horizontal",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "uri",
+                "label": "詳細をみる",
+                "uri": "https://www.homes.co.jp/cont/?s=買い時"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

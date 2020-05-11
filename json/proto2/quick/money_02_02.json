@@ -1,0 +1,241 @@
+{
+  "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "carousel",
+    "contents": [
+      {
+        "type": "bubble",
+        "hero": {
+          "type": "image",
+          "url": "https://t17.pimg.jp/060/592/867/1/60592867.jpg",
+          "size": "full",
+          "aspectRatio": "20:13",
+          "aspectMode": "cover",
+          "action": {
+            "type": "uri",
+            "label": "Action",
+            "uri": "https://linecorp.com/"
+          }
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "md",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "vertical",
+              "flex": 1,
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "審査が通るか不安なあなたに",
+                  "size": "md",
+                  "align": "start",
+                  "weight": "bold",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "住宅ローン審査シミュレーション",
+                  "size": "sm",
+                  "wrap": true
+                }
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "horizontal",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "uri",
+                "label": "シミュレーションする",
+                "uri": "https://www.homes.co.jp/smp/loan/simulation/score/?nx_id=cont_all_price_link0031"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "bubble",
+        "hero": {
+          "type": "image",
+          "url": "https://s3-ap-northeast-1.amazonaws.com/homes-cont/uploads/cont/110080/img/pixta_45970563_S.jpg",
+          "size": "full",
+          "aspectRatio": "20:13",
+          "aspectMode": "cover",
+          "action": {
+            "type": "uri",
+            "label": "Action",
+            "uri": "https://linecorp.com/"
+          }
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "md",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "vertical",
+              "flex": 1,
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "無理ない返済をしたいあなたに",
+                  "size": "md",
+                  "align": "start",
+                  "weight": "bold",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "住宅ローンの無理ない返済額とは？",
+                  "size": "sm",
+                  "wrap": true
+                }
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "horizontal",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "uri",
+                "label": "詳細をみる",
+                "uri": "https://www.homes.co.jp/cont/money/money_00276/"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "bubble",
+        "hero": {
+          "type": "image",
+          "url": "https://s3-ap-northeast-1.amazonaws.com/homes-cont/uploads/cont/126443/img/pixta_46994989_S.jpg",
+          "size": "full",
+          "aspectRatio": "20:13",
+          "aspectMode": "cover",
+          "action": {
+            "type": "uri",
+            "label": "Action",
+            "uri": "https://linecorp.com/"
+          }
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "md",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "vertical",
+              "flex": 1,
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "住宅ローンの審査基準を知りたい",
+                  "size": "md",
+                  "align": "start",
+                  "weight": "bold",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "住宅ローンの審査基準、金融機関が重視するポイントは？",
+                  "size": "sm",
+                  "wrap": true
+                }
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "horizontal",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "uri",
+                "label": "詳細をみる",
+                "uri": "https://www.homes.co.jp/cont/money/money_00287/"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "bubble",
+        "hero": {
+          "type": "image",
+          "url": "https://s3-ap-northeast-1.amazonaws.com/homes-cont/uploads/cont/100844/img/pixta_22253478_S.jpg",
+          "size": "full",
+          "aspectRatio": "20:13",
+          "aspectMode": "cover",
+          "action": {
+            "type": "uri",
+            "label": "Action",
+            "uri": "https://linecorp.com/"
+          }
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "md",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "vertical",
+              "flex": 1,
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "その他の「住宅ローン」に関するお役立ち情報",
+                  "size": "md",
+                  "align": "start",
+                  "weight": "bold",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "LIFULL HOME'S 住まいのお役立ち情報",
+                  "size": "sm",
+                  "wrap": true
+                }
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "horizontal",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "uri",
+                "label": "詳細をみる",
+                "uri": "https://www.homes.co.jp/cont/?s=住宅ローン"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
