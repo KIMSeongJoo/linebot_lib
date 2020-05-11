@@ -7,6 +7,8 @@ use Carbon\Carbon;
 $bot = new LineBotClass();
 $jsonBasePath = "json/proto2/";
 
+$richMenu1 = "richmenu-34b18d60ee521bc55af1b2a970a905c0";
+
 try {
     // メッセージがなくなるまでループ
     while ($bot->check_shift_event()) {
@@ -25,6 +27,9 @@ try {
         $event_type = $bot->get_event_type();
         // $bot->add_text_builder("イベントタイプ:" . $event_type);
 
+        // line uid
+        $userId = $bot->get_user_id();
+
         error_log("=================================== log tracking");
         error_log('signature : ' . $_SERVER['HTTP_' . HTTPHeader::LINE_SIGNATURE] );
         error_log('event_type : ' . $event_type);
@@ -38,6 +43,7 @@ try {
 
             $message = [];
             if ($text === "開始") {
+                setRichMenu($userId, $richMenu1);
                 $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath .'information_01.json'));
                 $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath .'information_02.json'));
             } elseif ($text === 'シナリオ') {
@@ -120,7 +126,11 @@ try {
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick_1-1.json'));
                     break;
                 case 'scenario_01':
+                case 'rich_1-1':
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_01.json'));
+                    if ($post_data === 'rich_1-1') {
+                        setRichMenu($userId, $richMenu1);
+                    }
                     break;
                 case 'info_schedule_date':
                     // 見学予定日入力
@@ -303,6 +313,16 @@ try {
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick/more_info_01.json'));
                     break;
 
+                case 'rich_2-1':
+                    setRichMenu($userId, "richmenu-d5d17591356b87a1ca94d3e10dbdbb04");
+                    break;
+                case 'rich_3-1':
+                    setRichMenu($userId, "richmenu-afacc9b55b2d09f84d4549e54dd0bf1d");
+                    break;
+                case 'rich_3-1-1':
+                    // 리치 메뉴 도음되는 정보 1
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick_1-1.json'));
+                    break;
             }
             error_log(count($message));
 
@@ -512,6 +532,44 @@ function replaceDoubleQuotationJsonString(string $jsonData) : string
     $jsonData = preg_replace('/(\}\")/m', '}', $jsonData);
 
     return $jsonData;
+}
+
+function setRichMenu($uid, $richMenuId)
+{
+    $headers = [
+        'Authorization: Bearer ' . ACCESS_TOKEN,
+        'Content-Type: application/json; charset=UTF-8'
+    ];
+
+    $requestData = [
+        'richMenuId' => $richMenuId,
+        'userIds' => [
+            $uid
+        ]
+    ];
+
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, 'https://api.line.me/v2/bot/richmenu/bulk/link');
+    curl_setopt($curl, CURLOPT_POST, 1);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $requestData);
+    curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_HEADEROPT, true);
+
+    $result = curl_exec($curl);
+    $info = curl_getinfo($curl);
+
+    error_log($result);
+    error_log($info['http_code']);
+
+    if (!$result && $info['http_code'] !== 200) {
+        error_log(curl_error($curl));
+        error_log($info);
+    }
+
+    curl_close($curl);
+
+    return $info['http_code'];
 }
 
 function curlTest($responseData)

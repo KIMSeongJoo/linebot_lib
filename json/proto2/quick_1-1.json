@@ -7,7 +7,7 @@
         "type":"action",
         "action":{
           "type":"postback",
-          "label":"お金について,",
+          "label":"お金について",
           "data":"quick_money",
           "method":"quick"
         }

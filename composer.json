@@ -1,6 +1,8 @@
 {
     "require": {
         "nesbot/carbon": "^2.32",
-        "linecorp/line-bot-sdk": "^4.3"
+        "linecorp/line-bot-sdk": "^4.3",
+        "ext-json": "*",
+        "ext-curl": "*"
     }
 }
