@@ -90,7 +90,7 @@ try {
             } else {
                 preg_match('/^([0-9]{4})年([0-9]{1,2})月$/', $text, $matches);
                 if(count($matches) > 0) {
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath .'information_18.json'));
+                    $message['messages'][] = sprintf(preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'information_18.json')), $text);
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'information_04.json'));
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'information_05.json'));
                 } else {
