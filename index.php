@@ -548,6 +548,8 @@ function setRichMenu($uid, $richMenuId)
         ]
     ];
 
+    $requestData = json_encode($requestData,JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_URL, 'https://api.line.me/v2/bot/richmenu/bulk/link');
     curl_setopt($curl, CURLOPT_POST, 1);
