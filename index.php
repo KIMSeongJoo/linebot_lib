@@ -425,7 +425,30 @@ try {
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick/more_info_01.json'));
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick_1-1.json'));
                     break;
-
+                case 'msg_quick_1-2':
+                    // 퀵 리플라이 1-2
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick_1-2.json'));
+                    break;
+                case 'msg_quick_1-1':
+                    // 퀵 리플라이 1-1
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick_1-1.json'));
+                    break;
+                case 'msg_quick_2-2':
+                    // 퀵 리플라이 2-2
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick_2-2.json'));
+                    break;
+                case 'msg_quick_2-1':
+                    // 퀵 리플라이 2-1
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick_2-1.json'));
+                    break;
+                case 'msg_quick_3-2':
+                    // 퀵 리플라이 3-2
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick_3-2.json'));
+                    break;
+                case 'msg_quick_3-1':
+                    // 퀵 리플라이 3-1
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick_3-1.json'));
+                    break;
                 case 'market:ry,method:status_change,visit_status:0':
                     setRichMenu($userId, "richmenu-9193c8ec6e914d790e6f59ce14fca499");
                     break;

@@ -53,7 +53,7 @@
         "action":{
           "type":"postback",
           "label":"その他",
-          "data":"quick_1-2",
+          "data":"msg_quick_1-2",
           "method":"quick"
         }
       }
