@@ -454,27 +454,37 @@ try {
                 case 'market:ry,method:status_change,visit_status:0':
                 case 'market:ry,method:status,visit_status:0':
                     setRichMenu($userId, "richmenu-e374ca2d20b2c3bfc7c6d09f56a9abe0");
-                    break;
-                case 'market:ry,method:info,visit_status:0':
-                    // 도움 되는 정보 리치 메뉴로 전환
-                    setRichMenu($userId, "richmenu-5e991dad0eef65042663e78265b313e7");
+                    // 스테이터스 => 정보 수집
                     break;
                 case 'market:ry,method:status_change,visit_status:100':
-                    // 리치메뉴 2 -> 견학 예정
+                    // 스테이터스 => 견학 예정
                     setRichMenu($userId, "richmenu-c698a3ed92c8172a1de0433e53f5769a");
                     break;
                 case 'market:ry,method:status_change,visit_status:200':
                     setRichMenu($userId, "richmenu-246f374d563dbdda80c97e35fe636789");
-                    // 견학 완료
+                    // 스테이터스 => 견학 완료
                     break;
                 case 'market:ry,method:status_change,visit_status:300':
                 case 'market:ry,method:status,visit_status:200':
                     setRichMenu($userId, "richmenu-ed29bb3f90da3a3850c93ef08afc60b8");
-                    // 계약 완료
+                    // 스테이터스 => 계약 완료
                     break;
+
+
                 case 'market:ry,method:now,visit_status:300':
-                    // 계약완료 -> 나의 상태
+                    // 나의 상태 => 스미카에 완료
                     setRichMenu($userId, "richmenu-1eb0d8e0ac08e34c7b1ee2e3381195d9");
+                    break;
+                case 'market:ry,method:now,visit_status:100':
+                case 'market:ry,method:now,visit_status:200':
+                    // 나의 상태 => 견학이 끝났다.
+                    setRichMenu($userId, "richmenu-998df78843da001a694024f672be034e");
+                    break;
+
+
+                case 'market:ry,method:info,visit_status:0':
+                    // 도움 되는 정보
+                    setRichMenu($userId, "richmenu-5e991dad0eef65042663e78265b313e7");
                     break;
                 case 'market:ry,method:info_list,visit_status:0':
                     // 리치 메뉴 도음되는 정보 1
@@ -486,10 +496,6 @@ try {
                     break;
                 case 'market:ry,method:move,visit_status:300':
                     // 계약 완료 -> 이사
-                    break;
-                case 'market:ry,method:now,visit_status:100':
-                    // 견학 예정 -> 상태보기
-                    setRichMenu($userId, "richmenu-998df78843da001a694024f672be034e");
                     break;
             }
 
