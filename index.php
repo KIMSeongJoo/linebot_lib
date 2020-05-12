@@ -202,7 +202,7 @@ try {
                 case 'market:ry,method:now,visit_status:0':
                 case 'market:ry,method:status_change,visit_status:101':
                     setRichMenu($userId, $richMenu1);
-                    if ($post_data === 'scenario_01') {
+                    if ($post_data === 'scenario_01' || $post_data === 'market:ry,method:status_change,visit_status:101') {
                         $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_01.json'));
                     }
                     break;
