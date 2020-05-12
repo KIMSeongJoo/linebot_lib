@@ -95,6 +95,8 @@ try {
                 $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath .'information_02.json'));
             } elseif ($text === 'シナリオ') {
                 $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/scenario_start.json'));
+            } elseif ($text === '注文住宅のスケジュール') {
+                $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath .'information_20.json'));
             } else {
                 preg_match('/^([0-9]{4})年([0-9]{1,2})月$/', $text, $matches);
                 if(count($matches) > 0) {
