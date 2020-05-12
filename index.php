@@ -200,9 +200,9 @@ try {
                     break;
                 case 'scenario_01':
                 case 'market:ry,method:now,visit_status:0':
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_01.json'));
-                    if ($post_data === 'market:ry,method:now,visit_status:0') {
-                        setRichMenu($userId, $richMenu1);
+                    setRichMenu($userId, $richMenu1);
+                    if ($post_data === 'scenario_01') {
+                        $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_01.json'));
                     }
                     break;
                 case 'info_schedule_date':
@@ -322,11 +322,12 @@ try {
                 case 'market:ry,method:status_change,visit_status:999':
                     // 계약 완료
                     setRichMenu($userId, $richMenu1);
-                    // 契約したー＞16日後
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_42.json'));
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_43.json'));
+                    if ($post_data === 'scenario_07') {
+                        // 契約したー＞16日後
+                        $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_42.json'));
+                        $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_43.json'));
+                    }
                     break;
-
                 case 'quick_money':
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick/money_01.json'));
                     break;
