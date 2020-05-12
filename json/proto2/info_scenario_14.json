@@ -35,7 +35,7 @@
             "type": "postback",
             "label": "出会えた！",
             "text": "出会えた！",
-            "data": "buil_comp"
+            "data": "build_comp"
           },
           "color": "#ED6103",
           "style": "primary"
