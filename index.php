@@ -457,6 +457,7 @@ try {
                     // 스테이터스 => 정보 수집
                     break;
                 case 'market:ry,method:status_change,visit_status:100':
+                case 'market:ry,method:status,visit_status:100':
                     // 스테이터스 => 견학 예정
                     setRichMenu($userId, "richmenu-c698a3ed92c8172a1de0433e53f5769a");
                     break;
@@ -483,6 +484,7 @@ try {
 
 
                 case 'market:ry,method:info,visit_status:0':
+                case 'market:ry,method:info':
                     // 도움 되는 정보
                     setRichMenu($userId, "richmenu-5e991dad0eef65042663e78265b313e7");
                     break;
