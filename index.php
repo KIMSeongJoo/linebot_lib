@@ -200,13 +200,13 @@ try {
                     break;
                 case 'scenario_01':
                 case 'market:ry,method:now,visit_status:0':
+                case 'market:ry,method:status_change,visit_status:101':
                     setRichMenu($userId, $richMenu1);
                     if ($post_data === 'scenario_01') {
                         $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_01.json'));
                     }
                     break;
                 case 'info_schedule_date':
-                case 'market:ry,method:status_change,visit_status:101':
                     // 見学予定日入力
                     $userInfo = null;
                     $date = $bot->get_post_params();
@@ -468,6 +468,7 @@ try {
                     // 견학 완료
                     break;
                 case 'market:ry,method:status_change,visit_status:300':
+                case 'market:ry,method:status,visit_status:200':
                     setRichMenu($userId, "richmenu-ed29bb3f90da3a3850c93ef08afc60b8");
                     // 계약 완료
                     break;
