@@ -451,6 +451,8 @@ try {
                     // 퀵 리플라이 3-1
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick_3-1.json'));
                     break;
+
+
                 case 'market:ry,method:status_change,visit_status:0':
                 case 'market:ry,method:status,visit_status:0':
                     setRichMenu($userId, "richmenu-e374ca2d20b2c3bfc7c6d09f56a9abe0");
@@ -462,42 +464,55 @@ try {
                     setRichMenu($userId, "richmenu-c698a3ed92c8172a1de0433e53f5769a");
                     break;
                 case 'market:ry,method:status_change,visit_status:200':
+                case 'market:ry,method:status,visit_status:200':
                     setRichMenu($userId, "richmenu-246f374d563dbdda80c97e35fe636789");
                     // 스테이터스 => 견학 완료
                     break;
                 case 'market:ry,method:status_change,visit_status:300':
-                case 'market:ry,method:status,visit_status:200':
+                case 'market:ry,method:status,visit_status:300':
                     setRichMenu($userId, "richmenu-ed29bb3f90da3a3850c93ef08afc60b8");
                     // 스테이터스 => 계약 완료
                     break;
 
 
+                case 'market:ry,method:now,visit_status:100':
+                    // 나의 상태 => 견학 예졍
+                    setRichMenu($userId, "richmenu-998df78843da001a694024f672be034e");
+                    break;
+                case 'market:ry,method:now,visit_status:200':
+                    // 나의 상태 => 견학이 끝났다.
+                    setRichMenu($userId, "richmenu-39d46509796550af101aa075bc90c58a");
+                    break;
                 case 'market:ry,method:now,visit_status:300':
                     // 나의 상태 => 스미카에 완료
                     setRichMenu($userId, "richmenu-1eb0d8e0ac08e34c7b1ee2e3381195d9");
                     break;
-                case 'market:ry,method:now,visit_status:100':
-                case 'market:ry,method:now,visit_status:200':
-                    // 나의 상태 => 견학이 끝났다.
-                    setRichMenu($userId, "richmenu-998df78843da001a694024f672be034e");
-                    break;
-
 
                 case 'market:ry,method:info,visit_status:0':
-                case 'market:ry,method:info':
-                    // 도움 되는 정보
+                    // 도움 되는 정보 ( 정보 수집 )
                     setRichMenu($userId, "richmenu-5e991dad0eef65042663e78265b313e7");
                     break;
+                case 'market:ry,method:info':
+                case 'market:ry,method:info,visit_status:100':
+                    // 도움 되는 정보 ( 견학 예정 )
+                    setRichMenu($userId, "richmenu-1ed62f81345b70ead475293655e5ebb9");
+                    break;
+                case 'market:ry,method:info,visit_status:200':
+                    // 도움 되는 정보 ( 견학 완료 )
+                    setRichMenu($userId, "richmenu-323fbf167ed6e414a9621ab233f147c3");
+                    break;
+                case 'market:ry,method:info,visit_status:300':
+                    // 도움 되는 정보 ( 계약 완료 )
+                    setRichMenu($userId, "richmenu-1192c921ed8de6481a7e477d0def45de");
+                    break;
+
                 case 'market:ry,method:info_list,visit_status:0':
                     // 리치 메뉴 도음되는 정보 1
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick_1-1.json'));
                     break;
                 case 'market:ry,method:info_list,visit_status:300':
-                    // 게약완료 -> 도음 정보
-                    setRichMenu($userId, "richmenu-6c3a67ed4b10378ecec17a4e3409efcb");
-                    break;
-                case 'market:ry,method:move,visit_status:300':
-                    // 계약 완료 -> 이사
+                    // 계약 완료 -> 도움 정보 -> 퀵 리플라이로 연결
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick_4-1.json'));
                     break;
             }
 
