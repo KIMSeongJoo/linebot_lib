@@ -1,4 +1,31 @@
 {
-  "type": "text",
-  "text": "file"
+  "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "bubble",
+    "direction": "ltr",
+    "footer": {
+      "type": "box",
+      "layout": "horizontal",
+      "contents": [
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "uri",
+                "label": "条件比較シートをDL",
+                "uri": "https://lifull-lineofficial-dev.s3-ap-northeast-1.amazonaws.com/scenario_message/%E7%89%A9%E4%BB%B6%E6%AF%94%E8%BC%83%E3%82%B7%E3%83%BC%E3%83%88%EF%BC%88%E3%83%86%E3%82%B9%E3%83%88%E7%94%A8%EF%BC%89.xlsx"
+              },
+              "flex": 8,
+              "color": "#ED6103",
+              "style": "primary"
+            }
+          ]
+        }
+      ]
+    }
+  }
 }

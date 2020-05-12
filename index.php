@@ -7,7 +7,7 @@ use Carbon\Carbon;
 $bot = new LineBotClass();
 $jsonBasePath = "json/proto2/";
 
-$richMenu1 = "richmenu-7990202fce03f628856001a1abe17418";
+$richMenu1 = "richmenu-60cfcc85b4cb55e58567a5415048ac90";
 $exceptionStringList = [
     "3ヶ月以内"
     , "半年以内"
@@ -206,6 +206,7 @@ try {
                     }
                     break;
                 case 'info_schedule_date':
+                case 'market:ry,method:status_change,visit_status:101':
                     // 見学予定日入力
                     $userInfo = null;
                     $date = $bot->get_post_params();
