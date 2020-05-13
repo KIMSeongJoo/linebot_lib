@@ -253,7 +253,7 @@ try {
                 case 'info_schedule_comp':
                 case 'market:ry,method:status_change,visit_status:200':
 //                    setRichMenu($userId, "richmenu-e0cd71dd82af798291a0da9ed3a4648b");
-//                    setRichMenu($userId, "richmenu-39d46509796550af101aa075bc90c58a");
+                    setRichMenu($userId, "richmenu-39d46509796550af101aa075bc90c58a");
                     // 見学した
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_14.json'));
                     break;
