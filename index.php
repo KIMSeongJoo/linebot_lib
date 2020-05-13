@@ -202,6 +202,9 @@ try {
                 case 'scenario_01':
                 case 'market:ry,method:status_change,visit_status:101':
                 case 'market:ry,method:status_change,visit_status:100':
+                    if ($post_data === 'market:ry,method:status_change,visit_status:100') {
+                        setRichMenu($userId, "richmenu-c698a3ed92c8172a1de0433e53f5769a");
+                    }
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_01.json'));
                     break;
                 case 'info_schedule_date':
@@ -250,6 +253,9 @@ try {
                 case 'info_schedule_comp':
                 case 'market:ry,method:status_change,visit_status:200':
                     // 見学した
+                    if ($post_data === 'market:ry,method:status_change,visit_status:200') {
+                        setRichMenu($userId, "richmenu-246f374d563dbdda80c97e35fe636789");
+                    }
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_14.json'));
                     break;
                 case 'build_comp':
