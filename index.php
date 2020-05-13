@@ -254,7 +254,7 @@ try {
                 case 'market:ry,method:status_change,visit_status:200':
 //                    setRichMenu($userId, "richmenu-e0cd71dd82af798291a0da9ed3a4648b");
 //                    setRichMenu($userId, "richmenu-39d46509796550af101aa075bc90c58a");
-                    setRichMenu($userId, "richmenu-246f374d563dbdda80c97e35fe636789");
+                    setRichMenu($userId, "richmenu-1f625ab7242181dab8461c1df5c26458");
                     // 見学した
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_14.json'));
                     break;
@@ -486,7 +486,8 @@ try {
                     break;
                 case 'market:ry,method:now,visit_status:200':
                     // 나의 상태 => 견학이 끝났다.
-                    setRichMenu($userId, "richmenu-39d46509796550af101aa075bc90c58a");
+//                    setRichMenu($userId, "richmenu-39d46509796550af101aa075bc90c58a");
+                    setRichMenu($userId, "richmenu-1f625ab7242181dab8461c1df5c26458");
                     break;
                 case 'market:ry,method:now,visit_status:300':
                     // 나의 상태 => 계약 완료
