@@ -7,7 +7,7 @@ use Carbon\Carbon;
 $bot = new LineBotClass();
 $jsonBasePath = "json/proto2/";
 
-$richMenu1 = "richmenu-1fa0e2c37a8690d4e89d7160d5f2524b";
+$richMenu1 = "richmenu-3cd03eda34fca908590f2456fb87a871";
 $exceptionStringList = [
     "3ヶ月以内"
     , "半年以内"
