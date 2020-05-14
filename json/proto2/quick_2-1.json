@@ -7,8 +7,8 @@
         "type":"action",
         "action":{
           "type":"postback",
-          "label":"条件整理の方法,",
-          "text":"条件整理の方法,",
+          "label":"条件整理の方法",
+          "text":"条件整理の方法",
           "data":"quick_condition",
           "method":"quick"
         }

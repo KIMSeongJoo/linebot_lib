@@ -7,8 +7,8 @@
         "type":"action",
         "action":{
           "type":"postback",
-          "label":"不動産の選び方,",
-          "text":"不動産の選び方,",
+          "label":"不動産の選び方",
+          "text":"不動産の選び方",
           "data":"quick_estate",
           "method":"quick"
         }
