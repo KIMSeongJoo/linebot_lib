@@ -457,8 +457,12 @@ try {
 
                 case 'market:ry,method:status_change,visit_status:0':
                 case 'market:ry,method:status,visit_status:0':
-                    setRichMenu($userId, "richmenu-2a7fab96a443bfc6258bc591b0107596");
                     // 스테이터스 => 정보 수집
+                    setRichMenu($userId, "richmenu-2a7fab96a443bfc6258bc591b0107596");
+                    if ($post_data !== 'market:ry,method:status,visit_status:0') {
+                        $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_04.json'));
+                        $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick_1-2.json'));
+                    }
                     break;
                 case 'market:ry,method:status,visit_status:100':
                     // 스테이터스 => 견학 예정
@@ -479,26 +483,16 @@ try {
                     setRichMenu($userId, $richMenu1);
                     break;
                 case 'market:ry,method:now,visit_status:100':
-                case 'market:ry,method:now,visit_status:200':
-                case 'market:ry,method:now,visit_status:300':
                     // 나의 상태 => 견학 예졍
-                    if ($post_data === 'market:ry,method:now,visit_status:100') {
-                        setRichMenu($userId, "richmenu-9fa2b7132a68ca70622eb8626483ca92");
-                    }
-
+                    setRichMenu($userId, "richmenu-9fa2b7132a68ca70622eb8626483ca92");
+                    break;
+                case 'market:ry,method:now,visit_status:200':
                     // 나의 상태 => 견학이 끝났다.
-                    if ($post_data === 'market:ry,method:now,visit_status:200') {
-                        setRichMenu($userId, "richmenu-dbe4f59c7e2d0b256e1b3a0babadf7d1");
-                    }
-
+                    setRichMenu($userId, "richmenu-dbe4f59c7e2d0b256e1b3a0babadf7d1");
+                    break;
+                case 'market:ry,method:now,visit_status:300':
                     // 나의 상태 => 계약 완료
-                    if ($post_data === 'market:ry,method:now,visit_status:300') {
-                        setRichMenu($userId, "richmenu-60e1bdd751458d0923a1533cac635fb5");
-                    }
-
-                    // 처리 추가
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_04.json'));
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick_1-2.json'));
+                    setRichMenu($userId, "richmenu-60e1bdd751458d0923a1533cac635fb5");
                     break;
 
 
