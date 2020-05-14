@@ -230,7 +230,7 @@
               "action": {
                 "type": "uri",
                 "label": "詳細をみる",
-                "uri": "https://www.homes.co.jp/cont/?s=住宅ローン"
+                "uri": "https://www.homes.co.jp/cont/?s=%E4%BD%8F%E5%AE%85%E3%83%AD%E3%83%BC%E3%83%B3"
               }
             }
           ]
