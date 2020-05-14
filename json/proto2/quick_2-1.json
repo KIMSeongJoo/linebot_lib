@@ -8,6 +8,7 @@
         "action":{
           "type":"postback",
           "label":"条件整理の方法,",
+          "text":"条件整理の方法,",
           "data":"quick_condition",
           "method":"quick"
         }
@@ -17,6 +18,7 @@
         "action":{
           "type":"postback",
           "label":"お金について",
+          "text":"お金について",
           "data":"quick_money",
           "method":"quick"
         }
@@ -26,6 +28,7 @@
         "action":{
           "type":"postback",
           "label":"家の買い時",
+          "text":"家の買い時",
           "data":"quick_buy_home",
           "method":"quick"
         }
@@ -35,6 +38,7 @@
         "action":{
           "type":"postback",
           "label":"街の選び方",
+          "text":"街の選び方",
           "data":"quick_choice_town",
           "method":"quick"
         }
@@ -44,6 +48,7 @@
         "action":{
           "type":"postback",
           "label":"物件情報収集の方法",
+          "text":"物件情報収集の方法",
           "data":"quick_build_info",
           "method":"quick"
         }
@@ -53,6 +58,7 @@
         "action":{
           "type":"postback",
           "label":"その他",
+          "text":"その他",
           "data":"msg_quick_2-2",
           "method":"quick"
         }

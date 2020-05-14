@@ -212,24 +212,6 @@
             }
           ],
           "flex": 0
-        },
-        {
-          "type": "box",
-          "layout": "vertical",
-          "spacing": "sm",
-          "contents": [
-            {
-              "type": "spacer",
-              "size": "xxl"
-            },
-            {
-              "type": "text",
-              "text": "「住宅購入の理想的な進め方」記事はこちら  https://www.homes.co.jp/cont/buy_kodate/buy_kodate_00349/",
-              "size": "sm",
-              "wrap": true
-            }
-          ],
-          "flex": 0
         }
       ]
     }

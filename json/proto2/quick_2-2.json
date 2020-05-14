@@ -8,6 +8,7 @@
         "action":{
           "type":"postback",
           "label":"不動産の選び方,",
+          "text":"不動産の選び方,",
           "data":"quick_estate",
           "method":"quick"
         }
@@ -17,6 +18,7 @@
         "action":{
           "type":"postback",
           "label":"住み替えの流れ・スケジュール",
+          "text":"住み替えの流れ・スケジュール",
           "data":"quick_schedule",
           "method":"quick"
         }
@@ -26,6 +28,7 @@
         "action":{
           "type":"postback",
           "label":"家の種類",
+          "text":"家の種類",
           "data":"quick_home_type",
           "method":"quick"
         }
@@ -35,6 +38,7 @@
         "action":{
           "type":"postback",
           "label":"詳しい人の話が聞きたい",
+          "text":"詳しい人の話が聞きたい",
           "data":"quick_counseling",
           "method":"quick"
         }
@@ -44,6 +48,7 @@
         "action":{
           "type":"postback",
           "label":"もっと色んな情報が見たい",
+          "text":"もっと色んな情報が見たい",
           "data":"quick_more_info",
           "method":"quick"
         }
@@ -53,6 +58,7 @@
         "action":{
           "type":"postback",
           "label":"戻る",
+          "text":"戻る",
           "data":"msg_quick_2-1",
           "method":"quick_2-1"
         }
