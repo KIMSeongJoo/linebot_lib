@@ -8,7 +8,7 @@ $bot = new LineBotClass();
 $jsonBasePath = "json/proto2/";
 
 // default richmenu
-$richMenu1 = "richmenu-3cd03eda34fca908590f2456fb87a871";
+$richMenu1 = "richmenu-2bd72247bd2ad3e0570c5fb5a271615e";
 // exception Error string
 $exceptionStringList = [
     "3ヶ月以内"
