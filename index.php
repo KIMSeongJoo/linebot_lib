@@ -7,7 +7,9 @@ use Carbon\Carbon;
 $bot = new LineBotClass();
 $jsonBasePath = "json/proto2/";
 
+// default richmenu
 $richMenu1 = "richmenu-3cd03eda34fca908590f2456fb87a871";
+// exception Error string
 $exceptionStringList = [
     "3ヶ月以内"
     , "半年以内"
@@ -66,6 +68,29 @@ $exceptionStringList = [
     , "自分に合う種類を診断"
 ];
 
+$richMenuList = array(
+    50 => array(
+        0 => 'richmenu-2bd72247bd2ad3e0570c5fb5a271615e',
+        1 => 'richmenu-b88df54a05d305aafcd494e57a5b605e',
+        2 => 'richmenu-2eb71a998704fc3ae9167e0611f8285a'
+    ),
+    101 => array(
+        0 => 'richmenu-e529d223d43db14dece9876f56c86778',
+        1 => 'richmenu-dcbb8be07ee29bd5549fbe34e3b7e320',
+        2 => 'richmenu-9bd7ad0683037ad8a0ac9af223f939a6'
+    ),
+    200 => array(
+        0 => 'richmenu-44ef9f12f17f273712e8f9ed14c35672',
+        1 => 'richmenu-7a105096138f3ba31de9055715c68e57',
+        2 => 'richmenu-6c456e409046cf58983aa46373d4ca9c'
+    ),
+    300 => array(
+        0 => 'richmenu-956ba685f137a7a3d2e03049919c91d4',
+        1 => 'richmenu-b4606c576099e135f3c7037e20c0a433',
+        2 => 'richmenu-f4ab007907fe6d686b0f45f1df667333'
+    )
+);
+
 try {
     // メッセージがなくなるまでループ
     while ($bot->check_shift_event()) {
@@ -88,13 +113,11 @@ try {
         $userId = $bot->get_user_id();
 
         error_log("=================================== log tracking");
-//        error_log('signature : ' . $_SERVER['HTTP_' . HTTPHeader::LINE_SIGNATURE] );
         error_log('event_type : ' . $event_type);
         error_log('message_type : ' . $message_type);
-//        error_log('reply_token : ' . $bot->getReplyToken());
         error_log("log tracking ===================================");
 
-        // オウム返し
+        // text message
         if ($text !== false) {
             $actions = test_quick_action();
 
@@ -110,7 +133,7 @@ try {
             } else {
                 preg_match('/^([0-9]{4})年([0-9]{1,2})月$/', $text, $matches);
                 if(count($matches) > 0) {
-                    setRichMenu($userId, "richmenu-dcbb8be07ee29bd5549fbe34e3b7e320");
+                    setRichMenu($userId, $richMenuList[101][1]);
                     $message['messages'][] = sprintf(preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'information_18.json')), $text);
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'information_04.json'));
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'information_05.json'));
@@ -128,23 +151,13 @@ try {
             }
 
             $message['replyToken'] = $bot->getReplyToken();
-//            $response = $bot->replyMessageCustom($bot->getReplyToken(), $message);
             $response = curlTest($message);
             return true;
 
-//           $bot->add_text_builder($text);
         }
 
-        if ($message_type !== false) {
-            // $bot->add_text_builder("メッセージタイプ:" . $message_type);
-        }
 
-        // 画像取得
-        // if ($message_type === "image") {
-        //     file_put_contents("image/test.jpg", $bot->get_content());
-        // }
-
-        // ポストバックのイベントなら
+        // postback action
         if ($event_type === "postback") {
             $message = [];
             $post_data = $bot->get_post_data();
@@ -206,16 +219,16 @@ try {
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick_1-1.json'));
                     break;
                 case 'scenario_01':
-                case 'market:ry,method:status_change,visit_status:101':
-                case 'market:ry,method:status_change,visit_status:100':
-                    if ($post_data === 'market:ry,method:status_change,visit_status:100') {
-                        setRichMenu($userId, "richmenu-dcbb8be07ee29bd5549fbe34e3b7e320");
+                case 'bot_id:3,sc:101,mi:sa0201':
+                case 'bot_id:3,rmt:2,now:101':
+                    if ($post_data === 'bot_id:3,rmt:2,now:101') {
+                        setRichMenu($userId, $richMenuList[101][1]);
                     }
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_01.json'));
                     break;
                 case 'info_schedule_date':
                     // 見学予定日入力
-                    setRichMenu($userId, "richmenu-dcbb8be07ee29bd5549fbe34e3b7e320");
+                    setRichMenu($userId, $richMenuList[101][1]);
                     $userInfo = null;
                     $date = $bot->get_post_params();
                     if (count($date) > 0) {
@@ -257,9 +270,9 @@ try {
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_11.json'));
                     break;
                 case 'info_schedule_comp':
-                case 'market:ry,method:status_change,visit_status:200':
+                case 'bot_id:3,rmt:1,sc:200':
                     // 見学した
-                    setRichMenu($userId, "richmenu-7a105096138f3ba31de9055715c68e57");
+                    setRichMenu($userId, $richMenuList[200][1]);
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_14.json'));
                     break;
                 case 'build_comp':
@@ -303,11 +316,11 @@ try {
                     // 契約した？
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_29.json'));
                     break;
-                case 'market:ry,method:status_change,visit_status:300':
+                case 'bot_id:3,rmt:1,sc:300':
                 case 'contract_comp':
                     // 契約した
                     // 리치메뉴 변경
-                    setRichMenu($userId, "richmenu-b4606c576099e135f3c7037e20c0a433");
+                    setRichMenu($userId, $richMenuList[300][1]);
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_33.json'));
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_34.json'));
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick_4-1.json'));
@@ -331,7 +344,7 @@ try {
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick_4-1.json'));
                     break;
                 case 'scenario_07':
-                case 'market:ry,method:status_change,visit_status:999':
+                case 'bot_id:3,rmt:1,sc:700':
                     // 계약 완료
                     setRichMenu($userId, $richMenu1);
                     // 契約したー＞16日後
@@ -461,72 +474,72 @@ try {
                     $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick_3-1.json'));
                     break;
 
-                case 'market:ry,method:status_change,visit_status:0':
-                case 'market:ry,method:status,visit_status:0':
+                case 'bot_id:3,rmt:2,mi:qc_01':
+                case 'bot_id:3,rmt:1,now:50':
                     // 스테이터스 => 정보 수집
-                    setRichMenu($userId, "richmenu-b88df54a05d305aafcd494e57a5b605e");
-                    if ($post_data !== 'market:ry,method:status,visit_status:0') {
+                    setRichMenu($userId, $richMenuList[50][1]);
+                    if ($post_data !== 'bot_id:3,rmt:1,now:50') {
                         $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'info_scenario_04.json'));
                         $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick_1-2.json'));
                     }
                     break;
-                case 'market:ry,method:status,visit_status:100':
+                case 'bot_id:3,rmt:1,now:101':
                     // 스테이터스 => 견학 예정
-                    setRichMenu($userId, "richmenu-dcbb8be07ee29bd5549fbe34e3b7e320");
+                    setRichMenu($userId, $richMenuList[101][1]);
                     break;
-                case 'market:ry,method:status,visit_status:200':
-                    setRichMenu($userId, "richmenu-7a105096138f3ba31de9055715c68e57");
+                case 'bot_id:3,rmt:1,now:200':
+                    setRichMenu($userId, $richMenuList[200][1]);
                     // 스테이터스 => 견학 완료
                     break;
-                case 'market:ry,method:status,visit_status:300':
-                    setRichMenu($userId, "richmenu-b4606c576099e135f3c7037e20c0a433");
+                case 'bot_id:3,rmt:1,now:300':
+                    setRichMenu($userId, $richMenuList[300][1]);
                     // 스테이터스 => 계약 완료
                     break;
 
 
-                case 'market:ry,method:now,visit_status:0':
+                case 'bot_id:3,rmt:0,now:50':
                     // 나의 상태 => 정보 수집
                     setRichMenu($userId, $richMenu1);
                     break;
-                case 'market:ry,method:now,visit_status:100':
+                case 'bot_id:3,rmt:0,now:101':
                     // 나의 상태 => 견학 예졍
-                    setRichMenu($userId, "richmenu-e529d223d43db14dece9876f56c86778");
+                    setRichMenu($userId, $richMenuList[101][0]);
                     break;
-                case 'market:ry,method:now,visit_status:200':
+                case 'bot_id:3,rmt:0,now:200':
                     // 나의 상태 => 견학이 끝났다.
-                    setRichMenu($userId, "richmenu-44ef9f12f17f273712e8f9ed14c35672");
+                    setRichMenu($userId, $richMenuList[200][0]);
                     break;
-                case 'market:ry,method:now,visit_status:300':
+                case 'bot_id:3,rmt:0,now:300':
                     // 나의 상태 => 계약 완료
-                    setRichMenu($userId, "richmenu-956ba685f137a7a3d2e03049919c91d4");
+                    setRichMenu($userId, $richMenuList[300][0]);
                     break;
 
 
-                case 'market:ry,method:info,visit_status:0':
+                case 'bot_id:3,rmt:2,now:50':
                     // 도움 되는 정보 ( 정보 수집 )
-                    setRichMenu($userId, "richmenu-2eb71a998704fc3ae9167e0611f8285a");
+                    setRichMenu($userId, $richMenuList[50][2]);
                     break;
                 case 'market:ry,method:info':
-                case 'market:ry,method:info,visit_status:100':
+                case 'bot_id:3,rmt:2,now:101':
                     // 도움 되는 정보 ( 견학 예정 )
-                    setRichMenu($userId, "richmenu-9bd7ad0683037ad8a0ac9af223f939a6");
+                    setRichMenu($userId, $richMenuList[101][2]);
                     break;
-                case 'market:ry,method:info,visit_status:200':
+                case 'bot_id:3,rmt:2,now:200':
                     // 도움 되는 정보 ( 견학 완료 )
-                    setRichMenu($userId, "richmenu-6c456e409046cf58983aa46373d4ca9c");
+                    setRichMenu($userId, $richMenuList[200][2]);
                     break;
-                case 'market:ry,method:info,visit_status:300':
+                case 'bot_id:3,rmt:2,now:300':
                     // 도움 되는 정보 ( 계약 완료 )
-                    setRichMenu($userId, "richmenu-f4ab007907fe6d686b0f45f1df667333");
+                    setRichMenu($userId, $richMenuList[300][2]);
                     break;
 
-                case 'market:ry,method:info_list,visit_status:0':
+                case 'bot_id:3,rmt:2,mi:qc_01':
                     // 리치 메뉴 도음되는 정보 1
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick_1-1.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents($jsonBasePath . 'quick_1-1.json'));
                     break;
-                case 'market:ry,method:info_list,visit_status:300':
+                case 'bot_id:3,rmt:2,mi:qc_07':
                     // 계약 완료 -> 도움 정보 -> 퀵 리플라이로 연결
-                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath . 'quick_4-1.json'));
+                    $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents($jsonBasePath . 'quick_4-1.json'));
                     break;
             }
 
