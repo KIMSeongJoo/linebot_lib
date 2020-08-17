@@ -126,6 +126,7 @@ try {
                 setRichMenu($userId, $richMenu1);
                 $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath .'information_01.json'));
                 $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents( $jsonBasePath .'information_02.json'));
+                error_log($bot->getReplyToken());
             } elseif ($text === 'シナリオ') {
                 $message['messages'][] = preg_replace("/\r|\n/", '', file_get_contents('json/scenario_start.json'));
             } elseif ($text === '注文住宅のスケジュール') {
@@ -155,7 +156,6 @@ try {
             return true;
 
         }
-
 
         // postback action
         if ($event_type === "postback") {
