@@ -115,6 +115,7 @@ try {
         error_log("=================================== log tracking");
         error_log('event_type : ' . $event_type);
         error_log('message_type : ' . $message_type);
+        error_log('replyToken : ' . $bot->getReplyToken());
         error_log("log tracking ===================================");
 
         // text message
